@@ -1,1 +1,3 @@
 django-cms
+django-allauth
+django-custom-user

@@ -49,7 +49,7 @@ WSGI_APPLICATION = 'collective_beat.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en es'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'America/Chicago'
 
@@ -105,7 +105,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'sekizai.context_processors.sekizai',
     'django.core.context_processors.static',
-    'cms.context_processors.cms_settings'
+    'cms.context_processors.cms_settings',
+
+    # allauth specific context processors
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
 )
 
 TEMPLATE_DIRS = (
@@ -113,6 +117,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'custom_user',
+
     'djangocms_admin_style',
     'djangocms_text_ckeditor',
     'django.contrib.auth',
@@ -138,12 +144,18 @@ INSTALLED_APPS = (
     'djangocms_teaser',
     'djangocms_video',
     'reversion',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     'collective_beat'
 )
 
 LANGUAGES = (
     ## Customize this
-    ('en es', gettext('en es')),
+    ('en', gettext('en')),
+    ('es', gettext('es')),
 )
 
 CMS_LANGUAGES = {
@@ -156,9 +168,16 @@ CMS_LANGUAGES = {
     1: [
         {
             'public': True,
-            'code': 'en es',
+            'code': 'en',
             'hide_untranslated': False,
-            'name': gettext('en es'),
+            'name': gettext('en'),
+            'redirect_on_fallback': True,
+        },
+        {
+            'public': True,
+            'code': 'es',
+            'hide_untranslated': False,
+            'name': gettext('es'),
             'redirect_on_fallback': True,
         },
     ],
@@ -200,3 +219,24 @@ MIGRATION_MODULES = {
     'djangocms_teaser': 'djangocms_teaser.migrations_django',
     'djangocms_video': 'djangocms_video.migrations_django'
 }
+
+AUTH_USER_MODEL = 'custom_user.EmailUser'
+
+# AUTHENTICATION_BACKENDS = (
+#     # Needed to login by username in Django admin, regardless of `allauth`
+#     "django.contrib.auth.backends.ModelBackend",
+#
+#     # `allauth` specific authentication methods, such as login by e-mail
+#     "allauth.account.auth_backends.AuthenticationBackend",
+# )
+
+LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USER_DISPLAY = lambda user: user.email
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
