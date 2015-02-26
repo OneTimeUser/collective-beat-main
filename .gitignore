@@ -1,0 +1,6 @@
+.idea/
+*.py[co]
+local.db
+*.sqlite3
+media/
+static/
