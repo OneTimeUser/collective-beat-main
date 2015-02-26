@@ -1,3 +1,15 @@
 django-cms
 django-allauth
 django-custom-user
+djangocms-column
+djangocms-googlemap
+djangocms-file
+djangocms-inherit
+djangocms-link
+djangocms-flash
+djangocms-text-ckeditor
+djangocms-style
+djangocms-picture
+djangocms-teaser
+djangocms-video
+django-reversion
