@@ -69,7 +69,7 @@ MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'collective_beat', 'static'),
+    os.path.join(BASE_DIR, '../', 'static'),
 )
 SITE_ID = 1
 
@@ -113,10 +113,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'collective_beat', 'templates'),
+    os.path.join(BASE_DIR, '../', 'templates'),
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'custom_user',
 
     'djangocms_admin_style',
@@ -150,7 +150,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
 
     'collective_beat'
-)
+]
 
 LANGUAGES = (
     ## Customize this
@@ -193,17 +193,6 @@ CMS_PERMISSION = True
 
 CMS_PLACEHOLDER_CONF = {}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'local.db',
-        'HOST': 'localhost',
-        'USER': '',
-        'PASSWORD': '',
-        'PORT': ''
-    }
-}
-
 MIGRATION_MODULES = {
     'cms': 'cms.migrations_django',
     'menus': 'menus.migrations_django',
@@ -238,5 +227,3 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USER_DISPLAY = lambda user: user.email
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

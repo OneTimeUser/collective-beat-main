@@ -1,7 +1,8 @@
 .idea/
 *.py[co]
+.DS_Store
 local.db
 *.sqlite3
 media/
 static/
-.DS_Store
+*/settings/local.py
