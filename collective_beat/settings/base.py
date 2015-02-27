@@ -117,7 +117,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = [
-    'custom_user',
+    'accounts',
 
     'djangocms_admin_style',
     'djangocms_text_ckeditor',
@@ -145,9 +145,11 @@ INSTALLED_APPS = [
     'djangocms_video',
     'reversion',
 
+    'custom_user',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'django_countries',
 
     'collective_beat'
 ]
@@ -209,7 +211,7 @@ MIGRATION_MODULES = {
     'djangocms_video': 'djangocms_video.migrations_django'
 }
 
-AUTH_USER_MODEL = 'custom_user.EmailUser'
+AUTH_USER_MODEL = 'accounts.CustomEmailUser'
 
 # AUTHENTICATION_BACKENDS = (
 #     # Needed to login by username in Django admin, regardless of `allauth`
