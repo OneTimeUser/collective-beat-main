@@ -1,0 +1,6 @@
+-r base.txt
+
+# uWSGI
+# wsgiref
+
+# django-celery-email
