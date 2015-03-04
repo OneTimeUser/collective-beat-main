@@ -117,7 +117,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = [
-    'accounts',
+    'apps.accounts',
 
     'djangocms_admin_style',
     'djangocms_text_ckeditor',
@@ -153,7 +153,7 @@ INSTALLED_APPS = [
     'orderable',
 
     'collective_beat',
-    'shows'
+    'apps.shows'
 ]
 
 LANGUAGES = (

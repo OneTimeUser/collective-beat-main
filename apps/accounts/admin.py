@@ -1,9 +1,10 @@
 from copy import deepcopy
+
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from custom_user.admin import EmailUserAdmin
 
-from .models import CustomEmailUser
+from apps.accounts.models import CustomEmailUser
 
 
 class CustomEmailUserAdmin(EmailUserAdmin):
