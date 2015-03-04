@@ -1,9 +1,18 @@
+from copy import deepcopy
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 from custom_user.admin import EmailUserAdmin
+
 from .models import CustomEmailUser
 
 
-class MyCustomEmailUserAdmin(EmailUserAdmin):
-    pass
+class CustomEmailUserAdmin(EmailUserAdmin):
+    def get_fieldsets(self, request, obj=None):
+        fs = super(CustomEmailUserAdmin, self).get_fieldsets(request, obj)
+        test = list(deepcopy(fs))
+        test.insert(1, (_('User info'),
+                        {'fields': ('gender', 'country', 'birthdate', 'is_getting_the_news')}))
 
-admin.site.register(CustomEmailUser, MyCustomEmailUserAdmin)
+        return tuple(test)
+
+admin.site.register(CustomEmailUser, CustomEmailUserAdmin)
