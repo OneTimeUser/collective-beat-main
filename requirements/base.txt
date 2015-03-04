@@ -15,3 +15,4 @@ django-reversion
 django-custom-user
 django-allauth
 django-countries
+django-orderable

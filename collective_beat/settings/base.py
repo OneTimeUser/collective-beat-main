@@ -150,8 +150,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_countries',
+    'orderable',
 
-    'collective_beat'
+    'collective_beat',
+    'shows'
 ]
 
 LANGUAGES = (
