@@ -1,12 +1,15 @@
-{% load cms_tags staticfiles sekizai_tags menu_tags %}
+{% load cms_tags staticfiles sekizai_tags menu_tags compress %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>{% block title %}This is my new project home page{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {% render_block "css" %}
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    {% compress css %}
+      <link type="text/x-scss" href="{% static 'components/bootstrap-sass/assets/stylesheets/_bootstrap.scss' %}" rel="stylesheet" media="all"/>
+      <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
+    {% endcompress %}
   </head>
   <body style="padding-top:60px">
     {% cms_toolbar %}
@@ -30,8 +33,12 @@
         {% block content %}
         {% endblock content %}
         </div>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    {% compress js %}
+      <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
+    {% endcompress %}
+
     {% render_block "js" %}
   </body>
 </html>

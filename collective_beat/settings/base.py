@@ -1,4 +1,6 @@
 import os
+from django.conf.global_settings import STATICFILES_FINDERS
+
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
@@ -153,10 +155,19 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_countries',
     'orderable',
+    'compressor',
 
     'collective_beat',
     'apps.shows'
 ]
+
+STATICFILES_FINDERS += (
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
+)
 
 LANGUAGES = (
     ## Customize this

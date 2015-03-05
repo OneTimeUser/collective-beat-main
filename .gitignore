@@ -3,6 +3,6 @@
 .DS_Store
 local.db
 *.sqlite3
-media/
-static/
+public
+collective_beat/cb_static/components
 */settings/local.py

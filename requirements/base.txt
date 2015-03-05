@@ -17,3 +17,5 @@ django-custom-user
 django-allauth
 django-countries
 django-orderable
+django_compressor
+django-pyscss
