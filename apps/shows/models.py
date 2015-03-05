@@ -32,12 +32,15 @@ def upload_to(instance, filename):
 class ShowCategory(Orderable):
     title = models.CharField(_('Show title'), max_length=255)
 
+    def __unicode__(self):
+        return self.title
+
 
 class Show(models.Model):
     category = models.ManyToManyField(ShowCategory)
-    title = models.CharField(max_length=255)
+    title = models.CharField(_('Show title'), max_length=255)
     description = models.TextField()
-    keywords = models.CharField(_('Show title'), max_length=255)
+    keywords = models.CharField(max_length=255)
     image = models.ImageField()
     url = models.CharField(max_length=255)
     date = models.DateField(auto_now=True)
