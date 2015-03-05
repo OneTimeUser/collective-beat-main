@@ -33,3 +33,10 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+# the developer's Braintree account for sandbox testing
+# set False if production and real credentials below
+BRAINTREE_SANDBOX = True
+BRAINTREE_MERCHANT_ID = 'bppkdhsntngxw7ns'
+BRAINTREE_PUBLIC_KEY = '9wck3d59gg7bnskr'
+BRAINTREE_PRIVATE_KEY = '3929b5f7486738bd8581b31d645efddc'

@@ -1,3 +1,4 @@
+braintree
 django-cms
 djangocms-column
 djangocms-googlemap
