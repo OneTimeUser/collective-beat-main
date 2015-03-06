@@ -6,6 +6,7 @@ from apps.accounts.models import CustomEmailUser
 
 
 class CustomSignupForm(ModelForm):
+    subscription_plan = ChoiceField(choices=CustomEmailUser.SUBSCRIPTION_TYPE_CHOICES, widget=widgets.RadioSelect())
     gender = ChoiceField(choices=CustomEmailUser.GENDER_CHOICES, widget=widgets.RadioSelect())
 
     def __init__(self, *args, **kwargs):

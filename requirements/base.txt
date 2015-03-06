@@ -19,3 +19,4 @@ django-countries
 django-orderable
 django_compressor
 django-pyscss
+django-bootstrap3

@@ -1,24 +1,46 @@
 {#{% extends "account/base.html" %}#}
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n bootstrap3 %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+  <h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+  <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-  <h3>{% trans "Subscription plan" %}</h3>
+  <form class="signup " id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+{#    {% for field in form %}#}
+{#      {% if field.name == 'subscription_plan' %}#}
+{#        <h3>{% trans "Subscription plan" %}</h3>#}
+{#      {% endif %}#}
+{#      {% bootstrap_field field %}#}
+{#    {% endfor %}#}
+
+    <h3>{% trans "Subscription plan" %}</h3>
+    {% bootstrap_field form.subscription_plan %}
+    {% bootstrap_field form.email %}
+    {% bootstrap_field form.password1 %}
+    {% bootstrap_field form.password2 %}
+    {% bootstrap_field form.gender %}
+    {% bootstrap_field form.country %}
+    {% bootstrap_field form.birthdate %}
+    {% bootstrap_field form.is_getting_the_news %}
+
+
+    {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+
+    {% buttons %}
+      <button type="submit" class="btn btn-primary">
+        {% bootstrap_icon "star" %} Submit
+      </button>
+    {% endbuttons %}
+{#    <button type="submit">{% trans "Sign Up" %} &raquo;</button>#}
+  </form>
 
 
 {% endblock %}

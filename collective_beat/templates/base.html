@@ -12,11 +12,10 @@
 {#    <!-- Optional theme -->#}
 {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
+    {% render_block "css" %}
     {% compress css %}
-      <link type="text/x-scss" href="{% static 'components/bootstrap-sass/assets/stylesheets/_bootstrap.scss' %}" rel="stylesheet" media="all"/>
       <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
     {% endcompress %}
-    {% render_block "css" %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">Project name</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

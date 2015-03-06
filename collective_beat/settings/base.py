@@ -156,6 +156,7 @@ INSTALLED_APPS = [
     'django_countries',
     'orderable',
     'compressor',
+    'bootstrap3',
 
     'collective_beat',
     'apps.shows'
