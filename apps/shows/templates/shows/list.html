@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% block polls_content %}
+      {% for object in object_list %}
+        {{ object|pprint }}
+      {% endfor %}
+    {% endblock %}
+{% endblock %}
