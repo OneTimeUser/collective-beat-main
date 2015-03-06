@@ -1,10 +1,105 @@
 {% extends 'base.html' %}
+{% load staticfiles i18n %}
 
 {% block content %}
-    BANNER
-    {% block polls_content %}
-      {% for object in object_list %}
-        {{ object|pprint }}
-      {% endfor %}
-    {% endblock %}
+
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="call-to-subscribe">
+            Call to subscribe banner!
+        </div>
+
+        <div class="podcast-block index-podcast top col-sm-12">
+            <img src="{% static 'img/podcast-image2.jpg' %}">
+            <div class="info-block">
+                <div class="date">
+                    {% trans 'SILENCIO' %} 005: 15 January 2015
+                </div>
+                <h3>
+                    Cityscape at Dusk
+                </h3>
+                <div class="episode-desc">
+                    Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                </div>
+                <a href="#" class="play-button">
+                    <img src="{% static 'img/play-button.png' %}">
+                </a>
+            </div>
+        </div>
+
+        <div class="podcast-block index-podcast  col-sm-6">
+            <img src="{% static 'img/podcast-img3.jpg' %}">
+            <div class="info-block">
+                <div class="date">
+                    {% trans 'SILENCIO' %} 005: 15 January 2015
+                </div>
+                <h3>
+                    Supercool Interiors and Wrap Text
+                </h3>
+                <div class="episode-desc">
+                    Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                </div>
+                <a href="#" class="play-button">
+                    <img src="{% static 'img/play-button.png' %}">
+                </a>
+            </div>
+        </div>
+
+        <div class="podcast-block index-podcast col-sm-6">
+            <img src="{% static 'img/podcast-img4.jpg' %}">
+            <div class="info-block">
+                <div class="date">
+                    {% trans 'SILENCIO' %} 005: 15 January 2015
+                </div>
+                <h3>
+                    Docks In Trouble as Storm Moves In
+                </h3>
+                <div class="episode-desc">
+                    Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                </div>
+                <a href="#" class="play-button">
+                    <img src="{% static 'img/play-button.png' %}">
+                </a>
+            </div>
+        </div>
+        <div class="podcast-block index-podcast col-sm-6">
+            <img src="{% static 'img/podcast-img5.jpg' %}">
+            <div class="info-block">
+                <div class="date">
+                    {% trans 'SILENCIO' %} 005: 15 January 2015
+                </div>
+                <h3>
+                    Guitars Color Tweaked
+                </h3>
+                <div class="episode-desc">
+                    Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                </div>
+                <a href="#" class="play-button">
+                    <img src="{% static 'img/play-button.png' %}">
+                </a>
+            </div>
+        </div>
+        <div class="podcast-block index-podcast col-sm-6">
+            <img src="{% static 'img/podcast-img6.jpg' %}">
+            <div class="info-block">
+                <div class="date">
+                    {% trans 'SILENCIO' %} 005: 15 January 2015
+                </div>
+                <h3>
+                    Mastery of the sax
+                </h3>
+                <div class="episode-desc">
+                    Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                </div>
+                <a href="#" class="play-button">
+                    <img src="{% static 'img/play-button.png' %}">
+                </a>
+            </div>
+        </div>
+    </div>
+{#    BANNER#}
+{#    {% block polls_content %}#}
+{#      {% for object in object_list %}#}
+{#        {{ object|pprint }}#}
+{#      {% endfor %}#}
+{#    {% endblock %}#}
 {% endblock %}
