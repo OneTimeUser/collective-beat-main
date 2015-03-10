@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}This is my new project home page{% endblock title %}</title>
+    <title>{% block title %}Collective beat{% endblock title %}</title>
 
 {#    <!-- Latest compiled and minified CSS -->#}
 {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
@@ -47,12 +47,17 @@
 
       {% block content %}
       {% endblock content %}
+
+      <footer>
+{#        {% show_menu_below_id 'footer_root' %}#}
+        {% show_menu_below_id 'footer_root' %}
+      </footer>
     </div>
 
     {% render_block "js" %}
 
     {% compress js %}
-{#      <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>#}
+      <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
       <script type="text/javascript" src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
     {% endcompress %}
   </body>
