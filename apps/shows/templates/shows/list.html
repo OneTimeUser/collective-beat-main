@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% block polls_content %}
-      {% for object in object_list %}
-        {{ object|pprint }}
-      {% endfor %}
-    {% endblock %}
+
+
+  {% if category %}
+    <h3>{{ category.title }}</h3>
+  {% endif %}
+  {% for cat in categories %}
+    <a href="{% url 'shows:archive_category' category=cat.title %}" {% if cat == category %}class="active"{% endif %}>
+      {{ cat.title }}</a>
+  {% endfor %}
+  {% for object in show_list %}
+    {{ object|pprint }}
+  {% endfor %}
 {% endblock %}

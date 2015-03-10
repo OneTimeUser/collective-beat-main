@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class ShowsApp(CMSApp):
     name = _("Shows App")
+    app_name = 'shows'
     urls = ["apps.shows.urls"]
 
 apphook_pool.register(ShowsApp)
