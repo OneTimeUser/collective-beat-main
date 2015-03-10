@@ -1,21 +1,39 @@
 {% load i18n menu_tags cache cb_tags %}
 
 {% for child in children %}
-  <li class="{% if child.ancestor %}ancestor{% endif %}{% if child.selected %} active{% endif %}{% if child.children %} dropdown{% endif %}">
-    {% if child.children %}
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-        {{ child.get_menu_title }} <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
-      </ul>
-    {% else %}
-      <a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
+    {#  <li class="{% if child.ancestor %}ancestor{% endif %}{% if child.selected %} active{% endif %}{% if child.children %} dropdown{% endif %}">#}
+    {#    {% if child.children %}#}
+    {#      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">#}
+    {#        {{ child.get_menu_title }} <span class="caret"></span>#}
+    {#      </a>#}
+    {#      <ul class="dropdown-menu">#}
+    {#        {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}#}
+    {#      </ul>#}
+    {#    {% else %}#}
+    {#    <a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>#}
+    {#    {% endif %}#}
+    {#  </li>#}
+    <li>
+        <a href="#" class="subscribe">
+            <span>
+                ¡SUSCRIBETE!
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="#" class="archive">ARCHIVO</a>
+    </li>
+    <li>
+        <a href="#" class="podcast">PODCAST</a>
+    </li>
+    <li>
+        <a href="#" class="session">INICIAR SESION</a>
+    </li>
+    <li>
+        <a href="#" class="search glyphicon glyphicon-search"></a>
+    </li>
+    {% if class and forloop.last and not forloop.parentloop %}
     {% endif %}
-  </li>
-
-  {% if class and forloop.last and not forloop.parentloop %}
-  {% endif %}
 {% endfor %}
 
 <li>

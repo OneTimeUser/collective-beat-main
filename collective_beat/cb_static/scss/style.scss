@@ -1,7 +1,12 @@
 $icon-font-path: "../../components/bootstrap-sass/assets/fonts/bootstrap/";
+$navbar-default-bg: #ffffff;
+$navbar-default-border: none;
+$navbar-border-radius: 0;
+$navbar-padding-vertical: 0;
+$nav-link-padding: 25px 15px;
 
 @import "/components/bootstrap-sass/assets/stylesheets/bootstrap";
-
-//body {
-//  color: red;
-//}
+@import "/scss/_global.scss";
+@import "/scss/_menu.scss";
+@import "/scss/_index.scss";
+@import "/scss/_footer.scss";

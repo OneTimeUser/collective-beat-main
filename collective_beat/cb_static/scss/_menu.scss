@@ -1,0 +1,33 @@
+.navbar {
+  box-shadow: 0 3px 5px $gray-light;
+
+  .navbar-nav {
+    float: right;
+    font-size: 18px;
+
+    .subscribe {
+      span {
+        padding: 0 10px;
+        background-color: #f46e57;
+        color: #ffffff;
+        border-radius: 3px;
+      }
+    }
+
+    .archive {
+      color: #eec604;
+    }
+
+    .podcast {
+      color: #6699cc;
+    }
+
+    .session, .search {
+      color: #242424;
+    }
+
+    .search {
+      font-size: 30px;
+    }
+  }
+}
