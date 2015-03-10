@@ -10,7 +10,7 @@ admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
     (r'^accounts/', include('allauth.urls')),
-    (r'^shows/', include('apps.shows.urls', namespace='shows')),
+    (r'^account/', include('apps.accounts.urls', namespace='accounts')),
 
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
