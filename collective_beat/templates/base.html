@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}This is my new project home page{% endblock title %}</title>
+    <title>{% block title %}Collective beat{% endblock title %}</title>
 
-    {#    <!-- Latest compiled and minified CSS -->#}
-    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
-    {#    <!-- Optional theme -->#}
-    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
+{#    <!-- Latest compiled and minified CSS -->#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
+{#    <!-- Optional theme -->#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
     {% render_block "css" %}
     {% compress css %}
-        <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
+      <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
     {% endcompress %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -69,7 +69,8 @@
         {% endblock content %}
     </div>
 </div>
-{% include 'parts/footer.html' %}
+
+{% show_menu_below_id 'footer_root' 0 100 100 100 'parts/footer.html' %}
 
 {% render_block "js" %}
 

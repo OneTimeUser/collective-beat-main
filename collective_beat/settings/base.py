@@ -157,6 +157,7 @@ INSTALLED_APPS = [
     'orderable',
     'compressor',
     'bootstrap3',
+    'sorl.thumbnail',
 
     'collective_beat',
     'apps.shows'

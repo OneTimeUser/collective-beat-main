@@ -1,52 +1,71 @@
-{% load staticfiles i18n %}
+{% load staticfiles i18n menu_tags %}
 
 <div class="footer clearfix">
-    <div class="col-sm-8 col-sm-offset-2 footer-menu clearfix">
-        <div class="col-sm-3">
-            <a href="#">
-                QUIENES SOMOS
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="#">
-                MEDIOS
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="#">
-                AVISO LEGAL
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="#">
-                AYUDA
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="#">
-                CONTACTO
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="#">
-                GRACIAS
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="#">
-                TERMINOS DE PRIVACIDAD
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="#"><img src="{% static 'img/google_plus.png' %}"></a>
-            <a href="#"><img src="{% static 'img/twitter.png' %}"></a>
-            <a href="#"><img src="{% static 'img/facebook.png' %}"></a>
-        </div>
+  <div class="col-sm-8 col-sm-offset-2 footer-menu clearfix">
+
+    {% for child in children %}
+      <div class="col-sm-3 {% if child.ancestor %}ancestor{% endif %}{% if child.selected %} active{% endif %}{% if child.children %} dropdown{% endif %}">
+        {% if child.children %}
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+            {{ child.get_menu_title }} <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+          </ul>
+        {% else %}
+          <a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
+        {% endif %}
+      </div>
+
+      {% if class and forloop.last and not forloop.parentloop %}
+      {% endif %}
+    {% endfor %}
+
+    <div class="col-sm-3">
+      <a href="#">
+        QUIENES SOMOS
+      </a>
     </div>
-    <div class="clear"></div>
-    <div class="copyrights">
-        <div class="col-sm-offset-2">
-            © 2015 collective beat
-        </div>
+    <div class="col-sm-3">
+      <a href="#">
+        MEDIOS
+      </a>
     </div>
+    <div class="col-sm-3">
+      <a href="#">
+        AVISO LEGAL
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href="#">
+        AYUDA
+      </a>
+    </div>
+{#    <div class="col-sm-3">#}
+{#      <a href="#">#}
+{#        CONTACTO#}
+{#      </a>#}
+{#    </div>#}
+    <div class="col-sm-3">
+      <a href="#">
+        GRACIAS
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href="#">
+        TERMINOS DE PRIVACIDAD
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href="#"><img src="{% static 'img/google_plus.png' %}"></a>
+      <a href="#"><img src="{% static 'img/twitter.png' %}"></a>
+      <a href="#"><img src="{% static 'img/facebook.png' %}"></a>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="copyrights">
+    <div class="col-sm-offset-2">
+      © 2015 collective beat
+    </div>
+  </div>
 </div>

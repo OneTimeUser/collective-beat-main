@@ -1,9 +1,32 @@
 {% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block content %}
-    {% block polls_content %}
-      {% for object in object_list %}
-        {{ object|pprint }}
-      {% endfor %}
-    {% endblock %}
+
+  {% if category %}
+    <h3>{{ category.title }}</h3>
+  {% endif %}
+
+  <div class="container">
+    {% for cat in categories %}
+      <a href="{% url 'shows:archive_category' category=cat.title %}" {% if cat == category %}class="active"{% endif %}>
+        {{ cat.title }}</a>
+    {% endfor %}
+  </div>
+
+  <div class="row">
+    {% for show in show_list %}
+      <div class="col-sm-6">
+{#        <img src="{{ MEDIA_URL }}{{ show.image }}" alt="show image"/>#}
+        {% thumbnail show.image "100x100" crop="center" as im %}
+          <img src="{{ im.url }}">
+        {% empty %}
+          <p>No image</p>
+        {% endthumbnail %}
+        <h4>SILENCIO {{ show.show_number }}: {{ show.date }}</h4>
+        <p>{{ show.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
 {% endblock %}

@@ -20,3 +20,5 @@ django-orderable
 django_compressor
 django-pyscss
 django-bootstrap3
+sorl-thumbnail
+fabric
