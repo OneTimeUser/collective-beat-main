@@ -26,7 +26,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body onload='timerTick()'>
 {% cms_toolbar %}
 <div class="podcast-block top-podcast">
     <img src="{% static 'img/podcast-image1.jpg' %}">
@@ -47,19 +47,19 @@
 </div>
 <div class="container-fluid">
     <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header pull-right">
+        <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand logo" href="/">
+                <img  class="img-responsive" src="{% static 'img/logo.png' %}">
+            </a>
         </div>
-        <a class="col-sm-3 col-xs-8 logo" href="/">
-            <img  class="img-responsive" src="{% static 'img/logo.png' %}">
-        </a>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav navbar-right">
                 {% show_menu 0 1 100 100 "menu.html" %}
             </ul>
         </div>

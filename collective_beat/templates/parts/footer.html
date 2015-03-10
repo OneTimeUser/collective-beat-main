@@ -1,71 +1,134 @@
 {% load staticfiles i18n menu_tags %}
 
 <div class="footer clearfix">
-  <div class="col-sm-8 col-sm-offset-2 footer-menu clearfix">
+    <div class="container footer-menu clearfix">
 
-    {% for child in children %}
-      <div class="col-sm-3 {% if child.ancestor %}ancestor{% endif %}{% if child.selected %} active{% endif %}{% if child.children %} dropdown{% endif %}">
-        {% if child.children %}
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-            {{ child.get_menu_title }} <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
-          </ul>
-        {% else %}
-          <a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
-        {% endif %}
-      </div>
+        {% for child in children %}
+            <div class="col-sm-3 {% if child.ancestor %}ancestor{% endif %}{% if child.selected %} active{% endif %}{% if child.children %} dropdown{% endif %}">
+                {% if child.children %}
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        {{ child.get_menu_title }} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+                    </ul>
+                {% else %}
+                    <a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
+                {% endif %}
+            </div>
 
-      {% if class and forloop.last and not forloop.parentloop %}
-      {% endif %}
-    {% endfor %}
+            {% if class and forloop.last and not forloop.parentloop %}
+            {% endif %}
+        {% endfor %}
 
-    <div class="col-sm-3">
-      <a href="#">
-        QUIENES SOMOS
-      </a>
+        <div class="col-sm-3">
+            <a href="#">
+                QUIENES SOMOS
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="#">
+                MEDIOS
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="#">
+                AVISO LEGAL
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="#">
+                AYUDA
+            </a>
+        </div>
+        {#    <div class="col-sm-3">#}
+        {#      <a href="#">#}
+        {#        CONTACTO#}
+        {#      </a>#}
+        {#    </div>#}
+        <div class="col-sm-3">
+            <a href="#">
+                GRACIAS
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="#">
+                TERMINOS DE PRIVACIDAD
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="#"><img src="{% static 'img/google_plus.png' %}"></a>
+            <a href="#"><img src="{% static 'img/twitter.png' %}"></a>
+            <a href="#"><img src="{% static 'img/facebook.png' %}"></a>
+        </div>
     </div>
-    <div class="col-sm-3">
-      <a href="#">
-        MEDIOS
-      </a>
+    <div class="clear"></div>
+    <div class="copyrights">
+        <div class="container">
+            © 2015 collective beat
+        </div>
     </div>
-    <div class="col-sm-3">
-      <a href="#">
-        AVISO LEGAL
-      </a>
+    <div class="player-block">
+        <a href="/" class="footer-logo">
+            <img src="{% static 'img/footer-logo.png' %}">
+        </a>
+        <a href="#" class="play-button">
+            <img src="{% static 'img/play-button.png' %}">
+        </a>
+        <div class="show-name">
+            SILENCIO 005: 15 JANUARY 2015 // BOAT DOCKS IN FLUX
+        </div>
+        <marquee loop="infinity" truespeed="3">
+            some example text some example text some example text some example text some example text some example text some example text
+            some example text some example text
+            some example text some example text
+            some example text
+            some example text
+            some example text some example text some example text some example text
+            some example text some example text some example text some example text
+        </marquee>
+        <div class="on-air-block">
+            <a id="volume">
+                <img src="{% static 'img/volume.png' %}">
+            </a>
+            <span class="on-air">
+                ON AIR
+                <span></span>
+            </span>
+            <table id='container-clock'>
+                <tr>
+                    <td>
+                        <svg id='clock' viewBox='0 0 100 100' width='80' height='80'>
+                            <circle id='surface' cx='50' cy='50' r='45'/>
+                            <g id='pointers'>
+                                <line id='h_pointer' x1='50' y1='50' x2='50' y2='27' />
+                                <line id='m_pointer' x1='50' y1='50' x2='50' y2='17' />
+                                <line id='s_pointer' x1='50' y1='50' x2='50' y2='13' />
+                            </g>
+
+                        </svg>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div class="col-sm-3">
-      <a href="#">
-        AYUDA
-      </a>
-    </div>
-{#    <div class="col-sm-3">#}
-{#      <a href="#">#}
-{#        CONTACTO#}
-{#      </a>#}
-{#    </div>#}
-    <div class="col-sm-3">
-      <a href="#">
-        GRACIAS
-      </a>
-    </div>
-    <div class="col-sm-3">
-      <a href="#">
-        TERMINOS DE PRIVACIDAD
-      </a>
-    </div>
-    <div class="col-sm-3">
-      <a href="#"><img src="{% static 'img/google_plus.png' %}"></a>
-      <a href="#"><img src="{% static 'img/twitter.png' %}"></a>
-      <a href="#"><img src="{% static 'img/facebook.png' %}"></a>
-    </div>
-  </div>
-  <div class="clear"></div>
-  <div class="copyrights">
-    <div class="col-sm-offset-2">
-      © 2015 collective beat
-    </div>
-  </div>
 </div>
+
+<script language="javascript" type="text/javascript">
+    function timerTick() {
+        with (new Date()) {
+            var h, m, s;
+
+            h = 30 * ((getHours() % 12) + getMinutes() / 60);
+            m = 6 * getMinutes();
+            s = 6 * getSeconds();
+
+            document.getElementById('h_pointer').setAttribute('transform', 'rotate(' + h + ', 50, 50)');
+            document.getElementById('m_pointer').setAttribute('transform', 'rotate(' + m + ', 50, 50)');
+            document.getElementById('s_pointer').setAttribute('transform', 'rotate(' + s + ', 50, 50)');
+
+            setTimeout(timerTick, 1000);
+        }
+    }
+</script>
+

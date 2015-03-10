@@ -31,8 +31,9 @@
   }
 }
 
-.logo {
-  display: inline-block;
-    vertical-align: middle;
-    float: none;
+.navbar-brand.logo {
+  height: auto;
+  img {
+    max-height: 100%;
+  }
 }

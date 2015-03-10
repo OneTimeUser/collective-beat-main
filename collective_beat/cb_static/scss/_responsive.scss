@@ -1,0 +1,48 @@
+@media screen and (min-width: 768px) {
+  .podcast-block {
+    &.index-podcast {
+      .info-block {
+        h3 {
+          font-size: 30px;
+        }
+
+        .episode-desc {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .podcast-block {
+    &.index-podcast {
+      .info-block {
+        h3 {
+          font-size: 38px;
+        }
+
+        .episode-desc {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1199px) {
+  .podcast-block {
+    &.index-podcast {
+      .info-block {
+        h3 {
+          font-size: 48px;
+        }
+
+        .episode-desc {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
