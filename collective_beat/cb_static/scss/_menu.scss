@@ -2,7 +2,6 @@
   box-shadow: 0 3px 5px $gray-light;
 
   .navbar-nav {
-    float: right;
     font-size: 18px;
 
     .subscribe {
@@ -30,4 +29,10 @@
       font-size: 30px;
     }
   }
+}
+
+.logo {
+  display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
