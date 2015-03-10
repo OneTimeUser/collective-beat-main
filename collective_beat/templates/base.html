@@ -68,7 +68,8 @@
     {% block content %}
     {% endblock content %}
 </div>
-{% include 'parts/footer.html' %}
+
+{% show_menu_below_id 'footer_root' 0 100 100 100 'parts/footer.html' %}
 
 {% render_block "js" %}
 
