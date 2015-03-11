@@ -28,21 +28,27 @@
 </head>
 <body onload='timerTick()'>
 {% cms_toolbar %}
-<div class="podcast-block top-podcast">
+<div class="podcast-block top-podcast container-fluid">
     <img src="{% static 'img/podcast-image1.jpg' %}">
-    <div class="info-block">
-        <div class="date">
-            {% trans 'SILENCIO' %} 005: 15 January 2015
+    <div class="podcast-absolute">
+        <div class="podcast-inner">
+            <div class="podcast-content">
+                <div class="info-block">
+                    <div class="date">
+                        {% trans 'SILENCIO' %} 005: 15 January 2015
+                    </div>
+                    <h3>
+                        Mastery of the sax
+                    </h3>
+                    <div class="episode-desc">
+                        Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                    </div>
+                    <a href="#" class="play-button">
+                        <img src="{% static 'img/play-button.png' %}">
+                    </a>
+                </div>
+            </div>
         </div>
-        <h3>
-            Mastery of the sax
-        </h3>
-        <div class="episode-desc">
-            Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
-        </div>
-        <a href="#" class="play-button">
-            <img src="{% static 'img/play-button.png' %}">
-        </a>
     </div>
 </div>
 <div class="container-fluid">
