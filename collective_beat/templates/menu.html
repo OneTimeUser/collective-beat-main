@@ -4,6 +4,7 @@
   <a href="http://soundcloud.com/" target="_blank" class="podcast">{% trans 'Podcasts' %}</a>
 </li>
 
+{% nav_link _("Archive") 'shows:archive' %}
 {% if user.is_authenticated %}
   {% nav_link user 'accounts:info' %}
 {% else %}

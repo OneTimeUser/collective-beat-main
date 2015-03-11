@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
     (r'^accounts/', include('allauth.urls')),
     (r'^account/', include('apps.accounts.urls', namespace='accounts')),
-    (r'^shows/', include('apps.shows.urls')),
+    (r'^shows/', include('apps.shows.urls', namespace='shows')),
     (r'^pages', include('django.contrib.flatpages.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
