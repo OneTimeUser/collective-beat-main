@@ -92,10 +92,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -107,11 +103,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.csrf',
     'django.core.context_processors.tz',
-    'sekizai.context_processors.sekizai',
     'django.core.context_processors.static',
-    'cms.context_processors.cms_settings',
 
-    # allauth specific context processors
     "allauth.account.context_processors.account",
     "allauth.socialaccount.context_processors.socialaccount",
 )
@@ -123,8 +116,6 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = [
     'apps.accounts',
 
-    'djangocms_admin_style',
-    'djangocms_text_ckeditor',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -133,21 +124,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.messages',
-    'cms',
-    'menus',
-    'sekizai',
-    'mptt',
-    'djangocms_style',
-    'djangocms_column',
-    'djangocms_file',
-    'djangocms_flash',
-    'djangocms_googlemap',
-    'djangocms_inherit',
-    'djangocms_link',
-    'djangocms_picture',
-    'djangocms_teaser',
-    'djangocms_video',
-    'reversion',
+    'django.contrib.flatpages',
 
     'custom_user',
     'allauth',
@@ -158,6 +135,7 @@ INSTALLED_APPS = [
     'compressor',
     'bootstrap3',
     'sorl.thumbnail',
+    'ckeditor',
 
     'collective_beat',
     'apps.shows'
@@ -172,61 +150,11 @@ COMPRESS_PRECOMPILERS = (
 )
 
 LANGUAGES = (
-    ## Customize this
-    ('en', gettext('en')),
+    # ('en', gettext('en')),
     ('es', gettext('es')),
 )
 
-CMS_LANGUAGES = {
-    ## Customize this
-    'default': {
-        'public': True,
-        'hide_untranslated': False,
-        'redirect_on_fallback': True,
-    },
-    1: [
-        {
-            'public': True,
-            'code': 'en',
-            'hide_untranslated': False,
-            'name': gettext('en'),
-            'redirect_on_fallback': True,
-        },
-        {
-            'public': True,
-            'code': 'es',
-            'hide_untranslated': False,
-            'name': gettext('es'),
-            'redirect_on_fallback': True,
-        },
-    ],
-}
-
-CMS_TEMPLATES = (
-    ## Customize this
-    ('page.html', 'Page'),
-    ('feature.html', 'Page with Feature')
-)
-
-CMS_PERMISSION = True
-
-CMS_PLACEHOLDER_CONF = {}
-
-MIGRATION_MODULES = {
-    'cms': 'cms.migrations_django',
-    'menus': 'menus.migrations_django',
-    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
-    'djangocms_column': 'djangocms_column.migrations_django',
-    'djangocms_flash': 'djangocms_flash.migrations_django',
-    'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
-    'djangocms_inherit': 'djangocms_inherit.migrations_django',
-    'djangocms_style': 'djangocms_style.migrations_django',
-    'djangocms_file': 'djangocms_file.migrations_django',
-    'djangocms_link': 'djangocms_link.migrations_django',
-    'djangocms_picture': 'djangocms_picture.migrations_django',
-    'djangocms_teaser': 'djangocms_teaser.migrations_django',
-    'djangocms_video': 'djangocms_video.migrations_django'
-}
+# CMS_LANGUAGES = {
 
 AUTH_USER_MODEL = 'accounts.CustomEmailUser'
 
@@ -247,3 +175,17 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USER_DISPLAY = lambda user: user.email
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_FORM_CLASS = 'apps.accounts.forms.CustomSignupForm'
+
+CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'ckeditor/')
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ["Format", "Bold", "Italic", "Underline", "Strike", "SpellChecker"],
+            ['NumberedList', 'BulletedList', "Indent", "Outdent", 'JustifyLeft', 'JustifyCenter',
+             'JustifyRight', 'JustifyBlock'],
+            ["Image", "Table", "Link", "Unlink", "Anchor", "SectionLink", "Subscript", "Superscript"],
+            ['Undo', 'Redo'], ["Source"], ["Maximize"]
+        ],
+    },
+}

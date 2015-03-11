@@ -10,7 +10,7 @@
 pip install -r requirements/dev.txt 
 python manage.py migrate
 python manage.py createsuperuser
-fab init_cms_page_structure
+fab initial_data
 
 
 ```

@@ -1,4 +1,4 @@
-{% load cms_tags staticfiles sekizai_tags menu_tags compress i18n %}
+{% load staticfiles compress  i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,6 @@
 {#    <!-- Optional theme -->#}
 {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
-    {% render_block "css" %}
     {% compress css %}
       <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
     {% endcompress %}
@@ -27,22 +26,27 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body onload='timerTick()'>
-{% cms_toolbar %}
-<div class="podcast-block top-podcast">
+<div class="podcast-block top-podcast container-fluid">
     <img src="{% static 'img/podcast-image1.jpg' %}">
-    <div class="info-block">
-        <div class="date">
-            {% trans 'SILENCIO' %} 005: 15 January 2015
+    <div class="podcast-absolute">
+        <div class="podcast-inner">
+            <div class="podcast-content">
+                <div class="info-block">
+                    <div class="date">
+                        {% trans 'SILENCIO' %} 005: 15 January 2015
+                    </div>
+                    <h3>
+                        Mastery of the sax
+                    </h3>
+                    <div class="episode-desc">
+                        Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                    </div>
+                    <a href="#" class="play-button">
+                        <img src="{% static 'img/play-button.png' %}">
+                    </a>
+                </div>
+            </div>
         </div>
-        <h3>
-            Mastery of the sax
-        </h3>
-        <div class="episode-desc">
-            Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
-        </div>
-        <a href="#" class="play-button">
-            <img src="{% static 'img/play-button.png' %}">
-        </a>
     </div>
 </div>
 <div class="container-fluid">
@@ -60,7 +64,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                {% show_menu 0 1 100 100 "menu.html" %}
+                {% include "menu.html" %}
             </ul>
         </div>
     </div>
@@ -70,9 +74,7 @@
     </div>
 </div>
 
-{% show_menu_below_id 'footer_root' 0 100 100 100 'parts/footer.html' %}
-
-{% render_block "js" %}
+{% include 'parts/footer.html' %}
 
 {% compress js %}
     <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
