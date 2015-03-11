@@ -2,7 +2,6 @@
   box-shadow: 0 3px 5px $gray-light;
 
   .navbar-nav {
-    float: right;
     font-size: 18px;
 
     .subscribe {
@@ -29,5 +28,13 @@
     .search {
       font-size: 30px;
     }
+  }
+}
+
+.navbar-brand.logo {
+  height: auto;
+  width: unquote("calc(100% - 100px)");
+  img {
+    max-height: 100%;
   }
 }

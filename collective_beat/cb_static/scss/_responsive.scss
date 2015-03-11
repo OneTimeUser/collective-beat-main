@@ -1,0 +1,156 @@
+@media screen and (max-width: $screen-sm-min) {
+  .container {
+    padding: 0;
+  }
+
+  .call-to-subscribe {
+    margin: 0 0 20px;
+  }
+
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: $screen-md-min) {
+  .container {
+    width: auto;
+  }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+  .podcast-block {
+    margin-bottom: 20px;
+
+    &.top-podcast {
+      .podcast-absolute {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .podcast-inner {
+        display: table;
+        width: 100%;
+        height: 100%;
+      }
+
+      .podcast-content {
+        display:table-cell;
+        vertical-align:middle;
+        text-align: center;
+      }
+
+      .info-block {
+        height: auto;
+        width: 70%;
+        max-width: 880px;
+        display: inline-block;
+        position: relative;
+        text-align: left;
+
+        .episode-desc {
+          max-width: 720px;
+          width: 90%;
+        }
+
+        .play-button {
+          bottom: 50%;
+          right: 0;
+          margin: 0 0 -25px 0;
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+
+    &.top {
+      .info-block {
+        width: 80%;
+        top: 30px;
+        left: 50px;
+        height: auto;
+
+        .episode-desc {
+          width: 60%;
+        }
+
+        .play-button {
+          bottom: 50%;
+          right: 0;
+          margin: 0 0 0 -37px;
+        }
+      }
+    }
+    .info-block {
+      h3 {
+        font-size: 24px;
+      }
+
+      .episode-desc {
+        font-size: 10px;
+      }
+
+      .play-button {
+        height: 50px;
+        width: 50px;
+        bottom: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md-min) {
+  .podcast-block {
+    .info-block {
+      h3 {
+        font-size: 38px;
+      }
+
+      .episode-desc {
+        font-size: 15px;
+      }
+
+      .play-button {
+        height: 75px !important;
+        width: 75px !important;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: $screen-lg-min) {
+  .podcast-block {
+    .info-block {
+      .date {
+        font-size: 14px;
+      }
+
+      h3 {
+        font-size: 72px;
+      }
+
+      .episode-desc {
+        font-size: 18px;
+      }
+    }
+
+    &.index-podcast {
+      .info-block {
+        h3 {
+          font-size: 48px;
+        }
+
+        .episode-desc {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

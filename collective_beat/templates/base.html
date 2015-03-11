@@ -25,22 +25,28 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body>
-<div class="podcast-block top-podcast">
+<body onload='timerTick()'>
+<div class="podcast-block top-podcast container-fluid">
     <img src="{% static 'img/podcast-image1.jpg' %}">
-    <div class="info-block">
-        <div class="date">
-            {% trans 'SILENCIO' %} 005: 15 January 2015
+    <div class="podcast-absolute">
+        <div class="podcast-inner">
+            <div class="podcast-content">
+                <div class="info-block">
+                    <div class="date">
+                        {% trans 'SILENCIO' %} 005: 15 January 2015
+                    </div>
+                    <h3>
+                        Mastery of the sax
+                    </h3>
+                    <div class="episode-desc">
+                        Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
+                    </div>
+                    <a href="#" class="play-button">
+                        <img src="{% static 'img/play-button.png' %}">
+                    </a>
+                </div>
+            </div>
         </div>
-        <h3>
-            Mastery of the sax
-        </h3>
-        <div class="episode-desc">
-            Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
-        </div>
-        <a href="#" class="play-button">
-            <img src="{% static 'img/play-button.png' %}">
-        </a>
     </div>
 </div>
 <div class="container-fluid">
@@ -52,19 +58,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
-                <img src="{% static 'img/logo.png' %}">
+            <a class="navbar-brand logo" href="/">
+                <img  class="img-responsive" src="{% static 'img/logo.png' %}">
             </a>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
                 {% include "menu.html" %}
             </ul>
         </div>
     </div>
-
-    {% block content %}
-    {% endblock content %}
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
 </div>
 
 {% include 'parts/footer.html' %}

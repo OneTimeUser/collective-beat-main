@@ -4,9 +4,14 @@ $navbar-default-border: none;
 $navbar-border-radius: 0;
 $navbar-padding-vertical: 0;
 $nav-link-padding: 25px 15px;
+$screen-sm: 600px;
+$grid-gutter-width: 30px;
+$container-tablet: 570px + $grid-gutter-width;
 
 @import "/components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "/scss/_global.scss";
 @import "/scss/_menu.scss";
 @import "/scss/_index.scss";
 @import "/scss/_footer.scss";
+@import "/scss/_responsive.scss";
+@import "/scss/_clock.scss";

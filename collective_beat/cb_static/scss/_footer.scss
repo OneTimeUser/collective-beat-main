@@ -14,9 +14,77 @@
     padding: 35px 0;
     background-color: #292929;
     color: #ffffff;
+    margin-bottom: 50px;
 
     div {
       padding-left: 30px;
+    }
+  }
+
+  .player-block {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    background-color: #000000;
+    width: 100%;
+
+    .footer-logo {
+      float: left;
+      margin: 5px 0 0 10px;
+    }
+
+    .play-button {
+      display: block;
+      margin: 8px 0 0 10px;
+      float: left;
+      img {
+        height: 34px;
+      }
+    }
+
+    .show-name {
+      font-size: 14px;
+      color: #ffffff;
+      float: left;
+      line-height: 50px;
+      margin: 0 10px;
+    }
+
+    marquee {
+      color: #ffffff;
+      height: 50px;
+      line-height: 50px;
+      width: unquote("calc(100% - 730px)");
+    }
+
+    .on-air-block {
+      float: right;
+
+      #volume {
+        float: left;
+        display: block;
+        margin: 8px 10px 0 0;
+      }
+
+      .on-air {
+        color: #ef3c39;
+        font-size: 16px;
+        line-height: 50px;
+        font-family: Arial;
+        font-weight: lighter;
+        display: block;
+        float: left;
+
+        span {
+          height: 8px;
+          width: 8px;
+          background-color: #ef3c39;
+          border-radius: 5px;
+          display: block;
+          float: right;
+          margin: 20px 20px 0 10px;
+        }
+      }
     }
   }
 } 
