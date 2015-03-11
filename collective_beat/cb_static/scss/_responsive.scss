@@ -1,3 +1,11 @@
+@media screen and (max-width: $screen-xs) {
+  .show-name {
+    width: unquote("calc(100% - 120px)");
+    line-height: 2 !important;
+    font-size: 11px !important;
+  }
+}
+
 @media screen and (max-width: $screen-sm-min) {
   .container {
     padding: 0;
