@@ -1,24 +1,13 @@
-{% load staticfiles i18n menu_tags %}
+{% load staticfiles flatpages i18n %}
+{% get_flatpages as flatpages %}
 
 <div class="footer clearfix">
   <div class="col-sm-8 col-sm-offset-2 footer-menu clearfix">
 
-    {% for child in children %}
-      <div class="col-sm-3 {% if child.ancestor %}ancestor{% endif %}{% if child.selected %} active{% endif %}{% if child.children %} dropdown{% endif %}">
-        {% if child.children %}
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-            {{ child.get_menu_title }} <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
-          </ul>
-        {% else %}
-          <a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
-        {% endif %}
+    {% for page in flatpages %}
+      <div class="col-sm-3">
+        <a href="{% url 'django.contrib.flatpages.views.flatpage' url=page.url %}"><span>{{ page.title }}</span></a>
       </div>
-
-      {% if class and forloop.last and not forloop.parentloop %}
-      {% endif %}
     {% endfor %}
 
     <div class="col-sm-3">

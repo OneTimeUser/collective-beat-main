@@ -1,4 +1,4 @@
-{% load cms_tags staticfiles sekizai_tags menu_tags compress i18n %}
+{% load staticfiles compress  i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,6 @@
 {#    <!-- Optional theme -->#}
 {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
-    {% render_block "css" %}
     {% compress css %}
       <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
     {% endcompress %}
@@ -27,7 +26,6 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-{% cms_toolbar %}
 <div class="podcast-block top-podcast">
     <img src="{% static 'img/podcast-image1.jpg' %}">
     <div class="info-block">
@@ -60,7 +58,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                {% show_menu 0 1 100 100 "menu.html" %}
+                {% include "menu.html" %}
             </ul>
         </div>
     </div>
@@ -69,9 +67,7 @@
     {% endblock content %}
 </div>
 
-{% show_menu_below_id 'footer_root' 0 100 100 100 'parts/footer.html' %}
-
-{% render_block "js" %}
+{% include 'parts/footer.html' %}
 
 {% compress js %}
     <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
