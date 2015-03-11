@@ -11,6 +11,7 @@
 
   <form class="signup form-horizontal" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
+    {% bootstrap_form_errors form %}
 
 {#    {% bootstrap_form form layout='horizontal' %}#}
 
