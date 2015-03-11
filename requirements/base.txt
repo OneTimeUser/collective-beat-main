@@ -1,18 +1,4 @@
 braintree
-django-cms
-djangocms-column
-djangocms-googlemap
-djangocms-file
-djangocms-inherit
-djangocms-link
-djangocms-flash
-djangocms-text-ckeditor
-djangocms-style
-djangocms-picture
-djangocms-teaser
-djangocms-video
-django-reversion
-
 django-custom-user
 django-allauth
 django-countries
@@ -22,3 +8,4 @@ django-pyscss
 django-bootstrap3
 sorl-thumbnail
 fabric
+django-ckeditor
