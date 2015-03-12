@@ -1,0 +1,70 @@
+.account-info {
+  .logic-block {
+    border-top: 1px solid #d1d1d1;
+    padding: 40px 0;
+  }
+
+  h1, h2 {
+    text-align: center;
+    margin: 0 0 30px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .help-info {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  span.text {
+    font-size: 18px;
+    padding: 10px 5px;
+  }
+
+  .price-plan {
+    padding: 15px 20px;
+    font-size: 14px;
+    width: 190px;
+    text-align: left;
+
+    strong {
+      font-weight: bold;
+      font-size: 18px;
+      display: block;
+    }
+
+    &span {
+      background-color: #f8f8f8;
+      border: 1px solid #b0b0b0;
+      display: inline-block;
+    }
+
+    &a {
+      border: 1px solid #0050c7;
+    }
+  }
+
+  .change-btn {
+    padding: 15px 20px;
+    width: 190px;
+    background-color: #f8f8f8;
+    border: 1px solid #b0b0b0;
+    display: block;
+    margin-bottom: 20px;
+    margin-right: 5px;
+  }
+
+  .mail-notification {
+    text-align: center;
+
+    label {
+      margin: 25px 0;
+    }
+  }
+}
