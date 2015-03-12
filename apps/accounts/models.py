@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext as _
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
@@ -32,3 +33,7 @@ class CustomEmailUser(AbstractEmailUser):
     is_getting_the_news = models.BooleanField(default=True, verbose_name='Subscribed to news and updates')
     subscription_plan = models.CharField(max_length=1, choices=SUBSCRIPTION_TYPE_CHOICES)
     braintree_customer_id = models.CharField(max_length=64, null=True, blank=True)
+
+    @cached_property
+    def is_paid_member(self):
+        return self.subscription_plan in [self.MONTHLY, self.ANNUAL]
