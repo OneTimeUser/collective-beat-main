@@ -26,9 +26,9 @@ class CustomEmailUser(AbstractEmailUser):
         (ANNUAL, _('Yearly')),
     )
 
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    country = CountryField()
-    birthdate = models.DateField(verbose_name='Date of Birth', blank=False, null=True)
+    gender = models.CharField(_('Gender'), max_length=1, choices=GENDER_CHOICES)
+    country = CountryField(_('Country'))
+    birthdate = models.DateField(verbose_name=_('Date of Birth'), blank=False, null=True)
     is_getting_the_news = models.BooleanField(default=True, verbose_name='Subscribed to news and updates')
     subscription_plan = models.CharField(max_length=1, choices=SUBSCRIPTION_TYPE_CHOICES)
     braintree_customer_id = models.CharField(max_length=64, null=True, blank=True)

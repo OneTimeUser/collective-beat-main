@@ -38,7 +38,8 @@
     {% endif %}
 
     {% buttons  layout='horizontal' %}
-      {% bootstrap_button _('Sign up') 'submit' %}
+        {% trans "Sign up" as sing_up_trans %}
+      {% bootstrap_button sing_up_trans 'submit' %}
 
 {#      <button type="submit" class="btn btn-primary">#}
 {#        {% bootstrap_icon "star" %} {% trans "Sign Up" %}#}
