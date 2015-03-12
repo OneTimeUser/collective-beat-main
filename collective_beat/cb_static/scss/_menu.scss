@@ -3,6 +3,7 @@
 
   .navbar-nav {
     font-size: 18px;
+    text-transform: uppercase;
 
     .subscribe {
       span {
@@ -14,27 +15,26 @@
     }
 
     .archive {
-      color: #eec604;
+      a {
+        color: #eec604;
+      }
     }
 
     .podcast {
-      color: #6699cc;
+      a {
+        color: #6699cc;
+      }
     }
 
-    .session, .search {
-      color: #242424;
+    .session {
+      a {
+        color: #242424;
+      }
     }
 
     .search {
       font-size: 30px;
+      color: #242424;
     }
-  }
-}
-
-.navbar-brand.logo {
-  height: auto;
-  width: unquote("calc(100% - 100px)");
-  img {
-    max-height: 100%;
   }
 }

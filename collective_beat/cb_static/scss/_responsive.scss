@@ -22,6 +22,14 @@
     padding-right: 0px;
     margin-bottom: 20px;
   }
+
+  .navbar-brand.logo {
+    height: auto;
+    width: unquote("calc(100% - 100px)");
+    img {
+      max-height: 100%;
+    }
+  }
 }
 
 @media screen and (max-width: $screen-md-min) {

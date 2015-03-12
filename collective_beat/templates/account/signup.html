@@ -2,52 +2,53 @@
 {% extends "base.html" %}
 {% load i18n bootstrap3 %}
 
+{% block body_class %}forms{% endblock %}
+
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-  <h1>{% trans "Sign Up" %}</h1>
+    <h1>{% trans "Register" %}</h1>
 
-  <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <p class="page-description">{% blocktrans %}Register with your email address{% endblocktrans %}</p>
 
-  <form class="signup form-horizontal" id="signup_form" method="post" action="{% url 'account_signup' %}">
-    {% csrf_token %}
-    {% bootstrap_form_errors form %}
+    <form class="signup form-horizontal" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {% bootstrap_form_errors form %}
 
-{#    {% bootstrap_form form layout='horizontal' %}#}
+        {#    {% bootstrap_form form layout='horizontal' %}#}
 
-{#    {% for field in form %}#}
-{#      {% if field.name == 'subscription_plan' %}#}
-{#        <h3>{% trans "Subscription plan" %}</h3>#}
-{#      {% endif %}#}
-{#      {% bootstrap_field field %}#}
-{#    {% endfor %}#}
+        {#    {% for field in form %}#}
+        {#      {% if field.name == 'subscription_plan' %}#}
+        {#        <h3>{% trans "Subscription plan" %}</h3>#}
+        {#      {% endif %}#}
+        {#      {% bootstrap_field field %}#}
+        {#    {% endfor %}#}
 
-    <h3>{% trans "Subscription plan" %}</h3>
-    {% bootstrap_field form.subscription_plan layout='horizontal' %}
-    {% bootstrap_field form.email layout='horizontal' %}
-    {% bootstrap_field form.password1 layout='horizontal' %}
-    {% bootstrap_field form.password2 layout='horizontal' %}
-    {% bootstrap_field form.gender layout='horizontal' %}
-    {% bootstrap_field form.country layout='horizontal' %}
-    {% bootstrap_field form.birthdate layout='horizontal' %}
-    {% bootstrap_field form.is_getting_the_news layout='horizontal' %}
+        <div class="subscription-plan">
+            {% bootstrap_field form.subscription_plan layout='horizontal' %}
+        </div>
+        {% bootstrap_field form.email layout='horizontal' %}
+        {% bootstrap_field form.password1 layout='horizontal' %}
+        {% bootstrap_field form.password2 layout='horizontal' %}
+        {% bootstrap_field form.gender layout='horizontal' %}
+        {% bootstrap_field form.country layout='horizontal' %}
+        {% bootstrap_field form.birthdate layout='horizontal' %}
+        {% bootstrap_field form.is_getting_the_news layout='horizontal' %}
 
 
-    {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
 
     {% buttons  layout='horizontal' %}
         {% trans "Sign up" as sing_up_trans %}
       {% bootstrap_button sing_up_trans 'submit' %}
 
-{#      <button type="submit" class="btn btn-primary">#}
-{#        {% bootstrap_icon "star" %} {% trans "Sign Up" %}#}
-{#      </button>#}
+            {#      <button type="submit" class="btn btn-primary">#}
+            {#        {% bootstrap_icon "star" %} {% trans "Sign Up" %}#}
+            {#      </button>#}
 
-{#      <button type="submit">{% trans "Sign Up" %} &raquo;</button>#}
-    {% endbuttons %}
-  </form>
-
-
+            {#      <button type="submit">{% trans "Sign Up" %} &raquo;</button>#}
+        {% endbuttons %}
+    </form>
 {% endblock %}
