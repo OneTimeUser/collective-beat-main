@@ -10,3 +10,4 @@ django-bootstrap3
 sorl-thumbnail
 fabric
 django-ckeditor
+djpj

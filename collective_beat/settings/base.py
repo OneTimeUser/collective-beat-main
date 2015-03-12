@@ -92,6 +92,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'djpj.middleware.DjangoPJAXMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -188,4 +189,9 @@ CKEDITOR_CONFIGS = {
             ['Undo', 'Redo'], ["Source"], ["Maximize"]
         ],
     },
+}
+
+BOOTSTRAP3 = {
+    'horizontal_label_class': 'col-md-4',
+    'horizontal_field_class': 'col-md-8',
 }

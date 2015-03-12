@@ -8,10 +8,15 @@
   {% endif %}
 
   <div class="container">
-    {% for cat in categories %}
-      <a href="{% url 'shows:archive_category' category=cat.title %}" {% if cat == category %}class="active"{% endif %}>
-        {{ cat.title }}</a>
-    {% endfor %}
+    <ul class="nav nav-pills">
+        {% for cat in categories %}
+            <li role="presentation" {% if cat == category %}class="active"{% endif %}>
+                <a href="{% url 'shows:archive_category' category=cat.title %}" class="archive-category-link">
+            {{ cat.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
   </div>
 
   <div class="row">
