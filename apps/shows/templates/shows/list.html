@@ -24,6 +24,7 @@
           <p>No image</p>
         {% endthumbnail %}
         <h4>SILENCIO {{ show.show_number }}: {{ show.date }}</h4>
+        <a onclick="loadTrack('{{ show.url }}', '{{ show.date }}', '{{ show.show_number }}','{{ show.title }}', '{{ show.description }}')">play</a>
         <p>{{ show.description }}</p>
       </div>
     {% endfor %}
