@@ -6,8 +6,10 @@ from apps.accounts.models import CustomEmailUser
 
 
 class CustomSignupForm(ModelForm):
-    subscription_plan = ChoiceField(choices=CustomEmailUser.SUBSCRIPTION_TYPE_CHOICES, widget=widgets.RadioSelect())
-    gender = ChoiceField(choices=CustomEmailUser.GENDER_CHOICES, widget=widgets.RadioSelect())
+    subscription_plan = ChoiceField(choices=CustomEmailUser.SUBSCRIPTION_TYPE_CHOICES,
+                                    widget=widgets.RadioSelect(), label=_('Subscription plan'))
+    gender = ChoiceField(choices=CustomEmailUser.GENDER_CHOICES,
+                         widget=widgets.RadioSelect(), label=_('Gender'))
 
     def __init__(self, *args, **kwargs):
         super(CustomSignupForm, self).__init__(*args, **kwargs)
@@ -21,5 +23,5 @@ class CustomSignupForm(ModelForm):
         fields = ('country', 'birthdate', 'is_getting_the_news')
         widgets = {
             'birthdate': SelectDateWidget(),
-            'is_getting_the_news': widgets.CheckboxInput(attrs={'label': 'as'})
+            'is_getting_the_news': widgets.CheckboxInput()
         }

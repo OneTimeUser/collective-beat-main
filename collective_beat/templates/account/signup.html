@@ -40,8 +40,9 @@
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
 
-        {% buttons  layout='horizontal' %}
-            {% bootstrap_button _('Sign up') 'submit' %}
+    {% buttons  layout='horizontal' %}
+        {% trans "Sign up" as sing_up_trans %}
+      {% bootstrap_button sing_up_trans 'submit' %}
 
             {#      <button type="submit" class="btn btn-primary">#}
             {#        {% bootstrap_icon "star" %} {% trans "Sign Up" %}#}

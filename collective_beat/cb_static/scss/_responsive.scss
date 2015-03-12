@@ -75,7 +75,7 @@
           width: 90%;
         }
 
-        .play-button {
+        .play-button, .pause-button {
           bottom: 50%;
           right: 0;
           margin: 0 0 -25px 0;
@@ -96,7 +96,7 @@
           width: 60%;
         }
 
-        .play-button {
+        .play-button, .pause-button {
           bottom: 50%;
           right: 0;
           margin: 0 0 0 -37px;
@@ -112,7 +112,7 @@
         font-size: 10px;
       }
 
-      .play-button {
+      .play-button, .pause-button {
         height: 50px;
         width: 50px;
         bottom: 20px;
@@ -132,7 +132,7 @@
         font-size: 15px;
       }
 
-      .play-button {
+      .play-button, .pause-button {
         height: 75px !important;
         width: 75px !important;
       }
