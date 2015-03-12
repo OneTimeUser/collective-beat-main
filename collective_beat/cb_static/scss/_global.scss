@@ -30,6 +30,10 @@ body {
 .podcast-block {
   position: relative;
 
+  &.top-podcast {
+    margin-bottom: 0;
+  }
+
   img {
     width: 100%;
   }

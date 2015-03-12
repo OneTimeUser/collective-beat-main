@@ -1,28 +1,21 @@
 {% load i18n cache cb_tags %}
 
-<li>
-  <a href="http://soundcloud.com/" target="_blank" class="podcast">{% trans 'Podcasts' %}</a>
+<li  class="subscribe">
+  <a href="#"><span>¡SUSCRIBETE!</span></a>
 </li>
 
-{% nav_link _("Archive") 'shows:archive' %}
+{% nav_link _("Archive") 'shows:archive' css_class='archive' %}
+
+<li class="podcast">
+  <a href="http://soundcloud.com/" target="_blank">{% trans 'Podcasts' %}</a>
+</li>
+
 {% if user.is_authenticated %}
-  {% nav_link user 'accounts:info' %}
+  {% nav_link user 'accounts:info' css_class='session' %}
 {% else %}
-  {% nav_link _("Sign In") 'account_login' %}
+  {% nav_link _("Sign In") 'account_login' css_class='session' %}
 {% endif %}
 
-<li>
-  <a href="#" class="subscribe"><span>¡SUSCRIBETE!</span></a>
-</li>
-<li>
-  <a href="#" class="archive">ARCHIVO</a>
-</li>
-<li>
-  <a href="#" class="podcast">PODCAST</a>
-</li>
-<li>
-  <a href="#" class="session">INICIAR SESION</a>
-</li>
 <li>
   <a href="#" class="search glyphicon glyphicon-search"></a>
 </li>
