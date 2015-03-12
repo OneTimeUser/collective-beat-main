@@ -1,8 +1,18 @@
 {% load i18n cache cb_tags %}
 
-<li  class="subscribe">
-  <a href="#"><span>¡SUSCRIBETE!</span></a>
-</li>
+{% if not user.is_paid_member %}
+  <li  class="subscribe">
+    {% if user.is_authenticated %}
+      <a href="{% url 'accounts:info' %}">
+        <span>¡{% trans 'Upgrade' %}!</span>
+      </a>
+    {% else %}
+      <a href="{% url 'account_signup' %}">
+        <span>¡{% trans 'Subscribe' %}!</span>
+      </a>
+    {% endif %}
+  </li>
+{% endif %}
 
 {% nav_link _("Archive") 'shows:archive' css_class='archive' %}
 
