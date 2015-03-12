@@ -24,11 +24,9 @@
         {% thumbnail show.image "100x100" crop="center" as im %}
             <img src="{{ im.url }}" class="hidden-xs">
         {% endthumbnail %}
-        {% thumbnail show.image "100x200" crop="center" as im %}
+        {% thumbnail show.image "200x100" crop="center" as im %}
             <img src="{{ im.url }}" class="visible-xs-block">
         {% endthumbnail %}
-{#        <img src="{% static 'img/podcast-img3.jpg' %}" class="hidden-xs">#}
-{#        <img src="{% static 'img/podcast-image2.jpg' %}" class="visible-xs-block">#}
         <div class="info-block">
             <div class="date">
                 {% trans 'SILENCIO' %} {{ show.show_number }}: {{ show.date }}
