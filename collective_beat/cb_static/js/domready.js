@@ -1,9 +1,8 @@
 $(function() {
-    console.log($('#nav a'));
     $(document).pjax(
         '.navbar a.logo, #nav a, a.archive-category-link',
         '#content',
-        {timeout: 5000}
+        {timeout: 2000}
     );
 
     $(document).on('pjax:success', function(event, data, status, xhr, options) {
