@@ -2,6 +2,7 @@
 import datetime
 import os
 import urllib
+
 from fabric.contrib import django
 from fabric.operations import local
 from fabric.utils import puts
@@ -15,6 +16,7 @@ django.setup()
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.sites.models import Site
 from django.core.files import File
+from django.utils import timezone
 
 from apps.shows.models import ShowCategory, Show
 
@@ -52,7 +54,7 @@ def initial_data():
     shows = [
         {
             'title': 'First show',
-            'date': datetime.date,
+            'date': timezone.now(),
             'show_number': '00001',
             'description': 'this is the description for the first podcast show',
             'url': stream_url,
@@ -60,7 +62,7 @@ def initial_data():
         },
         {
             'title': 'Second show',
-            'date': datetime.date,
+            'date': timezone.now(),
             'show_number': '00002',
             'description': 'this is the description for the second podcast show',
             'url': stream_url,
@@ -68,7 +70,7 @@ def initial_data():
         },
         {
             'title': 'Third show',
-            'date': datetime.date,
+            'date': timezone.now(),
             'show_number': '00003',
             'description': 'this is the description for the third podcast show',
             'url': stream_url,
@@ -76,7 +78,7 @@ def initial_data():
         },
         {
             'title': 'Fourth show',
-            'date': datetime.date,
+            'date': timezone.now(),
             'show_number': '00004',
             'description': 'this is the description for the fourth podcast show',
             'url': stream_url,
