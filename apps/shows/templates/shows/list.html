@@ -3,48 +3,49 @@
 
 {% block content %}
 
-  {% if category %}
-    <h3>{{ category.title }}</h3>
-  {% endif %}
+    {% if category %}
+        <h3>{{ category.title }}</h3>
+    {% endif %}
 
-  <div class="container">
-    <ul class="nav nav-pills">
-        {% for cat in categories %}
-            <li role="presentation" {% if cat == category %}class="active"{% endif %}>
-                <a href="{% url 'shows:archive_category' category=cat.title %}" class="archive-category-link">
-            {{ cat.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <ul class="nav nav-pills">
+            {% for cat in categories %}
+                <li role="presentation" {% if cat == category %}class="active"{% endif %}>
+                    <a href="{% url 'shows:archive_category' category=cat.title %}" class="archive-category-link">
+                        {{ cat.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
 
-  </div>
-
-  {% for show in show_list %}
-    <div class="podcast-block index-podcast  col-sm-6">
-        {% thumbnail show.image "100x100" crop="center" as im %}
-            <img src="{{ im.url }}" class="hidden-xs">
-        {% endthumbnail %}
-        {% thumbnail show.image "200x100" crop="center" as im %}
-            <img src="{{ im.url }}" class="visible-xs-block">
-        {% endthumbnail %}
-        <div class="info-block">
-            <div class="date">
-                {% trans 'SILENCIO' %} {{ show.show_number }}: {{ show.date }}
-            </div>
-            <h3>
-                {{ show.title }}
-            </h3>
-            <div class="episode-desc">
-                {{ show.description }}
-            </div>
-            <a onclick="loadTrack('{{ show.url }}', '{{ show.date }}', '{{ show.show_number }}','{{ show.title }}', '{{ show.description }}', this)" class="play-button">
-                <img src="{% static 'img/play-button.png' %}">
-            </a>
-            <a onclick="pause(this)" class="pause-button" style="display: none;">
-                <img src="{% static 'img/pause-button.png' %}">
-            </a>
-        </div>
     </div>
-  {% endfor %}
+
+    {% for show in show_list %}
+        <div class="podcast-block index-podcast col-sm-6" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
+
+            {% thumbnail show.image "300x300" crop="center" as im %}
+                <img src="{{ im.url }}" class="hidden-xs">
+            {% endthumbnail %}
+            {% thumbnail show.image "600x300" crop="center" as im %}
+                <img src="{{ im.url }}" class="visible-xs-block">
+            {% endthumbnail %}
+            <div class="info-block">
+                <div class="date">
+                    {% trans 'SILENCIO' %} {{ show.show_number }}: {{ show.date }}
+                </div>
+                <h3>
+                    {{ show.title }}
+                </h3>
+                <div class="episode-desc">
+                    {{ show.description|truncatechars:400 }}
+                </div>
+                <a onclick="loadTrack(this)" class="play-button">
+                    <img src="{% static 'img/play-button.png' %}">
+                </a>
+                <a onclick="pause(this)" class="pause-button" style="display: none;">
+                    <img src="{% static 'img/pause-button.png' %}">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
 
 {% endblock %}
