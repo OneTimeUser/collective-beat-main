@@ -12,7 +12,8 @@ class CustomEmailUserAdmin(EmailUserAdmin):
         fs = super(CustomEmailUserAdmin, self).get_fieldsets(request, obj)
         test = list(deepcopy(fs))
         test.insert(1, (_('User info'),
-                        {'fields': ('gender', 'country', 'birthdate', 'is_getting_the_news')}))
+                        {'fields': ('first_name', 'last_name', 'gender', 'country',
+                                    'birthdate', 'is_getting_the_news', 'subscription_plan')}))
 
         return tuple(test)
 

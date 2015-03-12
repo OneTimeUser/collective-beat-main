@@ -43,7 +43,7 @@ class Show(models.Model):
     keywords = models.CharField(max_length=255)
     image = models.ImageField()
     url = models.CharField(max_length=255)
-    date = models.DateField(auto_now=True)
+    date = models.DateField()
     show_number = models.CharField(max_length=20)
 
     def __unicode__(self):
