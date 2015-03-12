@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load thumbnail %}
+{% load thumbnail staticfiles i18n %}
 
 {% block content %}
 
@@ -14,20 +14,34 @@
     {% endfor %}
   </div>
 
-  <div class="row">
-    {% for show in show_list %}
-      <div class="col-sm-6">
-{#        <img src="{{ MEDIA_URL }}{{ show.image }}" alt="show image"/>#}
+  {% for show in show_list %}
+    <div class="podcast-block index-podcast  col-sm-6">
         {% thumbnail show.image "100x100" crop="center" as im %}
-          <img src="{{ im.url }}">
-        {% empty %}
-          <p>No image</p>
+            <img src="{{ im.url }}" class="hidden-xs">
         {% endthumbnail %}
-        <h4>SILENCIO {{ show.show_number }}: {{ show.date }}</h4>
-        <a onclick="loadTrack('{{ show.url }}', '{{ show.date }}', '{{ show.show_number }}','{{ show.title }}', '{{ show.description }}')">play</a>
-        <p>{{ show.description }}</p>
-      </div>
-    {% endfor %}
-  </div>
+        {% thumbnail show.image "100x200" crop="center" as im %}
+            <img src="{{ im.url }}" class="visible-xs-block">
+        {% endthumbnail %}
+{#        <img src="{% static 'img/podcast-img3.jpg' %}" class="hidden-xs">#}
+{#        <img src="{% static 'img/podcast-image2.jpg' %}" class="visible-xs-block">#}
+        <div class="info-block">
+            <div class="date">
+                {% trans 'SILENCIO' %} {{ show.show_number }}: {{ show.date }}
+            </div>
+            <h3>
+                {{ show.title }}
+            </h3>
+            <div class="episode-desc">
+                {{ show.description }}
+            </div>
+            <a onclick="loadTrack('{{ show.url }}', '{{ show.date }}', '{{ show.show_number }}','{{ show.title }}', '{{ show.description }}', this)" class="play-button">
+                <img src="{% static 'img/play-button.png' %}">
+            </a>
+            <a onclick="pause(this)" class="pause-button" style="display: none;">
+                <img src="{% static 'img/pause-button.png' %}">
+            </a>
+        </div>
+    </div>
+  {% endfor %}
 
 {% endblock %}
