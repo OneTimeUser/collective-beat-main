@@ -192,6 +192,6 @@ CKEDITOR_CONFIGS = {
 }
 
 BOOTSTRAP3 = {
-    'horizontal_label_class': 'col-md-4',
-    'horizontal_field_class': 'col-md-8',
+    'horizontal_label_class': 'col-sm-5',
+    'horizontal_field_class': 'col-sm-7',
 }
