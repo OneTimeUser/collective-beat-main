@@ -15,7 +15,6 @@
   ],
   "dependencies": {
     "jquery": "latest",
-    "bootstrap-sass": "latest",
-    "jwplayer": "latest"
+    "bootstrap-sass": "latest"
   }
 }

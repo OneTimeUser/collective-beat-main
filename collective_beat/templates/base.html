@@ -79,7 +79,10 @@
 {% compress js %}
     <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
 {% endcompress %}
+
+<div id="player-block"></div>
 </body>
 </html>
-
