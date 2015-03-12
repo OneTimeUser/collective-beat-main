@@ -7,11 +7,7 @@
  
 ```
 #!python
-pip install -r requirements/dev.txt 
-python manage.py migrate
-python manage.py createsuperuser
 fab initial_data
-
 
 ```
 
