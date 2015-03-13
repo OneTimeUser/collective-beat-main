@@ -1,0 +1,9 @@
+{% extends 'shows/list.html' %}
+{% load thumbnail i18n %}
+
+{% block list_title %}
+  Search: <small>{{ q }}</small>
+{% endblock %}
+
+{% block empty_message %}{% trans 'No shows found' %}{% endblock %}
+
