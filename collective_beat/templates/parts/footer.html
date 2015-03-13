@@ -70,10 +70,12 @@
                 <a id="volume">
                     <img src="{% static 'img/volume.png' %}">
                 </a>
-                <span class="on-air">
-                    ON AIR
-                    <span></span>
-                </span>
+                {% if live_show %}
+                    <span class="on-air">
+                        ON AIR
+                        <span></span>
+                    </span>
+                {% endif %}
                 <table id='container-clock'>
                     <tr>
                         <td>
