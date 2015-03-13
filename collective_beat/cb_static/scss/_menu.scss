@@ -54,22 +54,24 @@
         }
       }
 
-      span {
+      .glyphicon-search {
         position: absolute;
+        top: 6px;
+        right: 5px;
+        color: #5398e6;
+        border: none;
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+      }
 
-        &.glyphicon-search {
-          top: 6px;
-          right: 5px;
-          color: #5398e6;
-        }
-
-        &.close {
-          right: -13px;
-          top: 8px;
-          font-family: Arial;
-          font-size: 13px;
-          color: #333333;
-        }
+      .close {
+        position: absolute;
+        right: -13px;
+        top: 8px;
+        font-family: Arial;
+        font-size: 13px;
+        color: #333333;
       }
     }
 
@@ -78,6 +80,7 @@
       color: #242424;
       display: inline-block;
       cursor: pointer;
+      padding: 20px 15px;
     }
   }
 }

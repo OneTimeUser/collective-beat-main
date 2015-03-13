@@ -27,24 +27,10 @@
 {% endif %}
 
 <li>
-    <div class="search-block">
-        <input type="text">
-        <span class="glyphicon glyphicon-search"></span>
-        <span class="close" onclick="searchActivate()">x</span>
-    </div>
-    <a href="{% url 'shows:search' %}" onclick="searchActivate();" class="search glyphicon glyphicon-search"></a>
+    <form class="search-block" method="get" action="{% url 'shows:search' %}">
+        <input type="text" name="q">
+        <button class="glyphicon glyphicon-search" type="submit"></button>
+        <span class="close">x</span>
+    </form>
+    <span class="search glyphicon glyphicon-search"></span>
 </li>
-
-<script>
-     function searchActivate() {
-        if ($('.search-block').is(':hidden')) {
-            $('.search-block').addClass('shown');
-            $('.navbar-nav .search').hide();
-        }
-
-        else {
-            $('.search-block').removeClass('shown');
-            $('.navbar-nav .search').css('display','inline-block');
-        }
-    }
-</script>
