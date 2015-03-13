@@ -27,7 +27,7 @@
 </head>
 <body onload='timerTick()' class="{% block body_class %}{% endblock %}">
 
-{% if live_show %}
+{% if last_show.is_live %}
     <div class="al-aire">
         {% trans 'AL' %}<br>
         {% trans 'AIRE' %}
