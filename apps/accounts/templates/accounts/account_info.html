@@ -5,91 +5,87 @@
 {% block body_class %}account-info{% endblock %}
 
 {% block content %}
-    <h1>
-        {% trans 'User account' %}
-    </h1>
-    <p class="help-info">
-        {% trans 'Manage your information and levels' %}
-    </p>
-    <div class="subscription-plan logic-block clearfix">
-        <h2>{% trans 'Subscription Plan' %}</h2>
-        <div class="col-sm-5">
-          <span class="text">
-                {% trans 'Your current plan:' %}
-            </span>
-            <span class="price-plan btn">
-                <strong>
-                    {% trans 'FREE' %}
-                </strong>
-            </span>
-        </div>
-        <div class="col-sm-1">
-            <span class="text">
-                {% trans 'Change Plan:' %}
-            </span>
-          </div>
-        <div class="col-sm-6">
-            <a href="#" class="price-plan btn btn-primary">
-                <strong>{% trans 'PAID MOUTHLY' %}</strong>
-                {% trans '$5/mounth' %}
-            </a>
-            <span class="text">
-                {% trans 'or' %}
-            </span>
-            <a href="#" class="price-plan btn btn-primary">
-                <strong>{% trans 'PAID YEARLY' %}</strong>
-                {% trans '$50/year' %}
-            </a>
-        </div>
+  <h1>
+    {% trans 'User account' %}
+  </h1>
+  <p class="help-info">
+    {% trans 'Manage your information and levels' %}
+  </p>
+  <div class="subscription-plan logic-block clearfix">
+    <h2>{% trans 'Subscription Plan' %}</h2>
+    <div class="col-sm-5">
+      <span class="text">{% trans 'Your current plan:' %}</span>
+      <span class="price-plan btn">
+        <strong>{{ user.get_subscription_plans_info.current.title }}</strong>
+        {{ user.get_subscription_plans_info.current.description }}
+      </span>
     </div>
-    <div class="logic-block clearfix">
-        <h2>
-            {% trans 'User Informtion' %}
-        </h2>
-        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
-            <dt>{% trans 'First name:' %}</dt>
-            <dd>{{ object.first_name }}</dd>
-        </dl>
-        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
-            <dt>{% trans 'Last name:' %}</dt>
-            <dd>{{ object.last_name }}</dd>
-        </dl>
-        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
-            <dt>{% trans 'Email:' %}</dt>
-            <dd>{{ object.email }}</dd>
-        </dl>
-        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
-            <dt>{% trans 'Gender:' %}</dt>
-            <dd>{{ object.get_gender_display }}</dd>
-        </dl>
-        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
-            <dt>{% trans 'Country:' %}</dt>
-            <dd>{{ object.get_country_display }}</dd>
-        </dl>
-        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
-            <dt>{% trans 'Day of birth:' %}</dt>
-            <dd>{{ object.birthdate }}</dd>
-        </dl>
-        <div class="clear"></div>
-        <a class="btn change-btn col-sm-2 col-sm-offset-4" href="{% url 'account_change_password' %}">
-            {% trans 'Change Password' %}
+{#    <div class="col-sm-1">#}
+{#      <span class="text">#}
+{#        {% trans 'Change Plan:' %}#}
+{#      </span>#}
+{#    </div>#}
+    <div class="col-sm-7">
+      <span class="text">
+        {% trans 'Change Plan:' %}
+      </span>
+      {% for plan_data in user.get_subscription_plans_info.available %}
+        <a href="#" class="price-plan btn btn-primary">
+          <strong>{{ plan_data.title }}</strong>{{ plan_data.description }}
         </a>
-        <a class="btn change-btn col-sm-2" href="#">
-            {% trans 'Change Information' %}
-        </a>
+        {% if not forloop.last %}
+          <span class="text">{% trans 'or' %}</span>
+        {% endif %}
+      {% endfor %}
     </div>
-    <div class="mail-notification logic-block">
-        <h2>
-            {% trans 'Mail Notification' %}
-        </h2>
-        <form method="post" class="form-horizontal">
-            <label>
-                <input type="checkbox" {% if object.is_getting_the_news %}checked="checked"{% endif %} disabled="disabled">
-                {% trans 'News, updates, and special news!' %}
-            </label>
-            <div class="clear"></div>
-            <input type="submit" class="btn btn-primary" value="{% trans 'Save Notification' %}">
-        </form>
-    </div>
-    {#  {{ object|pprint }}#}
+  </div>
+  <div class="logic-block clearfix">
+    <h2>
+      {% trans 'User Informtion' %}
+    </h2>
+    <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+      <dt>{% trans 'First name:' %}</dt>
+      <dd>{{ object.first_name }}</dd>
+    </dl>
+    <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+      <dt>{% trans 'Last name:' %}</dt>
+      <dd>{{ object.last_name }}</dd>
+    </dl>
+    <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+      <dt>{% trans 'Email:' %}</dt>
+      <dd>{{ object.email }}</dd>
+    </dl>
+    <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+      <dt>{% trans 'Gender:' %}</dt>
+      <dd>{{ object.get_gender_display }}</dd>
+    </dl>
+    <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+      <dt>{% trans 'Country:' %}</dt>
+      <dd>{{ object.get_country_display }}</dd>
+    </dl>
+    <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+      <dt>{% trans 'Day of birth:' %}</dt>
+      <dd>{{ object.birthdate }}</dd>
+    </dl>
+    <div class="clear"></div>
+    <a class="btn change-btn col-sm-2 col-sm-offset-4" href="{% url 'account_change_password' %}">
+      {% trans 'Change Password' %}
+    </a>
+    <a class="btn change-btn col-sm-2" href="#">
+      {% trans 'Change Information' %}
+    </a>
+  </div>
+  <div class="mail-notification logic-block">
+    <h2>
+      {% trans 'Mail Notification' %}
+    </h2>
+    <form method="post" class="form-horizontal">
+      <label>
+        <input type="checkbox" {% if object.is_getting_the_news %}checked="checked"{% endif %} disabled="disabled">
+        {% trans 'News, updates, and special news!' %}
+      </label>
+      <div class="clear"></div>
+      <input type="submit" class="btn btn-primary" value="{% trans 'Save Notification' %}">
+    </form>
+  </div>
 {% endblock %}

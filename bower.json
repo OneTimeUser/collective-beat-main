@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "jquery": "latest",
-    "bootstrap-sass": "latest",
+    "bootstrap-sass": "3.3.2",
     "jquery-pjax": "latest"
   }
 }

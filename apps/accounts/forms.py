@@ -2,11 +2,11 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext as _
 from django.forms import ChoiceField, widgets, ModelForm
 from django.forms.extras.widgets import SelectDateWidget
-from apps.accounts.models import CustomEmailUser
+from apps.accounts.models import CustomEmailUser, SubscriptionPlans
 
 
 class CustomSignupForm(ModelForm):
-    subscription_plan = ChoiceField(choices=CustomEmailUser.SUBSCRIPTION_TYPE_CHOICES,
+    subscription_plan = ChoiceField(choices=SubscriptionPlans.CHOICES,
                                     widget=widgets.RadioSelect(), label=_('Subscription plan'))
     gender = ChoiceField(choices=CustomEmailUser.GENDER_CHOICES,
                          widget=widgets.RadioSelect(), label=_('Gender'))
