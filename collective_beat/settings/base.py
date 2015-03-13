@@ -108,6 +108,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     "allauth.account.context_processors.account",
     "allauth.socialaccount.context_processors.socialaccount",
+    'collective_beat.context_processors.cb_context',
 )
 
 TEMPLATE_DIRS = (

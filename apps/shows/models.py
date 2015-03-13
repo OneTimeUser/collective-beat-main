@@ -45,6 +45,7 @@ class Show(models.Model):
     url = models.CharField(max_length=255)
     date = models.DateField()
     show_number = models.CharField(max_length=20)
+    is_live = models.BooleanField(default=False)
 
     def __unicode__(self):
         return 'SILENCIO {}: {}'.format(self.show_number, self.title)
