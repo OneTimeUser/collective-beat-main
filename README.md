@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README #
 
 ### Basic setup ###
@@ -21,3 +22,7 @@ Next copy the file *collective_beat/settings/local.example.py* and place it in t
 npm -g install bower (Node should be installed)
 bower install (withing this directory)
 ```
+=======
+# collective-beat-main
+Collective Beat Main Streaming Site
+>>>>>>> 7122c40b0479e9e8a29663580c3f3f8d699cc926
