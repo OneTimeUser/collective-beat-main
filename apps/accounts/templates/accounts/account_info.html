@@ -13,18 +13,22 @@
     </p>
     <div class="subscription-plan logic-block clearfix">
         <h2>{% trans 'Subscription Plan' %}</h2>
-        <div class="col-sm-3 col-sm-offset-2">
+        <div class="col-sm-5">
+          <span class="text">
+                {% trans 'Your current plan:' %}
+            </span>
             <span class="price-plan btn">
                 <strong>
                     {% trans 'FREE' %}
                 </strong>
-                {% trans 'Your member level:' %}
             </span>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-1">
             <span class="text">
                 {% trans 'Change Plan:' %}
             </span>
+          </div>
+        <div class="col-sm-6">
             <a href="#" class="price-plan btn btn-primary">
                 <strong>{% trans 'PAID MOUTHLY' %}</strong>
                 {% trans '$5/mounth' %}
@@ -43,23 +47,31 @@
             {% trans 'User Informtion' %}
         </h2>
         <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+            <dt>{% trans 'First name:' %}</dt>
+            <dd>{{ object.first_name }}</dd>
+        </dl>
+        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
+            <dt>{% trans 'Last name:' %}</dt>
+            <dd>{{ object.last_name }}</dd>
+        </dl>
+        <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
             <dt>{% trans 'Email:' %}</dt>
-            <dd>ping@gigateam.org</dd>
+            <dd>{{ object.email }}</dd>
         </dl>
         <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
             <dt>{% trans 'Gender:' %}</dt>
-            <dd>Male</dd>
+            <dd>{{ object.get_gender_display }}</dd>
         </dl>
         <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
             <dt>{% trans 'Country:' %}</dt>
-            <dd>Ukraine</dd>
+            <dd>{{ object.get_country_display }}</dd>
         </dl>
         <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
             <dt>{% trans 'Day of birth:' %}</dt>
-            <dd>01/01/1999</dd>
+            <dd>{{ object.birthdate }}</dd>
         </dl>
         <div class="clear"></div>
-        <a class="btn change-btn col-sm-2 col-sm-offset-4" href="#">
+        <a class="btn change-btn col-sm-2 col-sm-offset-4" href="{% url 'account_change_password' %}">
             {% trans 'Change Password' %}
         </a>
         <a class="btn change-btn col-sm-2" href="#">
@@ -72,8 +84,8 @@
         </h2>
         <form method="post" class="form-horizontal">
             <label>
-                <input type="checkbox">
-                {% trans 'Check to receive news, updates, and special news!' %}
+                <input type="checkbox" {% if object.is_getting_the_news %}checked="checked"{% endif %} disabled="disabled">
+                {% trans 'News, updates, and special news!' %}
             </label>
             <div class="clear"></div>
             <input type="submit" class="btn btn-primary" value="{% trans 'Save Notification' %}">
