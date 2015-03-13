@@ -10,10 +10,11 @@ $container-tablet: 570px + $grid-gutter-width;
 $btn-primary-bg: #2f76df;
 
 @import "/components/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "/scss/_global.scss";
-@import "/scss/_menu.scss";
-@import "/scss/_index.scss";
-@import "/scss/_footer.scss";
-@import "/scss/_responsive.scss";
-@import "/scss/_clock.scss";
-@import "/scss/_forms.scss";
+@import "global";
+@import "menu";
+@import "index";
+@import "footer";
+@import "responsive";
+@import "clock";
+@import "forms";
+@import "account-info";
