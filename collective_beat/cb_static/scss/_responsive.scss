@@ -130,6 +130,14 @@
   .reset-help {
     max-width: 250px;
   }
+
+  .archive-nav {
+    text-align: center;
+
+    li {
+      display: inline-block;
+    }
+  }
 }
 
 @media screen and (min-width: $screen-md-min) {

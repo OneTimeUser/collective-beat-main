@@ -3,12 +3,8 @@
 
 {% block content %}
 
-    {% if category %}
-        <h3>{{ category.title }}</h3>
-    {% endif %}
-
     <div class="container">
-        <ul class="nav nav-pills">
+        <ul class="nav archive-nav">
             {% for cat in categories %}
                 <li role="presentation" {% if cat == category %}class="active"{% endif %}>
                     <a href="{% url 'shows:archive_category' category=cat.title %}" class="archive-category-link">
