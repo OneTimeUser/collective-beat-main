@@ -30,4 +30,17 @@ $(function() {
             genderInput.hide();
         }
     });
+
+    $('.navbar-nav .search, .search-block .close').click(function (e) {
+        e.preventDefault();
+        if ($('.search-block').is(':hidden')) {
+            $('.search-block').addClass('shown');
+            $('.navbar-nav .search').hide();
+        }
+
+        else {
+            $('.search-block').removeClass('shown');
+            $('.navbar-nav .search').css('display','inline-block');
+        }
+    });
 });

@@ -1,4 +1,4 @@
-$icon-font-path: "../../components/bootstrap-sass/assets/fonts/bootstrap/";
+$icon-font-path: "/static/components/bootstrap-sass/assets/fonts/bootstrap/";
 $navbar-default-bg: #ffffff;
 $navbar-default-border: none;
 $navbar-border-radius: 0;
@@ -19,3 +19,4 @@ $btn-primary-bg: #2f76df;
 @import "forms";
 @import "account-info";
 @import "archive";
+@import "popup";

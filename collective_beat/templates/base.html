@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block head_title %}{% endblock %} | Collective beat</title>
 
-{#    <!-- Latest compiled and minified CSS -->#}
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
-{#    <!-- Optional theme -->#}
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
+    {#    <!-- Latest compiled and minified CSS -->#}
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
+    {#    <!-- Optional theme -->#}
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
     {% compress css %}
-      <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
+        <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all" >
     {% endcompress %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,56 +27,35 @@
 </head>
 <body onload='timerTick()' class="{% block body_class %}{% endblock %}">
 
-{% if live_show %}
+{% if last_show.is_live %}
     <div class="al-aire">
         {% trans 'AL' %}<br>
         {% trans 'AIRE' %}
     </div>
-    <div class="podcast-block top-podcast container-fluid">
-        <img src="{% static 'img/podcast-image1.jpg' %}">
-        <div class="podcast-absolute">
-            <div class="podcast-inner">
-                <div class="podcast-content">
-                    <div class="info-block">
-                        <div class="date">
-                            {% trans 'SILENCIO' %} {{ live_show.show_number }}: {{ live_show.date }}
-                        </div>
-                        <h3>
-                            {{ live_show.title }}
-                        </h3>
-                        <div class="episode-desc">
-                            {{ live_show.description }}
-                        </div>
-                        <a href="#" class="play-button">
-                            <img src="{% static 'img/play-button.png' %}">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% else %}
-    <div class="podcast-block top-podcast container-fluid">
-        <img src="{% static 'img/podcast-image1.jpg' %}">
-        <div class="podcast-absolute">
-            <div class="podcast-inner">
-                <div class="podcast-content">
-                    <div class="info-block">
-                        <div class="date">
-{#                            {% trans 'SILENCIO' %} 005: 15 January 2015#}
-                        </div>
-                        <h3>
-                            Mastery of the sax
-                        </h3>
-                        <div class="episode-desc">
-                            Here would exist some smaller text for abstracts or keywords or anything else that might speak of  the episode at hand. Mindful of image background!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endif %}
+<div class="podcast-block top-podcast container-fluid">
+    <img src="{% static 'img/podcast-image1.jpg' %}">
+    <div class="podcast-absolute">
+        <div class="podcast-inner">
+            <div class="podcast-content">
+                <div class="info-block">
+                    <div class="date">
+                        {% trans 'SILENCIO' %} {{ live_show.show_number }}: {{ live_show.date }}
+                    </div>
+                    <h3>
+                        {{ live_show.title }}
+                    </h3>
+                    <div class="episode-desc">
+                        {{ live_show.description }}
+                    </div>
+                    <a href="#" class="play-button">
+                        <img src="{% static 'img/play-button.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid">
     <div class="navbar navbar-default" role="navigation">
@@ -115,5 +94,28 @@
 {% endcompress %}
 
 <div id="player-block"></div>
+
+<div class="modal fade" id="premium-need" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="inner">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <h4>
+                        {% trans 'This is a PREMIUM feature' %}
+                    </h4>
+                    {% trans 'Please Upgrade your account' %}<br>
+                    {% trans 'to enjoy unlimited streaming and listening.' %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,27 @@
+.modal-content {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+
+  .inner {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .modal-header, .modal-footer {
+    border: none;
+    text-align: center;
+  }
+
+  h4 {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .modal-body {
+    font-size: 18px;
+  }
+
+  .btn {
+    width: 240px;
+  }
+}

@@ -7,8 +7,6 @@
 
 {% block content %}
 
-  <h2>{% block list_title %}{% endblock %}</h2>
-
   <div class="container">
     <ul class="nav archive-nav">
       {% for cat in categories %}
@@ -19,6 +17,8 @@
       {% endfor %}
     </ul>
   </div>
+
+  <h2>{% block list_title %}{% endblock %}</h2>
 
   {% for show in show_list %}
     <div class="podcast-block index-podcast col-sm-6" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">

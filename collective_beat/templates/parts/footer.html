@@ -70,7 +70,7 @@
                 <a id="volume">
                     <img src="{% static 'img/volume.png' %}">
                 </a>
-                {% if live_show %}
+                {% if last_show.is_live %}
                     <span class="on-air">
                         ON AIR
                         <span></span>

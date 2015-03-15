@@ -33,9 +33,54 @@
       }
     }
 
+    .search-block {
+      display: none;
+      margin: 19px 20px 19px 15px;
+      position: relative;
+
+      input {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #9c9c9c;
+        width: 0px;
+        @include transition(0.3s ease-out 0s);
+      }
+
+      &.shown {
+        display: inline-block;
+        input {
+          width: 200px;
+        }
+      }
+
+      .glyphicon-search {
+        position: absolute;
+        top: 6px;
+        right: 5px;
+        color: #5398e6;
+        border: none;
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+      }
+
+      .close {
+        position: absolute;
+        right: -13px;
+        top: 8px;
+        font-family: Arial;
+        font-size: 13px;
+        color: #333333;
+      }
+    }
+
     .search {
       font-size: 30px;
       color: #242424;
+      display: inline-block;
+      cursor: pointer;
+      padding: 20px 15px;
     }
   }
 }
