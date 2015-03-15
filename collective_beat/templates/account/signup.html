@@ -1,6 +1,6 @@
 {#{% extends "account/base.html" %}#}
 {% extends "base.html" %}
-{% load i18n bootstrap3 %}
+{% load i18n bootstrap3 cb_tags%}
 
 {% block body_class %}forms{% endblock %}
 
@@ -17,40 +17,30 @@
 
         {#    {% bootstrap_form form layout='horizontal' %}#}
 
-        {#    {% for field in form %}#}
-        {#      {% if field.name == 'subscription_plan' %}#}
-        {#        <h3>{% trans "Subscription plan" %}</h3>#}
-        {#      {% endif %}#}
-        {#      {% bootstrap_field field %}#}
-        {#    {% endfor %}#}
-
-        <div class="subscription-plan clearfix">
-{#            {% bootstrap_field form.subscription_plan layout='horizontal' %}#}
-            <div class="col-sm-3 member-lvl">
-                {% trans 'Member level:' %}
-            </div>
-            <div class="col-sm-3">
-                <input type="radio">
-                <label>
-                    <strong>{% trans 'FREE' %}</strong>
-                    {% trans 'Limited opportunities' %}
-                </label>
-            </div>
-            <div class="col-sm-3">
-                <input type="radio">
-                <label>
-                    <strong>{% trans 'PAID MOUTHLY' %}</strong>
-                    {% trans '$5/mounth' %}
-                </label>
-            </div>
-            <div class="col-sm-3">
-                <input type="radio">
-                <label>
-                    <strong>{% trans 'PAID YEARLY' %}</strong>
-                    {% trans '$50/year' %}
-                </label>
-            </div>
+{#      {% bootstrap_field form.subscription_plan layout='horizontal' %}#}
+      <div class="subscription-plan clearfix {% if form.subscription_plan.errors %}has-error{% endif %}">
+        <div class="col-sm-3 member-lvl">
+          {% trans "Subscription plan" %}:
         </div>
+
+        {% for choice in form.subscription_plan %}
+          <div class="col-sm-3 radio">
+            <label>
+              {{ choice.tag }}
+              {% with plan_data=SUBSCRIPTION_PLANS|get_item:choice.choice_value %}
+                <strong>{{ plan_data.title }}</strong>
+                {{ plan_data.description }}
+              {% endwith %}
+            </label>
+          </div>
+        {% endfor %}
+
+        {% for error in form.subscription_plan.errors %}
+          <div class="col-sm-offset-3 col-sm-9"><span class="help-block">{{ error }}</span></div>
+        {% endfor %}
+
+      </div>
+
         {% bootstrap_field form.email layout='horizontal' placeholder='' %}
         {% bootstrap_field form.password1 layout='horizontal' %}
         {% bootstrap_field form.password2 layout='horizontal' %}
@@ -69,12 +59,6 @@
         {% buttons  layout='horizontal' %}
             {% trans "Sign up" as sing_up_trans %}
             {% bootstrap_button sing_up_trans 'submit' %}
-
-            {#      <button type="submit" class="btn btn-primary">#}
-            {#        {% bootstrap_icon "star" %} {% trans "Sign Up" %}#}
-            {#      </button>#}
-
-            {#      <button type="submit">{% trans "Sign Up" %} &raquo;</button>#}
         {% endbuttons %}
     </form>
 {% endblock %}

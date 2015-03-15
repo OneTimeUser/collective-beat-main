@@ -48,3 +48,8 @@ def nav_link(context, text, url_pattern=None, css_class=None, *args, **kwargs):
         'css_class': css_class,
         'active': active
     }
+
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
