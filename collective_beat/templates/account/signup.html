@@ -7,58 +7,58 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "Register" %}</h1>
+  <h1>{% trans "Register" %}</h1>
 
-    <p class="page-description">{% blocktrans %}Register with your email address{% endblocktrans %}</p>
+  <p class="page-description">{% blocktrans %}Register with your email address{% endblocktrans %}</p>
 
-    <form class="signup form-horizontal" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        {% bootstrap_form_errors form %}
+  <form class="signup form-horizontal" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {% bootstrap_form_errors form %}
 
-        {#    {% bootstrap_form form layout='horizontal' %}#}
+    {#    {% bootstrap_form form layout='horizontal' %}#}
 
-{#      {% bootstrap_field form.subscription_plan layout='horizontal' %}#}
-      <div class="subscription-plan clearfix {% if form.subscription_plan.errors %}has-error{% endif %}">
-        <div class="col-sm-3 member-lvl">
-          {% trans "Subscription plan" %}:
-        </div>
-
-        {% for choice in form.subscription_plan %}
-          <div class="col-sm-3 radio">
-            <label>
-              {{ choice.tag }}
-              {% with plan_data=SUBSCRIPTION_PLANS|get_item:choice.choice_value %}
-                <strong>{{ plan_data.title }}</strong>
-                {{ plan_data.description }}
-              {% endwith %}
-            </label>
-          </div>
-        {% endfor %}
-
-        {% for error in form.subscription_plan.errors %}
-          <div class="col-sm-offset-3 col-sm-9"><span class="help-block">{{ error }}</span></div>
-        {% endfor %}
-
+    {#      {% bootstrap_field form.subscription_plan layout='horizontal' %}#}
+    <div class="subscription-plan clearfix {% if form.subscription_plan.errors %}has-error{% endif %}">
+      <div class="col-sm-3 member-lvl">
+        {% trans "Subscription plan" %}:
       </div>
 
-        {% bootstrap_field form.email layout='horizontal' placeholder='' %}
-        {% bootstrap_field form.password1 layout='horizontal' %}
-        {% bootstrap_field form.password2 layout='horizontal' %}
-        {% bootstrap_field form.gender layout='horizontal' %}
-        {% bootstrap_field form.country layout='horizontal' %}
-        <div class="b-day">
-            {% bootstrap_field form.birthdate layout='horizontal' %}
+      {% for choice in form.subscription_plan %}
+        <div class="col-sm-3 radio">
+          <label>
+            {{ choice.tag }}
+            {% with plan_data=SUBSCRIPTION_PLANS|get_item:choice.choice_value %}
+              <strong>{{ plan_data.title }}</strong>
+              {{ plan_data.description }}
+            {% endwith %}
+          </label>
         </div>
-        {% bootstrap_field form.is_getting_the_news layout='horizontal' %}
+      {% endfor %}
+
+      {% for error in form.subscription_plan.errors %}
+        <div class="col-sm-offset-3 col-sm-9"><span class="help-block">{{ error }}</span></div>
+      {% endfor %}
+
+    </div>
+
+    {% bootstrap_field form.email layout='horizontal' placeholder='' %}
+    {% bootstrap_field form.password1 layout='horizontal' %}
+    {% bootstrap_field form.password2 layout='horizontal' %}
+    {% bootstrap_field form.gender layout='horizontal' %}
+    {% bootstrap_field form.country layout='horizontal' %}
+    <div class="b-day">
+      {% bootstrap_field form.birthdate layout='horizontal' %}
+    </div>
+    {% bootstrap_field form.is_getting_the_news layout='horizontal' %}
 
 
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
+    {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
 
-        {% buttons  layout='horizontal' %}
-            {% trans "Sign up" as sing_up_trans %}
-            {% bootstrap_button sing_up_trans 'submit' %}
-        {% endbuttons %}
-    </form>
+    {% buttons  layout='horizontal' %}
+      {% trans "Sign up" as sing_up_trans %}
+      {% bootstrap_button sing_up_trans 'submit' %}
+    {% endbuttons %}
+  </form>
 {% endblock %}
