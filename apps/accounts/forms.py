@@ -16,11 +16,20 @@ class CustomSignupForm(ModelForm):
         self.fields['is_getting_the_news'].label = _('Check to receive news, updates and special offers')
 
     def signup(self, request, user):
-        pass
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.gender = self.cleaned_data['gender']
+        user.country = self.cleaned_data['country']
+        user.birthdate = self.cleaned_data['birthdate']
+        user.is_getting_the_news = self.cleaned_data['is_getting_the_news']
+        user.subscription_plan = self.cleaned_data['subscription_plan']
+        # todo user.braintree_customer_id?
+
+        user.save()
 
     class Meta:
         model = get_user_model()
-        fields = ('country', 'birthdate', 'is_getting_the_news')
+        fields = ('first_name', 'last_name', 'country', 'birthdate', 'is_getting_the_news')
         widgets = {
             'birthdate': SelectDateWidget(),
             'is_getting_the_news': widgets.CheckboxInput()
