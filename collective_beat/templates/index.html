@@ -35,9 +35,11 @@
 
 {% block content %}
 
-    <div class="call-to-subscribe">
-        Call to subscribe banner!
-    </div>
+    <a href="/">
+        <div class="call-to-subscribe">
+            Call to subscribe banner!
+        </div>
+    </a>
 
     {% for show in show_list %}
             <div class="podcast-block index-podcast {% if forloop.counter == 1 %}top col-sm-12{% else %}col-sm-6{% endif %}">
