@@ -43,6 +43,7 @@ class Show(models.Model):
     keywords = models.CharField(max_length=255)
     image = models.ImageField()
     url = models.CharField(max_length=255)
+    url_for_ios = models.CharField(max_length=255)
     date = models.DateField()
     show_number = models.CharField(max_length=20)
     is_live = models.BooleanField(default=False)

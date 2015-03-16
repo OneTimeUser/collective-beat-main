@@ -88,4 +88,10 @@
       <input type="submit" class="btn btn-primary" value="{% trans 'Save Notification' %}">
     </form>
   </div>
+
+  <div class="logic-block clearfix">
+    <a href="{% url 'account_logout' %}" class="btn change-btn">
+        {% trans 'Logout' %}
+    </a>
+  </div>
 {% endblock %}

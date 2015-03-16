@@ -9,6 +9,9 @@
 
   <div class="container">
     <ul class="nav archive-nav">
+        <li role="presentation" {% if not category %}class="active"{% endif %}>
+          <a href="{% url 'shows:archive' %}" class="archive-category-link">{% trans 'All' %}</a>
+        </li>
       {% for cat in categories %}
         <li role="presentation" {% if cat == category %}class="active"{% endif %}>
           <a href="{% url 'shows:archive_category' category=cat.title %}" class="archive-category-link">
