@@ -27,6 +27,21 @@
 </head>
 <body onload='timerTick()' class="{% block body_class %}{% endblock %}">
 
+
+<div class="alerts">
+    {% if messages %}
+        <ul class="messages list-group">
+            {% for message in messages %}
+            <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                {{ message }}
+                <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
 {% if last_show.is_live %}
     <div class="al-aire">
         {% trans 'AL' %}<br>

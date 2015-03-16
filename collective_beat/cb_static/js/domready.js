@@ -55,4 +55,8 @@ $(function() {
              $('#content').css('margin-top','0');
          }
     });
+
+    $('.alerts .close').click(function() {
+        $(this).closest('.list-group-item').remove();
+    });
 });
