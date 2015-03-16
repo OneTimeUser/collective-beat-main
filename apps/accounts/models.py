@@ -17,10 +17,26 @@ class SubscriptionPlans(object):
     )
 
     PLAN_PRICE_DESCRIPTION = {
-        FREE: '',
+        FREE: _('Limited opportunities'),
         MONTHLY: _('$5/month'),
         ANNUAL: _('$50/year')
     }
+
+    @classmethod
+    def available_plans(cls):
+        result = []
+        for plan_data in cls.iter_available_plans():
+            result.append(plan_data)
+
+        return result
+
+    @classmethod
+    def available_plans_by_ids(cls):
+        result = {}
+        for plan_data in cls.iter_available_plans():
+            result[plan_data['id']] = plan_data
+
+        return result
 
     @classmethod
     def iter_available_plans(cls):

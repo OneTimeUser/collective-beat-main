@@ -1,6 +1,10 @@
 {% extends 'shows/list.html' %}
 {% load thumbnail i18n %}
 
+{% block head_title %}
+  {% trans "Shows archive" %} - {% trans 'Search results' %}
+{% endblock %}
+
 {% block list_title %}
   Search: <small>{{ q }}</small>
 {% endblock %}

@@ -1,3 +1,4 @@
+from apps.accounts.models import SubscriptionPlans
 from apps.shows.models import Show
 
 
@@ -8,5 +9,6 @@ def last_show():
 def cb_context(request):
     context = dict(
         last_show=last_show(),
+        SUBSCRIPTION_PLANS=SubscriptionPlans.available_plans_by_ids()
     )
     return context
