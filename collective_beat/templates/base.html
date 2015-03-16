@@ -1,4 +1,4 @@
-{% load staticfiles compress i18n %}
+{% load staticfiles compress i18n thumbnail %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,19 +34,21 @@
     </div>
 {% endif %}
 <div class="podcast-block top-podcast container-fluid">
-    <img src="{% static 'img/podcast-image1.jpg' %}">
+    {% thumbnail last_show.image "1000x400" crop="center" as im %}
+        <img src="{{ im.url }}">
+    {% endthumbnail %}
     <div class="podcast-absolute">
         <div class="podcast-inner">
             <div class="podcast-content">
                 <div class="info-block">
                     <div class="date">
-                        {% trans 'SILENCIO' %} {{ live_show.show_number }}: {{ live_show.date }}
+                        {% trans 'SILENCIO' %} {{ last_show.show_number }}: {{ last_show.date }}
                     </div>
                     <h3>
-                        {{ live_show.title }}
+                        {{ last_show.title }}
                     </h3>
                     <div class="episode-desc">
-                        {{ live_show.description }}
+                        {{ last_show.description }}
                     </div>
                     <a href="#" class="play-button">
                         <img src="{% static 'img/play-button.png' %}">

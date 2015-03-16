@@ -17,7 +17,7 @@ class IndexView(ListView):
         return super(IndexView, self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
-        return super(IndexView, self).get_queryset()[:6]
+        return super(IndexView, self).get_queryset()[1:6]
 
 
 class ShowsList(ListView):
