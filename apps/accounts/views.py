@@ -57,6 +57,10 @@ class SubscriptionsEditView(UpdateView):
     def get_object(self, queryset=None):
         return get_user_model().objects.get(pk=self.request.user.pk)
 
+    def form_valid(self, form):
+        messages.success(self.request, _('Email subscriptions settings changed'))
+        return super(SubscriptionsEditView, self).form_valid(form)
+
     def get_success_url(self):
         return reverse('accounts:info')
 
