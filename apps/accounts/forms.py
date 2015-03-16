@@ -56,3 +56,9 @@ class AccountEditForm(ModelForm):
                 -1
             )),
         }
+
+
+class EmailSubscriptionForm(ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('is_getting_the_news',)

@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
 from djpj import pjax_block
-from apps.accounts.forms import AccountEditForm
+from apps.accounts.forms import AccountEditForm, EmailSubscriptionForm
 
 
 class AccountInfoView(DetailView):
@@ -22,6 +22,12 @@ class AccountInfoView(DetailView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super(AccountInfoView, self).get_context_data(**kwargs)
+        context['subscriptions_form'] = EmailSubscriptionForm(instance=self.request.user)
+
+        return context
 
 
 class AccountInfoEdit(UpdateView):
@@ -36,6 +42,17 @@ class AccountInfoEdit(UpdateView):
 
         messages.success(self.request, _('Profile details updated.'))
         return HttpResponseRedirect(self.get_success_url())
+
+    def get_object(self, queryset=None):
+        return get_user_model().objects.get(pk=self.request.user.pk)
+
+    def get_success_url(self):
+        return reverse('accounts:info')
+
+
+class SubscriptionsEditView(UpdateView):
+    http_method_names = ['post']
+    form_class = EmailSubscriptionForm
 
     def get_object(self, queryset=None):
         return get_user_model().objects.get(pk=self.request.user.pk)

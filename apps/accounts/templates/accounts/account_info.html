@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n bootstrap3 %}
 
 {% block body_class %}account-info{% endblock %}
 
@@ -79,19 +79,21 @@
     <h2>
       {% trans 'Mail Notification' %}
     </h2>
-    <form method="post" class="form-horizontal">
-      <label>
-        <input type="checkbox" {% if object.is_getting_the_news %}checked="checked"{% endif %} disabled="disabled">
-        {% trans 'News, updates, and special news!' %}
-      </label>
-      <div class="clear"></div>
-      <input type="submit" class="btn btn-primary" value="{% trans 'Save Notification' %}">
+    <form method="post" action="{% url 'accounts:subscriptions_edit' %}">
+      {% csrf_token %}
+      {% bootstrap_form_errors subscriptions_form %}
+      {% bootstrap_form subscriptions_form %}
+
+      {% buttons %}
+        {% trans 'Save Notifications Settings' as save_trans %}
+        {% bootstrap_button save_trans 'submit' %}
+      {% endbuttons %}
     </form>
   </div>
 
   <div class="logic-block clearfix">
     <a href="{% url 'account_logout' %}" class="btn change-btn">
-        {% trans 'Logout' %}
+      {% trans 'Logout' %}
     </a>
   </div>
 {% endblock %}
