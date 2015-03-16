@@ -43,4 +43,16 @@ $(function() {
             $('.navbar-nav .search').css('display','inline-block');
         }
     });
+
+    $(window).bind('scroll', function() {
+        var topOffset = $('.top-podcast').height();
+         if ($(window).scrollTop() > topOffset) {
+             $('.navbar').addClass('fixed');
+             $('#content').css('margin-top','92px');
+         }
+         else {
+             $('.navbar').removeClass('fixed');
+             $('#content').css('margin-top','0');
+         }
+    });
 });
