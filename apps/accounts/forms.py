@@ -1,8 +1,13 @@
+import datetime
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext as _
 from django.forms import ChoiceField, widgets, ModelForm
 from django.forms.extras.widgets import SelectDateWidget
 from apps.accounts.models import CustomEmailUser, SubscriptionPlans
+
+
+MAX_AGE_ALLOWED = 100
+MIN_AGE_ALLOWED = 16
 
 
 class CustomSignupForm(ModelForm):
@@ -31,6 +36,23 @@ class CustomSignupForm(ModelForm):
         model = get_user_model()
         fields = ('first_name', 'last_name', 'country', 'birthdate', 'is_getting_the_news')
         widgets = {
-            'birthdate': SelectDateWidget(),
+            'birthdate': SelectDateWidget(years=range(
+                datetime.date.today().year - MIN_AGE_ALLOWED,
+                datetime.date.today().year - MAX_AGE_ALLOWED,
+                -1
+            )),
             'is_getting_the_news': widgets.CheckboxInput()
+        }
+
+
+class AccountEditForm(ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name', 'last_name', 'country', 'birthdate')
+        widgets = {
+            'birthdate': SelectDateWidget(years=range(
+                datetime.date.today().year - MIN_AGE_ALLOWED,
+                datetime.date.today().year - MAX_AGE_ALLOWED,
+                -1
+            )),
         }

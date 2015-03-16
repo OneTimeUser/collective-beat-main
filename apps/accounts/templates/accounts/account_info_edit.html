@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load i18n bootstrap3 %}
+
+{% block body_class %}account-info{% endblock %}
+{% block head_title %}{% trans "Account information editing" %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans "Account information editing" %}</h1>
+
+  <form method="post" class="form-horizontal">
+    {% csrf_token %}
+    {% bootstrap_form_errors form %}
+    {% bootstrap_form form layout='horizontal' %}
+
+    {% buttons  layout='horizontal' %}
+      {% trans "Submit" as sing_up_trans %}
+      {% bootstrap_button sing_up_trans 'submit' %}
+    {% endbuttons %}
+  </form>
+{% endblock %}
