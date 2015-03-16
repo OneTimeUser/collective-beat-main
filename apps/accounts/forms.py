@@ -48,7 +48,7 @@ class CustomSignupForm(ModelForm):
 class AccountEditForm(ModelForm):
     class Meta:
         model = get_user_model()
-        fields = ('first_name', 'last_name', 'country', 'birthdate')
+        fields = ('first_name', 'last_name', 'email', 'country', 'birthdate')
         widgets = {
             'birthdate': SelectDateWidget(years=range(
                 datetime.date.today().year - MIN_AGE_ALLOWED,
