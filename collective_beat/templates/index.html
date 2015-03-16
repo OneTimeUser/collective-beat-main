@@ -3,6 +3,36 @@
 
 {% block head_title %}{% trans "Home" %}{% endblock %}
 
+{% block top-podcast %}
+
+    <div class="podcast-block top-podcast container-fluid">
+        {% thumbnail last_show.image "1000x400" crop="center" as im %}
+            <img src="{{ im.url }}">
+        {% endthumbnail %}
+        <div class="podcast-absolute">
+            <div class="podcast-inner">
+                <div class="podcast-content">
+                    <div class="info-block">
+                        <div class="date">
+                            {% trans 'SILENCIO' %} {{ last_show.show_number }}: {{ last_show.date }}
+                        </div>
+                        <h3>
+                            {{ last_show.title }}
+                        </h3>
+                        <div class="episode-desc">
+                            {{ last_show.description }}
+                        </div>
+                        <a href="#" class="play-button">
+                            <img src="{% static 'img/play-button.png' %}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
 {% block content %}
 
     <a href="/">
@@ -12,7 +42,7 @@
     </a>
 
     {% for show in show_list %}
-            <div class="podcast-block index-podcast top {% if forloop.counter == 1 %}col-sm-12{% else %}col-sm-6{% endif %}">
+            <div class="podcast-block index-podcast {% if forloop.counter == 1 %}top col-sm-12{% else %}col-sm-6{% endif %}">
                 {% if forloop.counter == 1 %}
                     {% thumbnail show.image "600x300" crop="center" as im %}
                         <img src="{{ im.url }}">

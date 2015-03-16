@@ -7,6 +7,13 @@ body {
   clear: both;
 }
 
+.fixed {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  z-index: 99999;
+}
+
 .container-fluid {
   padding: 0;
 }
@@ -59,8 +66,7 @@ body {
 
     .play-button, .pause-button {
       position: absolute;
-      right: 50%;
-      margin-right: -25px;
+      right: unquote('calc(100% - 60px;)');
       bottom: 10px;
       display: block;
       height: 50px;

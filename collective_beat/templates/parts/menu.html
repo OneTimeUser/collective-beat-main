@@ -1,7 +1,7 @@
 {% load i18n cache cb_tags %}
 
 {% if not user.is_paid_member %}
-    <li  class="subscribe">
+    <li  class="subscribe col-xs-6">
         {% if user.is_authenticated %}
             <a href="{% url 'accounts:info' %}">
                 <span>¡{% trans 'Upgrade' %}!</span>
@@ -16,7 +16,7 @@
 
 {% nav_link _("Archive") 'shows:archive' css_class='archive' %}
 
-<li class="podcast">
+<li class="podcast col-xs-6">
     <a href="http://soundcloud.com/" target="_blank">{% trans 'Podcasts' %}</a>
 </li>
 
