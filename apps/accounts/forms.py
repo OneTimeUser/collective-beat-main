@@ -50,9 +50,12 @@ class CustomSignupForm(ModelForm):
 
 
 class AccountEditForm(ModelForm):
+    gender = ChoiceField(choices=CustomEmailUser.GENDER_CHOICES,
+                         widget=widgets.RadioSelect(), label=_('Gender'))
+
     class Meta:
         model = get_user_model()
-        fields = ('first_name', 'last_name', 'email', 'country', 'birthdate')
+        fields = ('first_name', 'last_name', 'gender', 'gender_other', 'email', 'country', 'birthdate')
         widgets = {
             'birthdate': SelectDateWidget(years=range(
                 datetime.date.today().year - MIN_AGE_ALLOWED,

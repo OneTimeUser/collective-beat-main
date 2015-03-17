@@ -58,7 +58,13 @@
     </dl>
     <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
       <dt>{% trans 'Gender:' %}</dt>
-      <dd>{{ object.get_gender_display }}</dd>
+      <dd>
+        {% if object.gender == 'o'%}
+          {{ object.gender_other }}
+        {% else %}
+          {{ object.get_gender_display }}
+        {% endif %}
+      </dd>
     </dl>
     <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
       <dt>{% trans 'Country:' %}</dt>

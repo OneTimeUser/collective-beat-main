@@ -23,7 +23,7 @@ $(function() {
         genderOtherText.hide();
     }
 
-    $('#id_gender input[name=gender]:checked').change(function () {
+    $('#id_gender input[name=gender]').change(function () {
         if ($(this).val() === 'o') {
             genderOtherText.css('display','inline-block');
         } else {
