@@ -50,3 +50,6 @@ class Show(models.Model):
 
     def __unicode__(self):
         return 'SILENCIO {}: {}'.format(self.show_number, self.title)
+
+    class Meta:
+        ordering = ('-date',)
