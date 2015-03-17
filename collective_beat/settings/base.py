@@ -49,7 +49,16 @@ WSGI_APPLICATION = 'collective_beat.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
+
+LANGUAGES = (
+    ('en', gettext('en')),
+    ('es', gettext('es')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, '..', 'locale'),
+)
 
 TIME_ZONE = 'America/Chicago'
 
@@ -85,6 +94,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
@@ -149,13 +159,6 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
 )
 
-LANGUAGES = (
-    # ('en', gettext('en')),
-    ('es', gettext('es')),
-)
-
-# CMS_LANGUAGES = {
-
 AUTH_USER_MODEL = 'accounts.CustomEmailUser'
 
 # AUTHENTICATION_BACKENDS = (
@@ -194,7 +197,3 @@ BOOTSTRAP3 = {
     'horizontal_label_class': 'col-sm-5',
     'horizontal_field_class': 'col-sm-7',
 }
-
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, '..', 'locale'),
-)

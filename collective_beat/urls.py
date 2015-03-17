@@ -1,6 +1,6 @@
 from __future__ import print_function
 from django.conf.urls import *
-# from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
@@ -18,6 +18,11 @@ urlpatterns = patterns('',
 
     (r'^admin/', include(admin.site.urls)),
     (r'^ckeditor/', include('ckeditor.urls')),
+    (r'^i18n/', include('django.conf.urls.i18n')),
+)
+
+urlpatterns += i18n_patterns('',
+    (r'^admin/', include(admin.site.urls)),
 )
 
 # This is only needed when using runserver.
