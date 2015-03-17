@@ -20,7 +20,7 @@
                             {{ last_show.title }}
                         </h3>
                         <div class="episode-desc">
-                            {{ last_show.description|truncatechars:400|safe }}
+                            {{ last_show.description|truncatechars:400|safe|linebreaks }}
                         </div>
                         <a href="#" class="play-button">
                             <img src="{% static 'img/play-button.png' %}">
@@ -63,7 +63,7 @@
                         {{ show.title }}
                     </h3>
                     <div class="episode-desc">
-                        {{ show.description|truncatechars:400|safe }}
+                        {{ show.description|truncatechars:400|safe|linebreaks }}
                     </div>
                     <a href="#" class="play-button" data-toggle="modal" data-target="#premium-need">
                         <img src="{% static 'img/play-button.png' %}">
