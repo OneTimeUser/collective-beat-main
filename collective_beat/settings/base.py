@@ -1,8 +1,3 @@
-import os
-from django.conf.global_settings import STATICFILES_FINDERS
-
-gettext = lambda s: s
-DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
 Django settings for collective_beat project.
 
@@ -12,9 +7,12 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+import os
+from django.conf.global_settings import STATICFILES_FINDERS
+
+gettext = lambda s: s
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -51,7 +49,7 @@ WSGI_APPLICATION = 'collective_beat.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Chicago'
 
@@ -68,7 +66,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-PUBLIC_ROOT = os.path.join(DATA_DIR, '../', 'public')
+PUBLIC_ROOT = os.path.join(BASE_DIR, '../', 'public')
 MEDIA_ROOT = os.path.join(PUBLIC_ROOT, 'media')
 STATIC_ROOT = os.path.join(PUBLIC_ROOT, 'static')
 
@@ -196,3 +194,7 @@ BOOTSTRAP3 = {
     'horizontal_label_class': 'col-sm-5',
     'horizontal_field_class': 'col-sm-7',
 }
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, '..', 'locale'),
+)

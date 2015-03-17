@@ -1,0 +1,359 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-17 09:29-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/accounts/admin.py:14
+msgid "User info"
+msgstr ""
+
+#: apps/accounts/forms.py:15 collective_beat/templates/account/signup.html:23
+msgid "Subscription plan"
+msgstr ""
+
+#: apps/accounts/forms.py:17 apps/accounts/forms.py:54
+msgid "Gender"
+msgstr ""
+
+#: apps/accounts/forms.py:21
+msgid "Check to receive news, updates and special offers"
+msgstr ""
+
+#: apps/accounts/models.py:14
+msgid "Free"
+msgstr ""
+
+#: apps/accounts/models.py:15
+msgid "Monthly"
+msgstr ""
+
+#: apps/accounts/models.py:16
+msgid "Yearly"
+msgstr ""
+
+#: apps/accounts/models.py:20
+msgid "Limited opportunities"
+msgstr ""
+
+#: apps/accounts/models.py:21
+msgid "$5/month"
+msgstr ""
+
+#: apps/accounts/models.py:22
+msgid "$50/year"
+msgstr ""
+
+#: apps/accounts/models.py:63
+msgid "Male"
+msgstr ""
+
+#: apps/accounts/models.py:64
+msgid "Female"
+msgstr ""
+
+#: apps/accounts/models.py:65
+msgid "Other"
+msgstr ""
+
+#: apps/accounts/models.py:68
+msgid "first name"
+msgstr ""
+
+#: apps/accounts/models.py:69
+msgid "last name"
+msgstr ""
+
+#: apps/accounts/models.py:70
+msgid "gender"
+msgstr ""
+
+#: apps/accounts/models.py:71
+msgid "gender (other)"
+msgstr ""
+
+#: apps/accounts/models.py:72
+msgid "country"
+msgstr ""
+
+#: apps/accounts/models.py:73
+msgid "Date of Birth"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:6
+msgid "Account info"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:10
+msgid "User account"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:13
+msgid "Manage your information and levels"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:16
+msgid "Subscription Plan"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:18
+msgid "Your current plan:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:31
+msgid "Change Plan:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:38
+#: collective_beat/templates/account/login.html:25
+msgid "or"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:45
+msgid "User Informtion"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:48
+msgid "First name:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:52
+msgid "Last name:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:56
+msgid "Email:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:60
+msgid "Gender:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:70
+msgid "Country:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:74
+msgid "Day of birth:"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:79
+#: collective_beat/templates/account/password_change.html:8
+#: collective_beat/templates/account/password_change.html:11
+#: collective_beat/templates/account/password_change.html:17
+msgid "Change Password"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:82
+msgid "Change Information"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:87
+msgid "Mail Notification"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:95
+msgid "Save Notifications Settings"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:103
+msgid "Logout"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info_edit.html:6
+#: apps/accounts/templates/accounts/account_info_edit.html:9
+msgid "Account information editing"
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info_edit.html:27
+msgid "Submit"
+msgstr ""
+
+#: apps/accounts/views.py:43
+msgid "Profile details updated."
+msgstr ""
+
+#: apps/accounts/views.py:61
+msgid "Email subscriptions settings changed"
+msgstr ""
+
+#: apps/shows/models.py:33 apps/shows/models.py:41
+msgid "Show title"
+msgstr ""
+
+#: apps/shows/templates/shows/list.html:5
+#: apps/shows/templates/shows/search.html:5
+msgid "Shows archive"
+msgstr ""
+
+#: apps/shows/templates/shows/list.html:13
+msgid "All"
+msgstr ""
+
+#: apps/shows/templates/shows/list.html:37
+#: collective_beat/templates/index.html:17
+#: collective_beat/templates/index.html:60
+msgid "SILENCIO"
+msgstr ""
+
+#: apps/shows/templates/shows/list.html:54
+msgid "No shows yet"
+msgstr ""
+
+#: apps/shows/templates/shows/search.html:5
+msgid "Search results"
+msgstr ""
+
+#: apps/shows/templates/shows/search.html:12
+msgid "No shows found"
+msgstr ""
+
+#: collective_beat/settings/base.py:154
+msgid "es"
+msgstr ""
+
+#: collective_beat/templates/account/email_confirm.html:9
+#: collective_beat/templates/account/email_confirm.html:13
+msgid "Confirm E-mail Address"
+msgstr ""
+
+#: collective_beat/templates/account/email_confirm.html:18
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: collective_beat/templates/account/email_confirm.html:22
+msgid "Confirm"
+msgstr ""
+
+#: collective_beat/templates/account/email_confirm.html:28
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: collective_beat/templates/account/login.html:9
+#: collective_beat/templates/account/login.html:13
+#: collective_beat/templates/account/login.html:45
+#: collective_beat/templates/parts/menu.html:26
+msgid "Sign In"
+msgstr ""
+
+#: collective_beat/templates/account/login.html:16
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"      of your existing third party accounts. Or, <a href=\"%(signup_url)s"
+"\">sign up</a>\n"
+"      for a %(site_name)s account and sign in below:"
+msgstr ""
+
+#: collective_beat/templates/account/login.html:31
+#, python-format
+msgid ""
+"If you have not created an account yet, then please\n"
+"      <a href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+
+#: collective_beat/templates/account/login.html:42
+msgid "Forgot Password?"
+msgstr ""
+
+#: collective_beat/templates/account/password_reset.html:9
+msgid "Having trouble signing in?"
+msgstr ""
+
+#: collective_beat/templates/account/password_reset.html:13
+msgid "Password Reset"
+msgstr ""
+
+#: collective_beat/templates/account/password_reset.html:23
+msgid ""
+"To reset your password, enter the email address you use to sign in to "
+"Collective beat."
+msgstr ""
+
+#: collective_beat/templates/account/password_reset.html:24
+msgid "Continue"
+msgstr ""
+
+#: collective_beat/templates/account/signup.html:7
+msgid "Signup"
+msgstr ""
+
+#: collective_beat/templates/account/signup.html:10
+msgid "Register"
+msgstr ""
+
+#: collective_beat/templates/account/signup.html:12
+msgid "Register with your email address"
+msgstr ""
+
+#: collective_beat/templates/account/signup.html:62
+msgid "Sign up"
+msgstr ""
+
+#: collective_beat/templates/base.html:49
+msgid "AL"
+msgstr ""
+
+#: collective_beat/templates/base.html:50
+msgid "AIRE"
+msgstr ""
+
+#: collective_beat/templates/base.html:108
+msgid "This is a PREMIUM feature"
+msgstr ""
+
+#: collective_beat/templates/base.html:110
+msgid "Please Upgrade your account"
+msgstr ""
+
+#: collective_beat/templates/base.html:111
+msgid "to enjoy unlimited streaming and listening."
+msgstr ""
+
+#: collective_beat/templates/base.html:114
+msgid "NO THANKS"
+msgstr ""
+
+#: collective_beat/templates/base.html:115
+msgid "UPGRADE"
+msgstr ""
+
+#: collective_beat/templates/index.html:4
+msgid "Home"
+msgstr ""
+
+#: collective_beat/templates/parts/menu.html:7
+msgid "Upgrade"
+msgstr ""
+
+#: collective_beat/templates/parts/menu.html:11
+msgid "Subscribe"
+msgstr ""
+
+#: collective_beat/templates/parts/menu.html:17
+msgid "Archive"
+msgstr ""
+
+#: collective_beat/templates/parts/menu.html:20
+msgid "Podcasts"
+msgstr ""
