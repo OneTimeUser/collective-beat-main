@@ -3,6 +3,7 @@
 {% load i18n bootstrap3 %}
 
 {% block body_class %}account-info{% endblock %}
+{% block head_title %}{% trans 'Account info' %}{% endblock %}
 
 {% block content %}
   <h1>
@@ -91,7 +92,7 @@
     </form>
   </div>
 
-  <div class="logic-block clearfix">
+  <div class="logout-block logic-block clearfix">
     <a href="{% url 'account_logout' %}" class="btn change-btn">
       {% trans 'Logout' %}
     </a>

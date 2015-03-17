@@ -1,7 +1,7 @@
 $(function() {
     $(document).pjax(
         '.navbar a.logo, #nav a, a.archive-category-link',
-        '#content',
+        '#pjax-content',
         {timeout: 2000}
     );
 
