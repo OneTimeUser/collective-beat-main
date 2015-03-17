@@ -40,7 +40,7 @@
           {{ show.title }}
         </h3>
         <div class="episode-desc">
-          {{ show.description|truncatechars:400 }}
+          {{ show.description|truncatechars:400|safe|linebreaks }}
         </div>
         <a onclick="loadTrack(this)" class="play-button">
           <img src="{% static 'img/play-button.png' %}">

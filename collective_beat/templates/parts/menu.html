@@ -34,3 +34,8 @@
     </form>
     <span class="search glyphicon glyphicon-search"></span>
 </li>
+{% if user.is_authenticated %}
+    <li>
+        <a href="{% url 'account_logout' %}" class="logout glyphicon glyphicon-log-out"></a>
+    </li>
+{% endif %}
