@@ -6,8 +6,8 @@ from django.forms.extras.widgets import SelectDateWidget
 from apps.accounts.models import CustomEmailUser, SubscriptionPlans
 
 
+MIN_AGE_ALLOWED = 10
 MAX_AGE_ALLOWED = 100
-MIN_AGE_ALLOWED = 16
 
 
 class CustomSignupForm(ModelForm):
@@ -24,6 +24,10 @@ class CustomSignupForm(ModelForm):
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.gender = self.cleaned_data['gender']
+
+        if self.cleaned_data['gender'] == CustomEmailUser.OTHER and self.cleaned_data['gender_other']:
+            user.gender_other = self.cleaned_data['gender_other']
+
         user.country = self.cleaned_data['country']
         user.birthdate = self.cleaned_data['birthdate']
         user.is_getting_the_news = self.cleaned_data['is_getting_the_news']
@@ -34,7 +38,7 @@ class CustomSignupForm(ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('first_name', 'last_name', 'country', 'birthdate', 'is_getting_the_news')
+        fields = ('first_name', 'last_name', 'country', 'birthdate', 'gender_other', 'is_getting_the_news')
         widgets = {
             'birthdate': SelectDateWidget(years=range(
                 datetime.date.today().year - MIN_AGE_ALLOWED,

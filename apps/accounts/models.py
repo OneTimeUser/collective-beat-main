@@ -68,6 +68,7 @@ class CustomEmailUser(AbstractEmailUser):
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
     gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES)
+    gender_other = models.CharField(_('gender (other)'), max_length=30, blank=True, null=True)
     country = CountryField(_('country'))
     birthdate = models.DateField(verbose_name=_('Date of Birth'), blank=False, null=True)
     is_getting_the_news = models.BooleanField(default=True, verbose_name='Subscribed to news and updates')

@@ -17,17 +17,17 @@ $(function() {
     //    $('#loading').hide()
     //});
 
-    var genderInput = $('<input type="text" style="display:none;" class="form-control">');
+    var genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').parent().parent());
 
-    genderInput.insertAfter($('#id_gender_2').parent().parent());
+    if ($('#id_gender input[name=gender]:checked').val() !== 'o') {
+        genderOtherText.hide();
+    }
 
-    $('#id_gender input[name=gender]').change(function () {
+    $('#id_gender input[name=gender]:checked').change(function () {
         if ($(this).val() === 'o') {
-            genderInput.css('display','inline-block');
-        }
-
-        else {
-            genderInput.hide();
+            genderOtherText.css('display','inline-block');
+        } else {
+            genderOtherText.hide();
         }
     });
 
