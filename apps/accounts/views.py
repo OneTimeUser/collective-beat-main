@@ -16,7 +16,7 @@ class AccountInfoView(DetailView):
     template_name = 'accounts/account_info.html'
 
     @method_decorator(login_required())
-    @method_decorator(pjax_block('content'))
+    @method_decorator(pjax_block('pjax-content', title_block='head_title'))
     def dispatch(self, request, *args, **kwargs):
         return super(AccountInfoView, self).dispatch(request, *args, **kwargs)
 

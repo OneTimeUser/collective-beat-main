@@ -12,7 +12,7 @@ class IndexView(ListView):
     template_name = 'index.html'
 
     # @method_decorator(pjax_block(title_variable="blog_post_title"))
-    @method_decorator(pjax_block('content'))
+    @method_decorator(pjax_block('pjax-content', title_block='head_title'))
     def dispatch(self, request, *args, **kwargs):
         return super(IndexView, self).dispatch(request, *args, **kwargs)
 
@@ -26,7 +26,7 @@ class ShowsList(ListView):
     category = None
 
     # @method_decorator(pjax_block(title_variable="blog_post_title"))
-    @method_decorator(pjax_block('content'))
+    @method_decorator(pjax_block('pjax-content', title_block='head_title'))
     def dispatch(self, request, *args, **kwargs):
         return super(ShowsList, self).dispatch(request, *args, **kwargs)
 
@@ -53,7 +53,7 @@ class SearchView(ListView):
     q = None
 
     # @method_decorator(pjax_block(title_variable="blog_post_title"))
-    @method_decorator(pjax_block('content'))
+    @method_decorator(pjax_block('pjax-content', title_block='head_title'))
     def dispatch(self, request, *args, **kwargs):
         self.q = request.GET.get('q')
         if not self.q:
