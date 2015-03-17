@@ -35,6 +35,9 @@ class ShowCategory(Orderable):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name_plural = _('categories')
+
 
 class Show(models.Model):
     category = models.ManyToManyField(ShowCategory)

@@ -1,5 +1,4 @@
 # from fabric.api import run
-import datetime
 import os
 import urllib
 
@@ -14,6 +13,7 @@ import django
 django.setup()
 
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group, Permission
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.sites.models import Site
 from django.core.files import File
@@ -98,6 +98,28 @@ def add_shows():
         show.image.save(img_filename, img_file, True)
 
 
+def add_editors():
+    editors, created = Group.objects.get_or_create(name='Editors')
+    if created:
+        add_flatpage = Permission.objects.get(codename='add_flatpage')
+        change_flatpage = Permission.objects.get(codename='change_flatpage')
+        delete_flatpage = Permission.objects.get(codename='delete_flatpage')
+
+        add_showcategory = Permission.objects.get(codename='add_showcategory')
+        change_showcategory = Permission.objects.get(codename='change_showcategory')
+        delete_showcategory = Permission.objects.get(codename='delete_showcategory')
+
+        add_show = Permission.objects.get(codename='add_show')
+        change_show = Permission.objects.get(codename='change_show')
+        delete_show = Permission.objects.get(codename='delete_show')
+
+        editors.permissions.add(add_flatpage, change_flatpage, delete_flatpage,
+                                add_showcategory, change_showcategory, delete_showcategory,
+                                add_show, change_show, delete_show)
+        editors.save()
+
+
+
 def initial_data():
     puts('==> Hi there! :)')
     puts('==> Installing the requirements...')
@@ -111,4 +133,5 @@ def initial_data():
     add_flatpages()
     add_show_categories()
     add_shows()
+    add_editors()
     puts('==> All done. Please do your thing and leave :)')
