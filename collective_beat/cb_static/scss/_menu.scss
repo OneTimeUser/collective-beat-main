@@ -15,6 +15,13 @@
       background-color: transparent !important;
     }
 
+    .active {
+      a {
+        background-image: none;
+        box-shadow: none;
+      }
+    }
+
     .subscribe {
       span {
         padding: 10px;
