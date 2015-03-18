@@ -1,5 +1,5 @@
 function init() {
-     var genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').closest('.radio'));
+    var genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').closest('.radio'));
     if ($('#id_gender input[name=gender]:checked').val() !== 'o') {
         genderOtherText.hide();
     }
@@ -24,13 +24,13 @@ $(function() {
 
     $(document).on('pjax:success', function(event, data, status, xhr, options) {
         init();
-    });
-    //$(document).on('pjax:send', function() {
-    //    $('#loading').show();
-    //});
-    //$(document).on('pjax:complete', function() {
-    //    $('#loading').hide()
-    //});
+    })
+        .on('pjax:send', function() {
+            $('#loading').show();
+        })
+        .on('pjax:complete', function() {
+            $('#loading').hide();
+        });
 
     init();
 
@@ -53,14 +53,14 @@ $(function() {
 
     $(window).bind('scroll', function() {
         var topOffset = $('.top-podcast').height();
-         if ($(window).scrollTop() > topOffset) {
-             $('.navbar').addClass('fixed');
-             $('#content').css('margin-top','92px');
-         }
-         else {
-             $('.navbar').removeClass('fixed');
-             $('#content').css('margin-top','0');
-         }
+        if ($(window).scrollTop() > topOffset) {
+            $('.navbar').addClass('fixed');
+            $('#content').css('margin-top','92px');
+        }
+        else {
+            $('.navbar').removeClass('fixed');
+            $('#content').css('margin-top','0');
+        }
     });
 
 });
