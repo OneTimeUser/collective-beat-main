@@ -1,8 +1,10 @@
+from django.conf import settings
 from django.db import models
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext as _
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
+from allauth.account.models import EmailAddress
 
 
 class SubscriptionPlans(object):
@@ -102,3 +104,23 @@ class CustomEmailUser(AbstractEmailUser):
 
     def __unicode__(self):
         return self.get_full_name()
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
+
+    def __unicode__(self):
+        return "{}'s profile".format(self.user)
+
+    class Meta:
+        db_table = 'user_profile'
+
+    def account_verified(self):
+        if self.user.is_authenticated:
+            result = EmailAddress.objects.filter(email=self.user.email)
+            if len(result):
+                return result[0].verified
+        return False
+
+CustomEmailUser.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+
