@@ -2,7 +2,7 @@ $(function() {
     $(document).pjax(
         '.navbar a.logo, #nav a, a.archive-category-link',
         '#pjax-content',
-        {timeout: 2000}
+        {timeout: 5000}
     );
 
     $(document).on('pjax:success', function(event, data, status, xhr, options) {
