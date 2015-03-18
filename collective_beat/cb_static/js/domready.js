@@ -7,8 +7,6 @@ $(function() {
 
     $(document).on('pjax:success', function(event, data, status, xhr, options) {
         console.log(event, data, status, xhr, options);
-        $('.navbar li').removeClass('active');
-        $(options.target).closest('li').addClass('active');
     });
     //$(document).on('pjax:send', function() {
     //    $('#loading').show();
@@ -17,7 +15,8 @@ $(function() {
     //    $('#loading').hide()
     //});
 
-    var genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').parent().parent());
+    var pjaxContainer = $('#pjax-content'),
+        genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').parent().parent());
 
     if ($('#id_gender input[name=gender]:checked').val() !== 'o') {
         genderOtherText.hide();
@@ -31,7 +30,7 @@ $(function() {
         }
     });
 
-    $('.navbar-nav .search, .search-block .close').click(function (e) {
+    pjaxContainer.on('click', '.navbar-nav .search, .search-block .close', function (e) {
         e.preventDefault();
         if ($('.search-block').is(':hidden')) {
             $('.search-block').addClass('shown');
