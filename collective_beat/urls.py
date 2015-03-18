@@ -11,6 +11,7 @@ admin.autodiscover()
 # urlpatterns = i18n_patterns('',
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
+    (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     (r'^accounts/', include('allauth.urls')),
     (r'^account/', include('apps.accounts.urls', namespace='accounts')),
     (r'^shows/', include('apps.shows.urls', namespace='shows')),
