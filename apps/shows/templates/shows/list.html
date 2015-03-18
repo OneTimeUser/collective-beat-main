@@ -24,7 +24,7 @@
   <h2>{% block list_title %}{% endblock %}</h2>
 
   {% for show in show_list %}
-    <div class="podcast-block index-podcast col-sm-6" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
+    <div class="podcast-block index-podcast col-sm-6" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
 
       {% thumbnail show.image "300x300" crop="center" as im %}
         <img src="{{ im.url }}" class="hidden-xs">
@@ -42,12 +42,18 @@
         <div class="episode-desc">
           {{ show.description|truncatechars:400|safe|linebreaks }}
         </div>
-        <a onclick="loadTrack(this)" class="play-button">
-          <img src="{% static 'img/play-button.png' %}">
-        </a>
-        <a onclick="pause(this)" class="pause-button" style="display: none;">
-          <img src="{% static 'img/pause-button.png' %}">
-        </a>
+        {% if user.is_authenticated and user.is_paid_member %}
+            <a onclick="loadTrack(this)" class="play-button">
+                <img src="{% static 'img/play-button.png' %}">
+            </a>
+            <a onclick="pause(this)" class="pause-button" style="display: none;">
+              <img src="{% static 'img/pause-button.png' %}">
+            </a>
+        {% else %}
+            <a href="#" class="play-button-subscribe" data-toggle="modal" data-target="#premium-need">
+                <img src="{% static 'img/play-button.png' %}">
+            </a>
+        {% endif %}
       </div>
     </div>
   {% empty %}

@@ -29,7 +29,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body onload='timerTick()'>
+<body{% if user.is_authenticated %} onload='timerTick()'{% endif %}>
 
 <div id="loading">Loading...</div>
 
@@ -94,8 +94,10 @@
     <script type="text/javascript"
             src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/jquery-pjax/jquery.pjax.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
+    {% if user.is_authenticated %}
+        <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
+    {% endif %}
     <script type="text/javascript" src="{% static 'js/domready.js' %}"></script>
 {% endcompress %}
 
@@ -118,7 +120,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'NO THANKS' %}</button>
-                    <a href="{% url 'account_signup' %}" class="btn btn-primary">{% trans 'UPGRADE' %}</a>
+                    {% if not user.is_authenticated %}
+                        <a href="{% url 'account_signup' %}" class="btn btn-primary">{% trans 'SIGN UP' %}</a>
+                    {% elif user.is_authenticated and not user.is_paid_member %}
+                        <a href="{% url 'accounts:info' %}" class="btn btn-primary">{% trans 'UPGRADE' %}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

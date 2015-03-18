@@ -98,6 +98,15 @@
           height: 50px;
           width: 50px;
         }
+
+        .play-button-subscribe {
+          position: absolute;
+          right: unquote('calc(100% - 60px;)');
+          bottom: 10px;
+          display: block;
+          height: 50px;
+          width: 50px;
+        }
       }
     }
 
@@ -117,6 +126,12 @@
           right: 0;
           margin: 0 0 0 -37px;
         }
+
+        .play-button-subscribe {
+          bottom: 50%;
+          right: 0;
+          margin: 0 0 0 -37px;
+        }
       }
     }
     .info-block {
@@ -130,6 +145,12 @@
 
       .play-button, .pause-button {
         height: 50px;
+        width: 50px;
+        bottom: 20px;
+      }
+
+      .play-button-subscribe {
+          height: 50px;
         width: 50px;
         bottom: 20px;
       }
@@ -161,6 +182,11 @@
       }
 
       .play-button, .pause-button {
+        height: 75px !important;
+        width: 75px !important;
+      }
+
+      .play-button-subscribe {
         height: 75px !important;
         width: 75px !important;
       }
