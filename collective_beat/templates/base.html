@@ -29,7 +29,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body{% if user_is_authenticated %} onload='timerTick()'{% endif %}>
+<body{% if user.is_authenticated %} onload='timerTick()'{% endif %}>
 
 {% block pjax-content %}
     <div id="pjax-content" class="{% block body_class %}{% endblock %}">
