@@ -5,7 +5,7 @@
 
 {% block top-podcast %}
 
-    <div class="podcast-block top-podcast container-fluid"  data-show-id="{{ last_show.id }}" data-show-date="{{ last_show.date }}" data-show-number="{{ last_show.show_number }}" data-show-url="{{ last_show.url }}" data-show-title="{{ last_show.title }}" data-show-description="{{ last_show.description }}>
+    <div class="podcast-block top-podcast container-fluid" data-show-id="{{ last_show.id }}" data-show-date="{{ last_show.date }}" data-show-number="{{ last_show.show_number }}" data-show-url="{{ last_show.url }}" data-show-title="{{ last_show.title }}" data-show-description="{{ last_show.description }}">
         {% thumbnail last_show.image "1000x400" crop="center" as im %}
             <img src="{{ im.url }}">
         {% endthumbnail %}
