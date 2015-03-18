@@ -28,7 +28,16 @@ function loadTrack(el) {
     jwplayer("player-block").stop();
     jwplayer("player-block").remove();
     jwplayer("player-block").setup({
-        file: showAttrs['data-show-url'].value,
+        sources: [
+            {
+                file: showAttrs['data-show-url'].value
+            },
+            {
+                file: showAttrs['data-show-url-ios'].value
+            }
+        ],
+        rtmp: { bufferlength: 3 },
+        fallback: false,
         height: 0,
         width: 0
     }).play();

@@ -5,7 +5,7 @@
 
 {% block top-podcast %}
 
-    <div class="podcast-block top-podcast container-fluid" data-show-id="{{ last_show.id }}" data-show-date="{{ last_show.date }}" data-show-number="{{ last_show.show_number }}" data-show-url="{{ last_show.url }}" data-show-title="{{ last_show.title }}" data-show-description="{{ last_show.description }}">
+    <div class="podcast-block top-podcast container-fluid" data-show-id="{{ last_show.id }}" data-show-date="{{ last_show.date }}" data-show-number="{{ last_show.show_number }}" data-show-url="{{ last_show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ last_show.title }}" data-show-description="{{ last_show.description }}">
         {% thumbnail last_show.image "1000x400" crop="center" as im %}
             <img src="{{ im.url }}">
         {% endthumbnail %}
@@ -51,7 +51,7 @@
     </a>
 
     {% for show in show_list %}
-            <div class="podcast-block index-podcast {% if forloop.counter == 1 %}top col-sm-12{% else %}col-sm-6{% endif %}" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
+            <div class="podcast-block index-podcast {% if forloop.counter == 1 %}top col-sm-12{% else %}col-sm-6{% endif %}" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
                 {% if forloop.counter == 1 %}
                     {% thumbnail show.image "600x300" crop="center" as im %}
                         <img src="{{ im.url }}">
