@@ -1,9 +1,11 @@
+import random
 from django.core.urlresolvers import reverse
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 from djpj import pjax_block
+from apps.accounts.models import SubscriptionBanner
 from apps.shows.models import Show, ShowCategory
 
 
@@ -18,6 +20,19 @@ class IndexView(ListView):
 
     def get_queryset(self):
         return super(IndexView, self).get_queryset()[1:6]
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+
+        if self.request.user.is_authenticated():
+            subscription_banners = SubscriptionBanner.objects.filter(type=SubscriptionBanner.UPGRADE)
+        else:
+            subscription_banners = SubscriptionBanner.objects.filter(type=SubscriptionBanner.SIGNUP)
+
+        if subscription_banners:
+            context['subscription_banner'] = random.choice(subscription_banners)
+
+        return context
 
 
 class ShowsList(ListView):

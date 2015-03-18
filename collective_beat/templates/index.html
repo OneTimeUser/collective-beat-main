@@ -44,11 +44,17 @@
 
 {% block content %}
 
-    <a href="/">
-        <div class="call-to-subscribe">
-            Call to subscribe banner!
-        </div>
-    </a>
+    {% if subscription_banner %}
+
+            <div class="call-to-subscribe">
+            <a href="{% if not user.is_authenticated %}{% url 'account_signup' %}{% else %}{% url 'accounts:info' %}{% endif %}">
+                {% thumbnail subscription_banner.image "1110x115" crop="center" as im %}
+                    <img src="{{ im.url }}">
+                {% endthumbnail %}
+            </a>
+            </div>
+
+    {% endif %}
 
     {% for show in show_list %}
             <div class="podcast-block index-podcast {% if forloop.counter == 1 %}top col-sm-12{% else %}col-sm-6{% endif %}" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">

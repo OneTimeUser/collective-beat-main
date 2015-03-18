@@ -54,6 +54,19 @@ class SubscriptionPlans(object):
         return [cls.MONTHLY, cls.ANNUAL]
 
 
+class SubscriptionBanner(models.Model):
+    SIGNUP = 's'
+    UPGRADE = 'u'
+
+    CHOICES = (
+        (SIGNUP, _('Sign Up')),
+        (UPGRADE, _('Upgrade')),
+    )
+
+    image = models.ImageField()
+    type = models.CharField(_('type'), max_length=1, choices=CHOICES)
+
+
 class CustomEmailUser(AbstractEmailUser):
     """
     Extanding EmailUser custom_user
