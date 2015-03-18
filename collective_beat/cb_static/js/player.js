@@ -15,6 +15,10 @@ $(document).ready(function() {
         $('.play-button img.play-button-img').hide();
         $('.play-button img.pause-button-img').show();
     });
+    jwplayer("player-block").onPause(function() {
+        $('.play-button img.play-button-img').show();
+        $('.play-button img.pause-button-img').hide();
+    });
 });
 
 /*
@@ -47,11 +51,21 @@ function loadTrack(el) {
         + showAttrs['data-show-number'].value
         + ': ' + showAttrs['data-show-date'].value
         + ' // ' + showAttrs['data-show-title'].value);
-    $(el).hide();
-    $(el).parent().find('.pause-button').show();
 
-    $('.player-block .play-button').hide();
-    $('.player-block .pause-button').show();
+    jwplayer("player-block").onPlay(function() {
+        $(el).hide();
+        $(el).parent().find('.pause-button').show();
+
+        $('.player-block .play-button').hide();
+        $('.player-block .pause-button').show();
+    });
+    jwplayer("player-block").onPause(function() {
+        $(el).show();
+        $(el).parent().find('.pause-button').hide();
+
+        $('.player-block .play-button').show();
+        $('.player-block .pause-button').hide();
+    });
 }
 
 /*
