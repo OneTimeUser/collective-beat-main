@@ -72,6 +72,15 @@ body {
       height: 50px;
       width: 50px;
     }
+
+    .play-button-subscribe {
+      position: absolute;
+      right: unquote('calc(100% - 60px;)');
+      bottom: 10px;
+      display: block;
+      height: 50px;
+      width: 50px;
+    }
   }
 }
 
