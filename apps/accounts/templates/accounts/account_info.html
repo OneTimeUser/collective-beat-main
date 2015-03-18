@@ -54,7 +54,7 @@
     </dl>
     <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
       <dt>{% trans 'Email:' %}</dt>
-      <dd>{{ object.email }}</dd>
+      <dd>{{ object.email }} {% if not user.profile.account_verified %}<strong>(unverified)</strong>{% endif %}</dd>
     </dl>
     <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
       <dt>{% trans 'Gender:' %}</dt>
