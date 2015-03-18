@@ -75,10 +75,10 @@
       <dd>{{ object.birthdate }}</dd>
     </dl>
     <div class="clear"></div>
-    <a class="btn change-btn col-sm-2 col-sm-offset-4" href="{% url 'account_change_password' %}">
+    <a class="btn change-btn col-sm-2 col-sm-offset-4" href="{% url 'account_change_password' %}" data-pjax>
       {% trans 'Change Password' %}
     </a>
-    <a class="btn change-btn col-sm-2" href="{% url 'accounts:edit_info' %}">
+    <a class="btn change-btn col-sm-2" href="{% url 'accounts:edit_info' %}" data-pjax>
       {% trans 'Change Information' %}
     </a>
   </div>

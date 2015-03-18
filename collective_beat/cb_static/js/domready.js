@@ -1,23 +1,5 @@
-$(function() {
-    $(document).pjax(
-        '.navbar a.logo, #nav a, a.archive-category-link',
-        '#pjax-content',
-        {timeout: 2000}
-    );
-
-    $(document).on('pjax:success', function(event, data, status, xhr, options) {
-        console.log(event, data, status, xhr, options);
-    });
-    //$(document).on('pjax:send', function() {
-    //    $('#loading').show();
-    //});
-    //$(document).on('pjax:complete', function() {
-    //    $('#loading').hide()
-    //});
-
-    var pjaxContainer = $('#pjax-content'),
-        genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').parent().parent());
-
+function init() {
+     var genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').closest('.radio'));
     if ($('#id_gender input[name=gender]:checked').val() !== 'o') {
         genderOtherText.hide();
     }
@@ -29,6 +11,28 @@ $(function() {
             genderOtherText.hide();
         }
     });
+}
+
+$(function() {
+    var pjaxContainer = $('#pjax-content');
+
+    $(document).pjax(
+        '.navbar a.logo, #nav a, a.archive-category-link, a[data-pjax]',
+        '#pjax-content',
+        {timeout: 2000}
+    );
+
+    $(document).on('pjax:success', function(event, data, status, xhr, options) {
+        init();
+    });
+    //$(document).on('pjax:send', function() {
+    //    $('#loading').show();
+    //});
+    //$(document).on('pjax:complete', function() {
+    //    $('#loading').hide()
+    //});
+
+    init();
 
     pjaxContainer.on('click', '.navbar-nav .search, .search-block .close', function (e) {
         e.preventDefault();
@@ -43,6 +47,10 @@ $(function() {
         }
     });
 
+    pjaxContainer.on('click', '.alerts .close', function() {
+        $(this).closest('.list-group-item').remove();
+    });
+
     $(window).bind('scroll', function() {
         var topOffset = $('.top-podcast').height();
          if ($(window).scrollTop() > topOffset) {
@@ -55,7 +63,4 @@ $(function() {
          }
     });
 
-    $('.alerts .close').click(function() {
-        $(this).closest('.list-group-item').remove();
-    });
 });

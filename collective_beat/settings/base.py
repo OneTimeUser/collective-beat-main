@@ -100,7 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'djpj.middleware.DjangoPJAXMiddleware',
+    'djpj.middleware.DjangoPJAXMiddleware'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -198,3 +198,7 @@ BOOTSTRAP3 = {
     'horizontal_label_class': 'col-sm-5',
     'horizontal_field_class': 'col-sm-7',
 }
+
+DJPJ_PJAX_URLS = (
+    ('^/accounts/password/change', '@pjax_block("pjax-content", title_block="head_title")'),
+)

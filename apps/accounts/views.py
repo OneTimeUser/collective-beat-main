@@ -34,6 +34,11 @@ class AccountInfoEdit(UpdateView):
     form_class = AccountEditForm
     template_name = 'accounts/account_info_edit.html'
 
+    @method_decorator(login_required())
+    @method_decorator(pjax_block('pjax-content', title_block='head_title'))
+    def dispatch(self, request, *args, **kwargs):
+        return super(AccountInfoEdit, self).dispatch(request, *args, **kwargs)
+
     def form_valid(self, form):
         super(AccountInfoEdit, self).form_valid(form)
 
