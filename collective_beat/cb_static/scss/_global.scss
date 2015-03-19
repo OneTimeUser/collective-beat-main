@@ -37,6 +37,12 @@ body {
 .podcast-block {
   position: relative;
 
+  .archive-bg {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+  }
+
   &.top-podcast {
     margin-bottom: 0;
   }
