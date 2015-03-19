@@ -20,7 +20,7 @@
                             {{ last_show.title }}
                         </h3>
                         <div class="episode-desc">
-                            {{ last_show.description|truncatechars:400|linebreaks }}
+                            {{ last_show.description|truncatechars:400|striptags|linebreaks }}
                         </div>
                         {% if user.is_authenticated and user.is_paid_member %}
                             <a onclick="loadTrack(this)" class="play-button">
@@ -78,7 +78,7 @@
                         {{ show.title }}
                     </h3>
                     <div class="episode-desc">
-                        {{ show.description|truncatechars:400|linebreaks }}
+                        {{ show.description|truncatechars:400|striptags|linebreaks }}
                     </div>
                     {% if user.is_authenticated and user.is_paid_member %}
                         <a onclick="loadTrack(this)" class="play-button">
