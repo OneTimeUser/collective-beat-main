@@ -101,8 +101,8 @@
 
         .play-button-subscribe {
           position: absolute;
-          right: unquote('calc(100% - 60px;)');
-          bottom: 10px;
+          right: unquote('calc(100% - 60px)');
+          bottom: -60px;
           display: block;
           height: 50px;
           width: 50px;
@@ -129,7 +129,7 @@
 
         .play-button-subscribe {
           bottom: 50%;
-          right: 0;
+          right: 0 !important;
           margin: 0 0 0 -37px;
         }
       }
@@ -189,6 +189,7 @@
       .play-button-subscribe {
         height: 75px !important;
         width: 75px !important;
+        right: unquote('calc(100% - 90px)') !important;
       }
     }
   }

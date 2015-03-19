@@ -14,7 +14,7 @@
         </li>
       {% for cat in categories %}
         <li role="presentation" {% if cat == category %}class="active"{% endif %}>
-          <a href="{% url 'shows:archive_category' category=cat.title %}" class="archive-category-link">
+              <a href="{% url 'shows:archive_category' category=cat.title %}" class="archive-category-link">
             {{ cat.title }}</a>
         </li>
       {% endfor %}
@@ -24,14 +24,8 @@
   <h2>{% block list_title %}{% endblock %}</h2>
 
   {% for show in show_list %}
-    <div class="podcast-block index-podcast col-sm-6" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
-
-      {% thumbnail show.image "300x300" crop="center" as im %}
-        <img src="{{ im.url }}" class="hidden-xs">
-      {% endthumbnail %}
-      {% thumbnail show.image "600x300" crop="center" as im %}
-        <img src="{{ im.url }}" class="visible-xs-block">
-      {% endthumbnail %}
+    <div class="podcast-block index-podcast col-sm-6 archive" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
+      <div class="archive-bg" {% thumbnail show.image "600x300" crop="center" as im %}style="background-image: url({{ im.url }});"{% endthumbnail %}></div>
       <div class="info-block">
         <div class="date">
           {% trans 'SILENCIO' %} {{ show.show_number }}: {{ show.date }}
@@ -40,7 +34,7 @@
           {{ show.title }}
         </h3>
         <div class="episode-desc">
-          {{ show.description|truncatechars:400|safe|linebreaks }}
+          {{ show.description|truncatechars:400|striptags|linebreaks }}
         </div>
         {% if user.is_authenticated and user.is_paid_member %}
             <a onclick="loadTrack(this)" class="play-button">
