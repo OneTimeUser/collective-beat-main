@@ -1,4 +1,5 @@
-from allauth.account.utils import send_email_confirmation
+from allauth.account.utils import send_email_confirmation, get_next_redirect_url
+from allauth.account.views import SignupView
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -70,3 +71,12 @@ class SubscriptionsEditView(UpdateView):
         return reverse('accounts:info')
 
 
+class SubscriptionSignupView(SignupView):
+    def get_success_url(self):
+        # @TODO this url is for testing only!!!
+        to_plan_redirect_url = reverse('accounts:info')
+        # Explicitly passed ?next= URL takes precedence
+        ret = (get_next_redirect_url(self.request,
+                                     self.redirect_field_name)
+               or to_plan_redirect_url)
+        return ret
