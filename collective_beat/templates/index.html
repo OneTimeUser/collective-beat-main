@@ -5,7 +5,7 @@
 
 {% block top-podcast %}
 
-    <div class="podcast-block top-podcast container-fluid" data-show-id="{{ last_show.id }}" data-show-date="{{ last_show.date }}" data-show-number="{{ last_show.show_number }}" data-show-url="{{ last_show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ last_show.title }}" data-show-description="{{ last_show.description }}">
+    <div class="podcast-block top-podcast container-fluid" data-show-id="{{ last_show.id }}" data-show-date="{{ last_show.date }}" data-show-number="{{ last_show.show_number }}" data-show-url="{{ last_show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ last_show.title }}" data-show-description="{{ last_show.description|striptags }}">
         {% thumbnail last_show.image "1000x400" crop="center" as im %}
             <img src="{{ im.url }}">
         {% endthumbnail %}
@@ -20,7 +20,7 @@
                             {{ last_show.title }}
                         </h3>
                         <div class="episode-desc">
-                            {{ last_show.description|truncatechars:400|safe|linebreaks }}
+                            {{ last_show.description|truncatechars:400|striptags|linebreaks }}
                         </div>
                         {% if user.is_authenticated and user.is_paid_member %}
                             <a onclick="loadTrack(this)" class="play-button">
@@ -57,7 +57,7 @@
     {% endif %}
 
     {% for show in show_list %}
-            <div class="podcast-block index-podcast {% if forloop.counter == 1 %}top col-sm-12{% else %}col-sm-6{% endif %}" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description }}">
+            <div class="podcast-block index-podcast {% if forloop.counter == 1 %}top col-sm-12{% else %}col-sm-6{% endif %}" data-show-id="{{ show.id }}" data-show-date="{{ show.date }}" data-show-number="{{ show.show_number }}" data-show-url="{{ show.url }}" data-show-url-ios="{{ show.url_for_ios }}" data-show-title="{{ show.title }}" data-show-description="{{ show.description|striptags }}">
                 {% if forloop.counter == 1 %}
                     {% thumbnail show.image "600x300" crop="center" as im %}
                         <img src="{{ im.url }}">
@@ -78,7 +78,7 @@
                         {{ show.title }}
                     </h3>
                     <div class="episode-desc">
-                        {{ show.description|truncatechars:400|safe|linebreaks }}
+                        {{ show.description|truncatechars:400|striptags|linebreaks }}
                     </div>
                     {% if user.is_authenticated and user.is_paid_member %}
                         <a onclick="loadTrack(this)" class="play-button">

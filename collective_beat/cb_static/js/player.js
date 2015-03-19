@@ -45,7 +45,7 @@ function loadTrack(el) {
         height: 0,
         width: 0
     }).play();
-
+    console.log(showAttrs['data-show-description'].value);
     $('marquee.hidden-xs').text(showAttrs['data-show-description'].value);
     $('div.show-name').text('SILENCIO '
         + showAttrs['data-show-number'].value
