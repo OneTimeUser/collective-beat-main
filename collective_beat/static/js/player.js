@@ -1,33 +1,12 @@
 var playingTrackAttrs = {};
 
-$(document).ready(function() {
-    /*
-     if we need to have an initial stream or track to play
-     we put the settings here
-     */
-    jwplayer("player-block").setup({
-        file: "",
-        height: 0,
-        width: 0
-    });
-
-    jwplayer("player-block").onPlay(function() {
-        $('.play-button img.play-button-img').hide();
-        $('.play-button img.pause-button-img').show();
-    });
-    jwplayer("player-block").onPause(function() {
-        $('.play-button img.play-button-img').show();
-        $('.play-button img.pause-button-img').hide();
-    });
-});
-
 /*
     function for starting playback and visual representation
     for the current playing stream/playback
  */
 function loadTrack(el) {
     var showAttrs = playingTrackAttrs = $(el).parents('.podcast-block')[0].attributes;
-    $($(el).parents('.podcast-block')).loader('show', {overlay: false, background: false});
+    $(el).closest('.podcast-block').loader('show', {overlay: false, background: false});
     $('.pause-button').hide();
     $('.play-button').show();
     jwplayer("player-block").stop();
