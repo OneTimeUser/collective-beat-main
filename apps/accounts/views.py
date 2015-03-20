@@ -1,3 +1,4 @@
+from braintree import SuccessfulResult
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -64,18 +65,15 @@ class SubscriptionsEditView(FormView):
 
     @method_decorator(login_required())
     def dispatch(self, request, *args, **kwargs):
-        if self.kwargs['plan_id'] != 'free':
-            self.plan_data = SubscriptionPlans.plan_by_braintree_id(kwargs['plan_id'])
+        self.plan_data = SubscriptionPlans.plan_by_braintree_id(kwargs['plan_id'])
 
         return super(SubscriptionsEditView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
-        # canceling previous user's subscription (if any):
+        # cancelling previous user's subscription (if any):
         if self.request.user.is_paid_member and self.request.user.braintree_subscription_id:
             result = self.request.user.cancel_current_subscription()
-            if result:
-                messages.success(self.request, result.message)
-            else:
+            if type(result) is not SuccessfulResult:
                 messages.error(self.request, result.message)
 
         if self.plan_data['id'] != SubscriptionPlans.FREE:
