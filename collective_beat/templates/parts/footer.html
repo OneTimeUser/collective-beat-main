@@ -27,7 +27,7 @@
       <a href="/" class="footer-logo">
         <img src="{% static 'img/footer-logo.png' %}">
       </a>
-      <a onclick="jwplayer('player-block').play()" class="play-button">
+      <a href="#" onclick="event.preventDefault(); jwplayer('player-block').play();" class="play-button">
         <img src="{% static 'img/play-button.png' %}">
       </a>
       <a onclick="pause(this)" class="pause-button" style="display: none;">
