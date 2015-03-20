@@ -14,9 +14,9 @@
   </p>
   <div class="subscription-plan logic-block clearfix">
     <h2>{% trans 'Subscription Plan' %}</h2>
-    <div class="col-sm-5">
-      <span class="text">{% trans 'Your current plan:' %}</span>
-      <span class="price-plan btn">
+    <div class="col-lg-5 col-md-6 current-plan">
+      <span class="text col-xs-12">{% trans 'Your current plan:' %}</span>
+      <span class="price-plan btn col-xs-12">
         <strong>{{ user.get_subscription_plans_info.current.title }}</strong>
         {{ user.get_subscription_plans_info.current.description }}
       </span>
@@ -26,16 +26,16 @@
 {#        {% trans 'Change Plan:' %}#}
 {#      </span>#}
 {#    </div>#}
-    <div class="col-sm-7">
-      <span class="text">
+    <div class="col-lg-7 col-md-6">
+      <span class="text col-xs-12">
         {% trans 'Change Plan:' %}
       </span>
       {% for plan_data in user.get_subscription_plans_info.available %}
-        <a href="{% url 'accounts:change_plan' plan_id=plan_data.braintree_id %}" class="price-plan btn btn-primary">
+        <a href="{% url 'accounts:change_plan' plan_id=plan_data.braintree_id %}" class="price-plan btn btn-primary col-xs-12">
           <strong>{{ plan_data.title }}</strong>{{ plan_data.description }}
         </a>
         {% if not forloop.last %}
-          <span class="text">{% trans 'or' %}</span>
+          <span class="text col-xs-12">{% trans 'or' %}</span>
         {% endif %}
       {% endfor %}
     </div>

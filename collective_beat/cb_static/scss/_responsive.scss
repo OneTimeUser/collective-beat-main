@@ -48,6 +48,11 @@
 
 @media screen and (min-width: $screen-sm-min) {
 
+  .account-info .price-plan,
+  .account-info span.text {
+    width: auto;
+  }
+
   .navbar {
     li {
       width: auto;
