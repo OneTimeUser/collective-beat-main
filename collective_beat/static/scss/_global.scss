@@ -1,6 +1,11 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   font-family: 'Roboto Slab', serif;
-  position: relative;
+  margin-bottom: $footer-height;
 }
 
 .clear {

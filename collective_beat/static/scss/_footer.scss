@@ -1,5 +1,9 @@
 .footer {
   background-color: #000000;
+  bottom: 0;
+  height: $footer-height;
+  position: absolute;
+  width: 100%;
 
   .footer-menu {
     font-family: Helvetica;
