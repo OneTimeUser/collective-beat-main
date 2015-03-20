@@ -27,6 +27,4 @@ def get_customers():
 
 
 def get_customer(customer_id):
-    return braintree.Customer.search(
-        braintree.CustomerSearch.id == customer_id,
-    )
+    return braintree.Customer.find(customer_id)
