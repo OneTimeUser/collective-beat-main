@@ -27,6 +27,7 @@ $(document).ready(function() {
  */
 function loadTrack(el) {
     var showAttrs = playingTrackAttrs = $(el).parents('.podcast-block')[0].attributes;
+    $($(el).parents('.podcast-block')).loader('show', {overlay: false, background: false});
     $('.pause-button').hide();
     $('.play-button').show();
     jwplayer("player-block").stop();
@@ -57,6 +58,7 @@ function loadTrack(el) {
 
         $('.player-block .play-button').hide();
         $('.player-block .pause-button').show();
+        $($(el).parents('.podcast-block')).loader('hide', {overlay: false, background: false});
     });
     jwplayer("player-block").onPause(function() {
         $(el).show();
@@ -65,6 +67,10 @@ function loadTrack(el) {
         $('.player-block .play-button').show();
         $('.player-block .pause-button').hide();
     });
+    jwplayer("player-block").onBuffer(function() {
+        $(el).parent().find('.play-button').hide();
+    });
+
 }
 
 /*
