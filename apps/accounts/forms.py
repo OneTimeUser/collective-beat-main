@@ -75,4 +75,4 @@ class EmailSubscriptionForm(ModelForm):
 
 
 class ChangeSubscriptionPlanForm(Form):
-    payment_method_nonce = CharField()
+    payment_method_nonce = CharField(required=False)

@@ -1,4 +1,5 @@
 import braintree
+from braintree.successful_result import SuccessfulResult
 from django.conf import settings
 from django.db import models
 from django.utils.functional import cached_property
@@ -156,7 +157,7 @@ class CustomEmailUser(AbstractEmailUser):
 
     def cancel_current_subscription(self):
         result = braintree.Subscription.cancel(self.braintree_subscription_id)
-        if result.success:
+        if type(result) is SuccessfulResult:
             self.subscription_plan = SubscriptionPlans.FREE
             self.braintree_subscription_id = None
             self.save()
