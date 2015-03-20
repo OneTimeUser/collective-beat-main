@@ -4,5 +4,5 @@
 local.db
 *.sqlite3
 public
-collective_beat/cb_static/components
+collective_beat/static/components
 */settings/local.py
