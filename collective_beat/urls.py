@@ -5,12 +5,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
 from apps.shows.views import IndexView
+from apps.accounts.views import SubscriptionSignupView
 
 admin.autodiscover()
 
 # urlpatterns = i18n_patterns('',
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
+    url(r"^accounts/signup/$", SubscriptionSignupView.as_view(), name="account_signup"),
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     (r'^accounts/', include('allauth.urls')),
     (r'^account/', include('apps.accounts.urls', namespace='accounts')),

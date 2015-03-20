@@ -8,9 +8,10 @@ from django.utils.decorators import method_decorator
 from django.views.generic import DetailView, FormView
 from django.views.generic.edit import UpdateView
 from djpj import pjax_block
-from allauth.account.utils import send_email_confirmation
-from apps.accounts.forms import AccountEditForm, EmailSubscriptionForm, ChangeSubscriptionPlanForm
+from allauth.account.utils import send_email_confirmation, get_next_redirect_url
+from allauth.account.views import SignupView
 from apps.accounts.models import SubscriptionPlans
+from apps.accounts.forms import AccountEditForm, EmailSubscriptionForm, ChangeSubscriptionPlanForm
 
 
 class AccountInfoView(DetailView):
@@ -107,3 +108,13 @@ class SubscriptionsEditView(FormView):
     def get_success_url(self):
         return reverse('accounts:info')
 
+
+class SubscriptionSignupView(SignupView):
+    def get_success_url(self):
+        # @TODO this url is for testing only!!!
+        to_plan_redirect_url = reverse('accounts:info')
+        # Explicitly passed ?next= URL takes precedence
+        ret = (get_next_redirect_url(self.request,
+                                     self.redirect_field_name)
+               or to_plan_redirect_url)
+        return ret
