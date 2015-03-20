@@ -113,9 +113,9 @@ class SubscriptionsEditView(FormView):
 
 class SubscriptionSignupView(SignupView):
     def get_success_url(self):
-        # @TODO this url is for testing only!!!
-        to_plan_redirect_url = reverse('accounts:info')
-        # Explicitly passed ?next= URL takes precedence
+        to_plan_redirect_url = reverse('accounts:change_plan', kwargs={
+            'plan_id': SubscriptionPlans.available_plans_by_ids()[self.request.POST['subscription_plan']][
+                'braintree_id']})
         ret = (get_next_redirect_url(self.request,
                                      self.redirect_field_name)
                or to_plan_redirect_url)
