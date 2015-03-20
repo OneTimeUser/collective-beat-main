@@ -31,7 +31,7 @@
         {% trans 'Change Plan:' %}
       </span>
       {% for plan_data in user.get_subscription_plans_info.available %}
-        <a href="#" class="price-plan btn btn-primary">
+        <a href="{% url 'accounts:change_plan' plan_id=plan_data.braintree_id %}" class="price-plan btn btn-primary">
           <strong>{{ plan_data.title }}</strong>{{ plan_data.description }}
         </a>
         {% if not forloop.last %}

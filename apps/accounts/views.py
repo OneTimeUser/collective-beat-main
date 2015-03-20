@@ -1,4 +1,3 @@
-from allauth.account.utils import send_email_confirmation
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -6,10 +5,12 @@ from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.decorators import method_decorator
-from django.views.generic import DetailView
+from django.views.generic import DetailView, FormView
 from django.views.generic.edit import UpdateView
 from djpj import pjax_block
-from apps.accounts.forms import AccountEditForm, EmailSubscriptionForm
+from allauth.account.utils import send_email_confirmation
+from apps.accounts.forms import AccountEditForm, EmailSubscriptionForm, ChangeSubscriptionPlanForm
+from apps.accounts.models import SubscriptionPlans
 
 
 class AccountInfoView(DetailView):
@@ -55,18 +56,54 @@ class AccountInfoEdit(UpdateView):
         return reverse('accounts:info')
 
 
-class SubscriptionsEditView(UpdateView):
-    http_method_names = ['post']
-    form_class = EmailSubscriptionForm
+class SubscriptionsEditView(FormView):
+    template_name = 'accounts/plan_change.html'
+    form_class = ChangeSubscriptionPlanForm
+    plan_data = None
 
-    def get_object(self, queryset=None):
-        return get_user_model().objects.get(pk=self.request.user.pk)
+    @method_decorator(login_required())
+    def dispatch(self, request, *args, **kwargs):
+        if self.kwargs['plan_id'] != 'free':
+            self.plan_data = SubscriptionPlans.plan_by_braintree_id(kwargs['plan_id'])
+
+        return super(SubscriptionsEditView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
-        messages.success(self.request, _('Email subscriptions settings changed'))
+        # canceling previous user's subscription (if any):
+        if self.request.user.is_paid_member and self.request.user.braintree_subscription_id:
+            result = self.request.user.cancel_current_subscription()
+            if result:
+                messages.success(self.request, result.message)
+            else:
+                messages.error(self.request, result.message)
+
+        if self.plan_data['id'] != SubscriptionPlans.FREE:
+            # creating new subscription
+            result = self.request.user.create_subscription(
+                payment_method_nonce=form.cleaned_data["payment_method_nonce"],
+                plan_braintree_id=self.plan_data['braintree_id']
+            )
+
+            if result.is_success:
+                result_message = _("Subscription Status: {0}").format(result.subscription.status)
+            else:
+                result_message = _("Error: {0}").format(result.message)
+        else:
+            result_message = _('Subscription cancelled')
+
+        # messages.success(self.request, _('Subscriptions plan settings changed'))
+        messages.success(self.request, result_message)
+
         return super(SubscriptionsEditView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(SubscriptionsEditView, self).get_context_data(**kwargs)
+        context['braintree_client_token'] = self.request.user.braintree_client_token
+        context['plan_to_change'] = self.plan_data
+        context['change_to_free'] = self.plan_data['id'] == SubscriptionPlans.FREE
+
+        return context
 
     def get_success_url(self):
         return reverse('accounts:info')
-
 

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load i18n bootstrap3 %}
+
+{% block body_class %}account-info forms{% endblock %}
+{% block head_title %}{% trans 'Subscription plan change' %}{% endblock %}
+
+{% block page_scripts %}
+  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+  <script>
+    braintree.setup('{{ braintree_client_token }}', 'dropin', {
+      container: 'dropin'
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+  <h1>
+    {% trans 'Plan changing' %}
+  </h1>
+
+  <div class="help-info">
+    {% if user.is_paid_member %}
+      {% with current_plan=user.get_subscription_plans_info.current%}
+        <p>
+          {% trans 'Your current subscription plan is ' %} "{{ current_plan.title }}" ({{ current_plan.description }}).
+        </p>
+        <p>{% trans 'After confirmation your current subscription will be canceled.' %}</p>
+      {% endwith %}
+    {% endif %}
+  </div>
+
+  {% if not change_to_free %}
+    <p class="help-info">
+      {% trans 'Select payment method to change your current plan to' %} "{{ plan_to_change.title }}" ({{plan_to_change.description}})
+    </p>
+  {% endif %}
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <form method="post" class="form-horizontal">
+        {% csrf_token %}
+        {% if not change_to_free %}
+          <div id="dropin"></div>
+        {% endif %}
+        <div class="form-group">
+          <div class="col-sm-12 text-center">
+            <button class="btn btn-primary" type="submit">{% trans 'Confirm' %}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,7 +1,8 @@
 import datetime
 from django.contrib.auth import get_user_model
+from django.forms.fields import CharField
 from django.utils.translation import ugettext as _
-from django.forms import ChoiceField, widgets, ModelForm
+from django.forms import ChoiceField, widgets, ModelForm, Form
 from django.forms.extras.widgets import SelectDateWidget
 from apps.accounts.models import CustomEmailUser, SubscriptionPlans
 
@@ -32,9 +33,11 @@ class CustomSignupForm(ModelForm):
         user.birthdate = self.cleaned_data['birthdate']
         user.is_getting_the_news = self.cleaned_data['is_getting_the_news']
         user.subscription_plan = self.cleaned_data['subscription_plan']
-        # todo user.braintree_customer_id?
 
         user.save()
+
+        if user.subscription_plan != SubscriptionPlans.FREE:
+            user.create_braintree_customer_account()
 
     class Meta:
         model = get_user_model()
@@ -69,3 +72,7 @@ class EmailSubscriptionForm(ModelForm):
     class Meta:
         model = get_user_model()
         fields = ('is_getting_the_news',)
+
+
+class ChangeSubscriptionPlanForm(Form):
+    payment_method_nonce = CharField()
