@@ -32,12 +32,11 @@ class CustomSignupForm(ModelForm):
         user.country = self.cleaned_data['country']
         user.birthdate = self.cleaned_data['birthdate']
         user.is_getting_the_news = self.cleaned_data['is_getting_the_news']
-        user.subscription_plan = self.cleaned_data['subscription_plan']
+        # setting current subscription plan as 'free' since we redirect
+        # user to payments page after the sign up has been done
+        user.subscription_plan = SubscriptionPlans.FREE
 
         user.save()
-
-        if user.subscription_plan != SubscriptionPlans.FREE:
-            user.create_braintree_customer_account()
 
     class Meta:
         model = get_user_model()

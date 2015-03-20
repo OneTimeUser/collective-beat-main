@@ -67,6 +67,10 @@ class SubscriptionsEditView(FormView):
     def dispatch(self, request, *args, **kwargs):
         self.plan_data = SubscriptionPlans.plan_by_braintree_id(kwargs['plan_id'])
 
+        # preventing manual link navigation
+        if request.user.subscription_plan == self.plan_data['id']:
+            return HttpResponseRedirect(reverse('accounts:info'))
+
         return super(SubscriptionsEditView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):

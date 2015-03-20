@@ -109,6 +109,11 @@ class CustomEmailUser(AbstractEmailUser):
 
     @cached_property
     def is_paid_member(self):
+        if not self.subscription_plan:
+            # a hook for old users with empty field value
+            self.subscription_plan = SubscriptionPlans.FREE
+            self.save()
+
         return self.subscription_plan in SubscriptionPlans.get_paid_plans()
 
     def get_full_name(self):
