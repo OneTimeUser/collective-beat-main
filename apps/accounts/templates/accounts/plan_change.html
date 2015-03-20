@@ -6,12 +6,14 @@
 {% block head_title %}{% trans 'Subscription plan change' %}{% endblock %}
 
 {% block page_scripts %}
-  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
-  <script>
-    braintree.setup('{{ braintree_client_token }}', 'dropin', {
-      container: 'dropin'
-    });
-  </script>
+  {% if not change_to_free %}
+    <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+    <script>
+      braintree.setup('{{ braintree_client_token }}', 'dropin', {
+        container: 'dropin'
+      });
+    </script>
+  {% endif %}
 {% endblock %}
 
 {% block content %}

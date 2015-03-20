@@ -29,7 +29,7 @@
                             {{ last_show.description|truncatechars:400|striptags|linebreaks }}
                         </div>
                         {% if user.is_authenticated and user.is_paid_member %}
-                            <a onclick="loadTrack(this)" class="play-button">
+                            <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button">
                                 <img src="{% static 'img/play-button.png' %}">
                             </a>
                             <a onclick="pause(this)" class="pause-button" style="display: none;">
@@ -87,7 +87,7 @@
                         {{ show.description|truncatechars:400|striptags|linebreaks }}
                     </div>
                     {% if user.is_authenticated and user.is_paid_member %}
-                        <a onclick="loadTrack(this)" class="play-button">
+                        <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button">
                             <img src="{% static 'img/play-button.png' %}">
                         </a>
                         <a onclick="pause(this)" class="pause-button" style="display: none;">

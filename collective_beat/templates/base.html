@@ -2,86 +2,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Favicons -->
-    {% include 'parts/favicon.html' %}
+  <!-- Favicons -->
+  {% include 'parts/favicon.html' %}
 
-    <title>{% block head_title %}{% endblock %} | Collective beat</title>
+  <title>{% block head_title %}{% endblock %} | Collective beat</title>
 
-    <!-- Latest compiled and minified CSS -->
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
-    <!-- Optional theme -->
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
+  <!-- Latest compiled and minified CSS -->
+{#  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
+  <!-- Optional theme -->
+{#  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
-    {% compress css %}
-        <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all">
-        <link rel="stylesheet" href="{% static 'components/jquery-loader/jquery.loader.min.css' %}">
-    {% endcompress %}
+  {% compress css %}
+    <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{% static 'components/jquery-loader/jquery.loader.min.css' %}">
+  {% endcompress %}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body{% if user.is_authenticated %} onload='timerTick()'{% endif %}>
 
-{% block pjax-content %}
-    <div id="pjax-content" class="{% block body_class %}{% endblock %}">
-        <div class="alerts">
-            {% if messages %}
-                <ul class="messages list-group">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>
-                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                            {{ message }}
-                            <button type="button" class="close" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
+  {% block pjax-content %}
+    <div id="pjax-content" class="container-fluid {% block body_class %}{% endblock %}">
+      <div class="alerts">
+        {% if messages %}
+          <ul class="messages list-group">
+            {% for message in messages %}
+              <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                {{ message }}
+                <button type="button" class="close" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
 
-        {% block top-podcast %}{% endblock %}
-
-        <div class="container-fluid">
-            <div class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand logo" href="/">
-                        <img class="img-responsive" src="{% static 'img/logo.png' %}">
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right" id="nav">
-                        {% include "parts/menu.html" %}
-                    </ul>
-                </div>
-            </div>
-            <div class="container" id="content">
-                {% block content %}
-                {% endblock content %}
-            </div>
+      {% if last_show.is_live %}
+        <div class="al-aire">
+          {% trans 'AL' %}<br>
+          {% trans 'AIRE' %}
         </div>
+      {% endif %}
+
+      {% block top-podcast %}{% endblock %}
+
+      <div class="container-fluid">
+        <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="/">
+              <img class="img-responsive" src="{% static 'img/logo.png' %}">
+            </a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" id="nav">
+              {% include "parts/menu.html" %}
+            </ul>
+          </div>
+        </div>
+        <div class="container" id="content">
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
     </div>
-{% endblock %}
+  {% endblock %}
 
-{% include 'parts/footer.html' %}
+  {% include 'parts/footer.html' %}
 
-{% compress js %}
+  {% compress js %}
     <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
     <script type="text/javascript"
             src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
@@ -96,39 +103,38 @@
         <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
     {% endif %}
     <script type="text/javascript" src="{% static 'js/domready.js' %}"></script>
-{% endcompress %}
+  {% endcompress %}
 
-<div id="player-block"></div>
+  <div id="player-block"></div>
 
-<div class="modal fade" id="premium-need" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="premium-need" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="inner">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <h4>
-                        {% trans 'This is a PREMIUM feature' %}
-                    </h4>
-                    {% trans 'Please Upgrade your account' %}<br>
-                    {% trans 'to enjoy unlimited streaming and listening.' %}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'NO THANKS' %}</button>
-                    {% if not user.is_authenticated %}
-                        <a href="{% url 'account_signup' %}" class="btn btn-primary">{% trans 'SIGN UP' %}</a>
-                    {% elif user.is_authenticated and not user.is_paid_member %}
-                        <a href="{% url 'accounts:info' %}" class="btn btn-primary">{% trans 'UPGRADE' %}</a>
-                    {% endif %}
-                </div>
-            </div>
+      <div class="modal-content">
+        <div class="inner">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <h4>
+              {% trans 'This is a PREMIUM feature' %}
+            </h4>
+            {% trans 'Please Upgrade your account' %}<br>
+            {% trans 'to enjoy unlimited streaming and listening.' %}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'NO THANKS' %}</button>
+            {% if not user.is_authenticated %}
+              <a href="{% url 'account_signup' %}" class="btn btn-primary">{% trans 'SIGN UP' %}</a>
+            {% elif user.is_authenticated and not user.is_paid_member %}
+              <a href="{% url 'accounts:info' %}" class="btn btn-primary">{% trans 'UPGRADE' %}</a>
+            {% endif %}
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-{% block page_scripts %}{% endblock %}
-
+  {% block page_scripts %}{% endblock %}
 </body>
 </html>
