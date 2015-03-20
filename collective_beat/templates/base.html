@@ -88,6 +88,9 @@
     <script type="text/javascript" src="{% static 'components/jquery-pjax/jquery.pjax.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/jquery-loader/jquery.loader.min.js' %}"></script>
     {% if user.is_authenticated %}
+        <script type="text/javascript">
+            SWF_PLAYER_PATH = '{% static 'components/jwplayer/jwplayer.flash.swf' %}';
+        </script>
         <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.html5.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/player.js' %}"></script>

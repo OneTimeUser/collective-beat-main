@@ -44,7 +44,8 @@ function loadTrack(el) {
         rtmp: { bufferlength: 3 },
         fallback: false,
         height: 0,
-        width: 0
+        width: 0,
+        flashplayer: SWF_PLAYER_PATH
     }).play();
     $('marquee.hidden-xs').text(showAttrs['data-show-description'].value);
     $('div.show-name').text('SILENCIO '
