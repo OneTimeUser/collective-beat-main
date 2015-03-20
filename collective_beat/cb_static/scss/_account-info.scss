@@ -22,16 +22,21 @@
     margin-bottom: 40px;
   }
 
+  .current-plan {
+    margin-bottom: 30px;
+  }
+
   span.text {
     font-size: 18px;
     padding: 10px 5px;
+    float: none;
   }
 
   .price-plan {
     padding: 15px 20px;
     font-size: 14px;
-    width: 190px;
     text-align: left;
+    float: none;
 
     strong {
       font-weight: bold;
