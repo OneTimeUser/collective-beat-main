@@ -119,7 +119,6 @@ def add_editors():
         editors.save()
 
 
-
 def initial_data():
     puts('==> Hi there! :)')
     puts('==> Installing the requirements...')
