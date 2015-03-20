@@ -12,12 +12,13 @@
   <title>{% block head_title %}{% endblock %} | Collective beat</title>
 
   <!-- Latest compiled and minified CSS -->
-  {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
+{#  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">#}
   <!-- Optional theme -->
-  {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
+{#  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
   {% compress css %}
     <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{% static 'components/jquery-loader/jquery.loader.min.css' %}">
   {% endcompress %}
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -30,7 +31,6 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body{% if user.is_authenticated %} onload='timerTick()'{% endif %}>
-  <div id="loading">Loading...</div>
 
   {% block pjax-content %}
     <div id="pjax-content" class="container-fluid {% block body_class %}{% endblock %}">
@@ -93,6 +93,7 @@
     <script type="text/javascript"
             src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/jquery-pjax/jquery.pjax.js' %}"></script>
+    <script type="text/javascript" src="{% static 'components/jquery-loader/jquery.loader.min.js' %}"></script>
     {% if user.is_authenticated %}
       <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.html5.js' %}"></script>

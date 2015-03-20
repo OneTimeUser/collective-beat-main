@@ -26,10 +26,10 @@ $(function() {
         init();
     })
         .on('pjax:send', function() {
-            $('#loading').show();
+            $('.navbar').loader('show', {overlay: false, background: false});
         })
         .on('pjax:complete', function() {
-            $('#loading').hide();
+            $('.navbar').loader('hide', {overlay: false, background: false});
         });
 
     init();
