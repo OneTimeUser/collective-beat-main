@@ -24,7 +24,8 @@ function loadTrack(el) {
         fallback: false,
         height: 0,
         width: 0,
-        flashplayer: SWF_PLAYER_PATH
+        // @TODO WARNING!!! HARDCODED PRODUCTION SERVER SETTING
+        flashplayer: 'static/js/jwplayer/jwplayer.flash.swf'
     }).play();
     $('marquee.hidden-xs').text(showAttrs['data-show-description'].value);
     $('div.show-name').text('SILENCIO '
