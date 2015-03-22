@@ -29,8 +29,8 @@ class SubscriptionPlans(object):
 
     PLAN_BRAINTREE_ID = {
         FREE: 'free',
-        MONTHLY: 'gtyb',
-        ANNUAL: '8vs6'
+        MONTHLY: 'monthly',
+        ANNUAL: 'annual'
     }
 
     @classmethod
