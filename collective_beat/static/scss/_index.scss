@@ -1,8 +1,11 @@
 .call-to-subscribe {
-  height: 115px;
-  background-color: $gray;
   color: #ffffff;
   font-size: 32px;
   text-align: center;
   margin: 0 15px 20px;
+
+  img, a {
+    display: block;
+    width: 100%;
+  }
 }
