@@ -20,7 +20,7 @@
                 <div class="podcast-content">
                     <div class="info-block">
                         <div class="date">
-                            {% trans 'SILENCIO' %} {{ last_show.show_number }}: {{ last_show.date }}
+                            {{ last_show.show_number }}: {{ last_show.date }}
                         </div>
                         <h3>
                             {{ last_show.title }}
@@ -78,7 +78,7 @@
                 {% endif %}
                 <div class="info-block">
                     <div class="date">
-                        {% trans 'SILENCIO' %} {% trans 'SILENCIO' %} {{ show.show_number }}: {{ show.date }}
+                        {{ show.show_number }}: {{ show.date }}
                     </div>
                     <h3>
                         {{ show.title }}

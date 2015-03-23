@@ -28,7 +28,7 @@
       <div class="archive-bg" {% thumbnail show.image "600x300" crop="center" as im %}style="background-image: url({{ im.url }});"{% endthumbnail %}></div>
       <div class="info-block">
         <div class="date">
-          {% trans 'SILENCIO' %} {{ show.show_number }}: {{ show.date }}
+          {{ show.show_number }}: {{ show.date }}
         </div>
         <h3>
           {{ show.title }}

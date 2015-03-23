@@ -29,8 +29,7 @@ function loadTrack(el) {
         image: showAttrs['data-show-image'].value
     }).play();
     $('marquee.hidden-xs').text(showAttrs['data-show-description'].value);
-    $('div.show-name').text('SILENCIO '
-        + showAttrs['data-show-number'].value
+    $('div.show-name').text(showAttrs['data-show-number'].value
         + ': ' + showAttrs['data-show-date'].value
         + ' // ' + showAttrs['data-show-title'].value);
 
