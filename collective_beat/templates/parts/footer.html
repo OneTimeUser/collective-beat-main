@@ -37,9 +37,10 @@
       </div>
       <marquee loop="infinity" truespeed="3" class="hidden-xs"></marquee>
       <div class="on-air-block hidden-xs">
-{#        <a id="volume">#}
-{#          <img src="{% static 'img/volume.png' %}">#}
-{#        </a>#}
+        <a id="volume">
+          <img src="{% static 'img/volume.png' %}">
+        </a>
+        <input type="text" class="slider" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide">
         {% if last_show.is_live %}
           <span class="on-air">
                         ON AIR

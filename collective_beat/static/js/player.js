@@ -66,3 +66,7 @@ function pause(el) {
     $('.player-block .play-button').show();
     jwplayer("player-block").pause();
 }
+
+$('.slider').slider().on('slide', function(ev) {
+    jwplayer("player-block").setVolume(ev.value);
+});

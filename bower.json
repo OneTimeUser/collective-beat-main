@@ -17,6 +17,7 @@
     "jquery": "latest",
     "bootstrap-sass": "3.3.2",
     "jquery-pjax": "latest",
-    "jquery-loader": "latest"
+    "jquery-loader": "latest",
+    "bootstrap-slider": "latest"
   }
 }
