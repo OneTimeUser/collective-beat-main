@@ -52,7 +52,7 @@ class Show(models.Model):
     is_live = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return 'SILENCIO {}: {}'.format(self.show_number, self.title)
+        return u'SILENCIO {}: {}'.format(self.show_number, self.title)
 
     class Meta:
         ordering = ('-date',)
