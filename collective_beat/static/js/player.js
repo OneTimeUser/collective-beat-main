@@ -25,6 +25,7 @@ function loadTrack(el) {
         height: 0,
         width: 0,
         // @TODO WARNING!!! HARDCODED PRODUCTION SERVER SETTING
+        // @TODO this is commit for Evgeniy
         flashplayer: 'static/js/jwplayer/jwplayer.flash.swf',
         image: showAttrs['data-show-image'].value
     }).play();
