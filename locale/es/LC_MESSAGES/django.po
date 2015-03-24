@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 10:38-0500\n"
+"POT-Creation-Date: 2015-03-24 15:00-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,6 +115,7 @@ msgid "Profile details updated."
 msgstr "Perfil actualizado"
 
 #: apps/accounts/views.py:91
+#, python-brace-format
 msgid "Subscription Status: {0}"
 msgstr "Status de Suscripción: {0}"
 
@@ -229,8 +230,8 @@ msgid "Your current subscription plan is "
 msgstr "Tu plan actual"
 
 #: apps/accounts/templates/accounts/plan_change.html:30
-msgid "After confirmation your current subscription will be canceled."
-msgstr ""
+msgid "After confirmation your current subscription will be cancelled."
+msgstr "Después de confirmar, su suscripción será cancelada"
 
 #: apps/accounts/templates/accounts/plan_change.html:37
 msgid "Select payment method to change your current plan to"
