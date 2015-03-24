@@ -25,6 +25,7 @@ function loadTrack(el) {
         height: 0,
         width: 0,
         // @TODO WARNING!!! HARDCODED PRODUCTION SERVER SETTING
+        // @TODO this is commit for Evgeniy
         flashplayer: 'static/js/jwplayer/jwplayer.flash.swf',
         image: showAttrs['data-show-image'].value
     }).play();
@@ -65,3 +66,7 @@ function pause(el) {
     $('.player-block .play-button').show();
     jwplayer("player-block").pause();
 }
+
+$('.slider').slider().on('slide', function(ev) {
+    jwplayer("player-block").setVolume(ev.value);
+});

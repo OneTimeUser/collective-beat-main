@@ -11,7 +11,7 @@
     {% endfor %}
 
     <div class="col-sm-3 col-xs-6">
-      <a href="https://plus.google.com/118321328831358499158/posts" target="_blank"><img src="{% static 'img/google_plus.png' %}"></a>
+      <a href="https://instagram.com/latidocolectivo/" target="_blank"><img src="{% static 'img/instagram.png' %}"></a>
       <a href="https://twitter.com/latidocolectivo" target="_blank"><img src="{% static 'img/twitter.png' %}"></a>
       <a href="https://www.facebook.com/collectivebeat" target="_blank"><img src="{% static 'img/facebook.png' %}"></a>
     </div>
@@ -37,9 +37,10 @@
       </div>
       <marquee loop="infinity" truespeed="3" class="hidden-xs"></marquee>
       <div class="on-air-block hidden-xs">
-{#        <a id="volume">#}
-{#          <img src="{% static 'img/volume.png' %}">#}
-{#        </a>#}
+        <a id="volume">
+          <img src="{% static 'img/volume.png' %}">
+        </a>
+        <input type="text" class="slider" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide">
         {% if last_show.is_live %}
           <span class="on-air">
                         ON AIR
