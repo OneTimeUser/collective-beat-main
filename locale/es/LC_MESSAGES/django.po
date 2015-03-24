@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 11:19-0500\n"
+"POT-Creation-Date: 2015-03-24 10:38-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,8 +59,6 @@ msgid "$50/year"
 msgstr "$50dlls al año"
 
 #: apps/accounts/models.py:78
-#, fuzzy
-#| msgid "Sign up"
 msgid "Sign Up"
 msgstr "Inscríbete"
 
@@ -108,6 +106,27 @@ msgstr "País"
 msgid "Date of Birth"
 msgstr "Fecha de Nacimiento"
 
+#: apps/accounts/models.py:105
+msgid "Subscribed to news and updates"
+msgstr "Suscrito a noticias de última hora"
+
+#: apps/accounts/views.py:51
+msgid "Profile details updated."
+msgstr "Perfil actualizado"
+
+#: apps/accounts/views.py:91
+msgid "Subscription Status: {0}"
+msgstr "Status de Suscripción: {0}"
+
+#: apps/accounts/views.py:93
+#, python-brace-format
+msgid "Error: {0}"
+msgstr "Error: {0}"
+
+#: apps/accounts/views.py:95
+msgid "Subscription cancelled"
+msgstr "Suscripción cancelado"
+
 #: apps/accounts/templates/accounts/account_info.html:6
 msgid "Account info"
 msgstr "Información de tu cuenta"
@@ -138,8 +157,6 @@ msgid "or"
 msgstr "o"
 
 #: apps/accounts/templates/accounts/account_info.html:45
-#, fuzzy
-#| msgid "User Information"
 msgid "User Informtion"
 msgstr "Información del usuario"
 
@@ -200,18 +217,14 @@ msgid "Submit"
 msgstr "Enviar"
 
 #: apps/accounts/templates/accounts/plan_change.html:6
-#, fuzzy
-#| msgid "Subscription plan"
 msgid "Subscription plan change"
 msgstr "Plan de Suscripción"
 
 #: apps/accounts/templates/accounts/plan_change.html:21
 msgid "Plan changing"
-msgstr ""
+msgstr "Cambiar de Plan"
 
 #: apps/accounts/templates/accounts/plan_change.html:28
-#, fuzzy
-#| msgid "Your current plan:"
 msgid "Your current subscription plan is "
 msgstr "Tu plan actual"
 
@@ -228,34 +241,13 @@ msgstr ""
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: apps/accounts/views.py:51
-msgid "Profile details updated."
-msgstr "Perfil actualizado"
-
-#: apps/accounts/views.py:91
-#, fuzzy, python-brace-format
-#| msgid "Subscription plan"
-msgid "Subscription Status: {0}"
-msgstr "Plan de Suscripción"
-
-#: apps/accounts/views.py:93
-#, python-brace-format
-msgid "Error: {0}"
-msgstr ""
-
-#: apps/accounts/views.py:95
-#, fuzzy
-#| msgid "Subscription plan"
-msgid "Subscription cancelled"
-msgstr "Plan de Suscripción"
-
 #: apps/shows/models.py:33 apps/shows/models.py:44
 msgid "Show title"
 msgstr "Mostrar título"
 
 #: apps/shows/models.py:39
 msgid "categories"
-msgstr ""
+msgstr "categorías"
 
 #: apps/shows/templates/shows/list.html:5
 #: apps/shows/templates/shows/search.html:5
@@ -265,12 +257,6 @@ msgstr "Archivo de episodios"
 #: apps/shows/templates/shows/list.html:13
 msgid "All"
 msgstr "Todos"
-
-#: apps/shows/templates/shows/list.html:31
-#: collective_beat/templates/index.html:23
-#: collective_beat/templates/index.html:81
-msgid "SILENCIO"
-msgstr "SILENCIO"
 
 #: apps/shows/templates/shows/list.html:54
 msgid "No shows yet"
@@ -285,12 +271,49 @@ msgid "No shows found"
 msgstr "Sin resultados"
 
 #: collective_beat/settings/base.py:55
-msgid "en"
-msgstr ""
-
-#: collective_beat/settings/base.py:56
 msgid "es"
 msgstr "es"
+
+#: collective_beat/settings/base.py:56
+msgid "en"
+msgstr "en"
+
+#: collective_beat/templates/base.html:117
+msgid "This is a PREMIUM feature"
+msgstr "Sólo con plan PREMIUM"
+
+#: collective_beat/templates/base.html:119
+msgid "Please Upgrade your account"
+msgstr "Favor de ascender tu cuenta"
+
+#: collective_beat/templates/base.html:120
+msgid "to enjoy unlimited streaming and listening."
+msgstr "para disfrutar nuestra transmisión y audio ilimitado"
+
+#: collective_beat/templates/base.html:123
+msgid "NO THANKS"
+msgstr "NO GRACIAS"
+
+#: collective_beat/templates/base.html:125
+msgid "SIGN UP"
+msgstr "CONTRATAR"
+
+#: collective_beat/templates/base.html:127
+msgid "UPGRADE"
+msgstr "ASCENDER"
+
+#: collective_beat/templates/index.html:4
+#: collective_beat/templates/admin/base.html:66
+msgid "Home"
+msgstr "Inicio"
+
+#: collective_beat/templates/index.html:11
+msgid "AL"
+msgstr "AL"
+
+#: collective_beat/templates/index.html:12
+msgid "AIRE"
+msgstr "AIRE"
 
 #: collective_beat/templates/account/email_confirm.html:9
 #: collective_beat/templates/account/email_confirm.html:13
@@ -392,53 +415,12 @@ msgid "Documentation"
 msgstr ""
 
 #: collective_beat/templates/admin/base.html:55
-#, fuzzy
-#| msgid "Change Password"
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
 #: collective_beat/templates/admin/base.html:57
 msgid "Log out"
-msgstr ""
-
-#: collective_beat/templates/admin/base.html:66
-#: collective_beat/templates/index.html:4
-msgid "Home"
-msgstr "Inicio"
-
-#: collective_beat/templates/base.html:54
-#: collective_beat/templates/index.html:11
-msgid "AL"
-msgstr "AL"
-
-#: collective_beat/templates/base.html:55
-#: collective_beat/templates/index.html:12
-msgid "AIRE"
-msgstr "AIRE"
-
-#: collective_beat/templates/base.html:117
-msgid "This is a PREMIUM feature"
-msgstr "Sólo con plan PREMIUM"
-
-#: collective_beat/templates/base.html:119
-msgid "Please Upgrade your account"
-msgstr "Favor de ascender tu cuenta"
-
-#: collective_beat/templates/base.html:120
-msgid "to enjoy unlimited streaming and listening."
-msgstr "para disfrutar nuestra transmisión y audio ilimitado"
-
-#: collective_beat/templates/base.html:123
-msgid "NO THANKS"
-msgstr "NO GRACIAS"
-
-#: collective_beat/templates/base.html:125
-msgid "SIGN UP"
-msgstr ""
-
-#: collective_beat/templates/base.html:127
-msgid "UPGRADE"
-msgstr "ASCENDER"
+msgstr "Finalizar la sesión"
 
 #: collective_beat/templates/parts/menu.html:11
 msgid "Subscribe"
@@ -451,6 +433,9 @@ msgstr "Archivo"
 #: collective_beat/templates/parts/menu.html:20
 msgid "Podcasts"
 msgstr "Podcast"
+
+#~ msgid "SILENCIO"
+#~ msgstr "SILENCIO"
 
 #~ msgid "Email subscriptions settings changed"
 #~ msgstr "Configuración de suscripciones en correo electrónico actualizado"
