@@ -17,7 +17,7 @@
 {#  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">#}
 
   {% compress css %}
-    <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" rel="stylesheet" media="all">
+    <link type="text/x-scss" rel="stylesheet" href="{% static 'scss/style.scss' %}" media="all">
     <link rel="stylesheet" href="{% static 'components/jquery-loader/jquery.loader.min.css' %}">
   {% endcompress %}
 
@@ -59,25 +59,27 @@
       {% block top-podcast %}{% endblock %}
 
       <div class="container-fluid">
-        <div class="navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand logo" href="/">
-              <img class="img-responsive" src="{% static 'img/logo.png' %}">
-            </a>
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                      data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand logo" href="/">
+                <img class="img-responsive" src="{% static 'img/logo.png' %}">
+              </a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right" id="nav">
+                {% include "parts/menu.html" %}
+              </ul>
+            </div>
           </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right" id="nav">
-              {% include "parts/menu.html" %}
-            </ul>
-          </div>
-        </div>
+        </nav>
         <div class="container" id="content">
           {% block content %}
           {% endblock content %}
