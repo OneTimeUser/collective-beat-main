@@ -52,8 +52,8 @@ WSGI_APPLICATION = 'collective_beat.wsgi.application'
 LANGUAGE_CODE = 'es'
 
 LANGUAGES = (
-    ('en', gettext('en')),
     ('es', gettext('es')),
+    ('en', gettext('en')),
 )
 
 LOCALE_PATHS = (
@@ -94,6 +94,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'collective_beat.middleware.ForceDefaultLanguageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.doc.XViewMiddleware',
