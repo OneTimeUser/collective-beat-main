@@ -64,13 +64,14 @@
       float: left;
       line-height: 50px;
       margin: 0 10px;
+      width: 30%;
     }
 
     marquee {
       color: #ffffff;
       height: 50px;
       line-height: 50px;
-      width: unquote("calc(100% - 730px)");
+      width: unquote("calc(100% - 800px)");
     }
 
     .on-air-block {
