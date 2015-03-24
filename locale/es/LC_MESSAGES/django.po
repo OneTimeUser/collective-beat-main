@@ -234,7 +234,7 @@ msgstr ""
 
 #: apps/accounts/templates/accounts/plan_change.html:37
 msgid "Select payment method to change your current plan to"
-msgstr ""
+msgstr "Seleccionar método de pago para cambiar tu a (whatever it would be)"
 
 #: apps/accounts/templates/accounts/plan_change.html:49
 #: collective_beat/templates/account/email_confirm.html:22
