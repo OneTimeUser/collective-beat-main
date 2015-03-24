@@ -96,7 +96,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -156,7 +155,7 @@ STATICFILES_FINDERS += (
 )
 
 COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
+    ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
 AUTH_USER_MODEL = 'accounts.CustomEmailUser'

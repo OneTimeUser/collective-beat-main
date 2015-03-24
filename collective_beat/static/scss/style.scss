@@ -1,5 +1,5 @@
 $icon-font-path: "/static/components/bootstrap-sass/assets/fonts/bootstrap/";
-$navbar-default-bg: #ffffff;
+$navbar-default-bg: #fff;
 $navbar-default-border: none;
 $navbar-border-radius: 0;
 $navbar-padding-vertical: 0;
@@ -13,7 +13,7 @@ $btn-primary-bg: #2f76df;
 $nav-link-hover-bg: transparent;
 $footer-height: 200px;
 
-@import "/components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "global";
 @import "index";
 @import "footer";

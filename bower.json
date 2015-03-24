@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "jquery": "latest",
-    "bootstrap-sass": "3.3.2",
+    "bootstrap-sass": "latest",
     "jquery-pjax": "latest",
     "jquery-loader": "latest",
     "bootstrap-slider": "latest"
