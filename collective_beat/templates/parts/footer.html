@@ -22,17 +22,22 @@
       © 2015 collective beat
     </div>
   </div>
-  {% if user.is_authenticated %}
     <div class="player-block">
       <a href="/" class="footer-logo">
         <img src="{% static 'img/footer-logo.png' %}">
       </a>
-      <a href="#" onclick="event.preventDefault(); jwplayer('player-block').play();" class="play-button">
-        <img src="{% static 'img/play-button.png' %}">
-      </a>
-      <a onclick="pause(this)" class="pause-button" style="display: none;">
-        <img src="{% static 'img/pause-button.png' %}">
-      </a>
+      {% if user.is_authenticated and user.is_paid_member %}
+          <a href="#" onclick="event.preventDefault(); jwplayer('player-block').play();" class="play-button">
+            <img src="{% static 'img/play-button.png' %}">
+          </a>
+          <a onclick="pause(this)" class="pause-button" style="display: none;">
+            <img src="{% static 'img/pause-button.png' %}">
+          </a>
+      {% else %}
+        <a href="#" class="play-button-subscribe" data-toggle="modal" data-target="#premium-need">
+            <img src="{% static 'img/play-button.png' %}">
+        </a>
+      {% endif %}
       <div class="show-name">
       </div>
       <marquee loop="infinity" truespeed="3" class="hidden-xs"></marquee>
@@ -81,7 +86,6 @@
       }
     </script>
 
-  {% endif %}
 </div>
 
 
