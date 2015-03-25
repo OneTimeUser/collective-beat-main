@@ -5,7 +5,8 @@ django-allauth
 django-countries
 django-orderable
 django_compressor
-django-libsass
+# django-libsass
+# django-pyscss
 django-bootstrap3
 sorl-thumbnail
 fabric
