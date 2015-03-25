@@ -31,7 +31,7 @@
 
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body{% if user.is_authenticated %} onload='timerTick()'{% endif %}>
+<body onload='timerTick()'>
 
   {% block pjax-content %}
     <div id="pjax-content" class="container-fluid {% block body_class %}{% endblock %}">
@@ -89,16 +89,14 @@
     <script type="text/javascript"
             src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/jquery-pjax/jquery.pjax.js' %}"></script>
-    {% if user.is_authenticated %}
-        <script type="text/javascript" src="{% static 'components/bootstrap-slider/bootstrap-slider.js' %}"></script>
-        <script type="text/javascript" src="{% static 'components/jquery-loader/jquery.loader.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.html5.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
-        <script type="text/javascript">
-            SWF_PLAYER_PATH = '{% static 'components/jwplayer/jwplayer.flash.swf' %}';
-        </script>
-    {% endif %}
+    <script type="text/javascript" src="{% static 'components/bootstrap-slider/bootstrap-slider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'components/jquery-loader/jquery.loader.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.html5.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
+    <script type="text/javascript">
+        SWF_PLAYER_PATH = '{% static 'components/jwplayer/jwplayer.flash.swf' %}';
+    </script>
     <script type="text/javascript" src="{% static 'js/domready.js' %}"></script>
   {% endcompress %}
 
