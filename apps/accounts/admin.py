@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from custom_user.admin import EmailUserAdmin
 
-from apps.accounts.models import CustomEmailUser, SubscriptionBanner
+from apps.accounts.models import CustomEmailUser, SubscriptionBanner, UserSession
 
 
 class CustomEmailUserAdmin(EmailUserAdmin):
@@ -19,3 +19,4 @@ class CustomEmailUserAdmin(EmailUserAdmin):
 
 admin.site.register(CustomEmailUser, CustomEmailUserAdmin)
 admin.site.register(SubscriptionBanner)
+admin.site.register(UserSession)

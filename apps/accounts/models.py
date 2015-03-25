@@ -229,3 +229,17 @@ class UserProfile(models.Model):
 
 CustomEmailUser.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 
+
+class UserSession(models.Model):
+    """
+    User session tracking.
+    Used for providing session uniqueness per user - only one active session at a time.
+    """
+    session_key = models.CharField(max_length=40)
+    ip_address = models.CharField(max_length=20)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return '{} - {} ({})'.format(self.created.ctime(), self.user, self.ip_address)
+
