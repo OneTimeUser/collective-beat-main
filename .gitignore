@@ -6,3 +6,4 @@ local.db
 public
 collective_beat/static/components
 */settings/local.py
+.sass-cache
