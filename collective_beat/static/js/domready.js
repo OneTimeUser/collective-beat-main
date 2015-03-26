@@ -39,11 +39,16 @@ $(function() {
         if ($('.search-block').is(':hidden')) {
             $('.search-block').addClass('shown');
             $('.navbar-nav .search').hide();
+            $('.search-block input').css('width','200px');
         }
 
         else {
-            $('.search-block').removeClass('shown');
-            $('.navbar-nav .search').css('display','inline-block');
+            $('.search-block input').css('width','40px');
+            setTimeout(function() {
+                $('.search-block').removeClass('shown');
+                $('.navbar-nav .search').fadeIn().css('display','inline-block');
+                },300
+            );
         }
     });
 
