@@ -58,7 +58,7 @@
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                       data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">{% trans 'Toggle navigation' %}</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -94,14 +94,53 @@
     <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.html5.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
-    <script type="text/javascript">
-        SWF_PLAYER_PATH = '{% static 'components/jwplayer/jwplayer.flash.swf' %}';
-    </script>
+
     <script type="text/javascript" src="{% static 'js/domready.js' %}"></script>
   {% endcompress %}
 
   <div id="player-block"></div>
+    <script type="text/javascript">
+    SWF_PLAYER_PATH = '{% static 'components/jwplayer/jwplayer.flash.swf' %}';
+        /*
+         if we need to have an initial stream or track to play
+         we put the settings here
+         */
+        jwplayer("player-block").setup({
+            sources: [
+                {
+                    file: '{{ last_show.url }}'
+                },
+                {
+                    file: '{{ last_show.url_for_ios }}'
+                }
+            ],
+            rtmp: { bufferlength: 3 },
+            fallback: false,
+            height: 0,
+            width: 0,
+            // @TODO WARNING!!! HARDCODED PRODUCTION SERVER SETTING
+            flashplayer: 'static/js/jwplayer/jwplayer.flash.swf',
+            image: '{{ last_show.image.url }}'
+        });
 
+        $('marquee.hidden-xs').text('{{ last_show.description|striptags }}');
+        $('div.show-name').text('{{ last_show.show_number }}'
+            + ': ' + '{{ last_show.date }}'
+            + ' // ' + '{{ last_show.title }}');
+
+        jwplayer("player-block").onPlay(function() {
+            $('.player-block').loader('hide', {overlay: false, background: false});
+            $('.player-block .play-button').hide();
+            $('.player-block .pause-button').show();
+        });
+        jwplayer("player-block").onPause(function() {
+            $('.player-block .play-button').show();
+            $('.player-block .pause-button').hide();
+        });
+        jwplayer("player-block").onBuffer(function() {
+            $('.player-block').loader('show', {overlay: false, background: false});
+        });
+    </script>
   <div class="modal fade" id="premium-need" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
