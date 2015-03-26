@@ -25,7 +25,7 @@ function loadTrack(el) {
         height: 0,
         width: 0,
         // @TODO WARNING!!! HARDCODED PRODUCTION SERVER SETTING
-        flashplayer: 'static/js/jwplayer/jwplayer.flash.swf',
+        flashplayer: '/static/js/jwplayer/jwplayer.flash.swf',
         image: showAttrs['data-show-image'].value
     }).play();
     $('marquee.hidden-xs').text(showAttrs['data-show-description'].value);

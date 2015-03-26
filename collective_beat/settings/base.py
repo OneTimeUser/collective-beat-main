@@ -158,7 +158,7 @@ STATICFILES_FINDERS += (
 COMPRESS_PRECOMPILERS = (
     # ('text/x-scss', 'django_libsass.SassCompiler'),
     # ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
-    ('text/x-scss', 'sass --scss {infile} {outfile}'),
+    ('text/x-scss', 'sass --style compressed {infile} {outfile}'),
 )
 
 AUTH_USER_MODEL = 'accounts.CustomEmailUser'
