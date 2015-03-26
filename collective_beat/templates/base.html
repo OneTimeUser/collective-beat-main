@@ -123,7 +123,7 @@
             image: '{{ last_show.image.url }}'
         });
 
-        $('marquee.hidden-xs').text('{{ last_show.description|striptags }}');
+        $('marquee.hidden-xs').text('{{ last_show.description|striptags|linebreaks }}');
         $('div.show-name').text('{{ last_show.show_number }}'
             + ': ' + '{{ last_show.date }}'
             + ' // ' + '{{ last_show.title }}');
