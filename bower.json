@@ -18,6 +18,7 @@
     "bootstrap-sass": "latest",
     "jquery-pjax": "latest",
     "jquery-loader": "latest",
-    "bootstrap-slider": "latest"
+    "bootstrap-slider": "latest",
+    "jplayer": "latest"
   }
 }
