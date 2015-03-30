@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 import os
 import braintree
+import sys
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "collective_beat.settings.local")
-# sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import django
 django.setup()
