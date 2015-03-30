@@ -92,8 +92,6 @@
     <script type="text/javascript" src="{% static 'components/bootstrap-slider/bootstrap-slider.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/jquery-loader/jquery.loader.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/jplayer/dist/jplayer/jquery.jplayer.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jwplayer/jwplayer.html5.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'js/domready.js' %}"></script>
@@ -129,6 +127,9 @@
             size: {
               width: "0px",
               height: "0px"
+            },
+            play: function() {
+                $('.podcast-block').loader('hide', {overlay: false, background: false});
             }
           });
         });
