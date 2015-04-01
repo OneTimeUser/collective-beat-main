@@ -17,7 +17,7 @@ $(function() {
     var pjaxContainer = $('#pjax-content');
 
     $(document).pjax(
-        '.navbar a.logo, #nav a, a.archive-category-link, a[data-pjax]',
+        '.navbar a.logo, #nav a:not([class*=logout]), a.archive-category-link, a[data-pjax]',
         '#pjax-content',
         {timeout: 5000}
     );
@@ -36,18 +36,18 @@ $(function() {
 
     pjaxContainer.on('click', '.navbar-nav .search, .search-block .close', function (e) {
         e.preventDefault();
-        if ($('.search-block').is(':hidden')) {
-            $('.search-block').addClass('shown');
-            $('.navbar-nav .search').hide();
-            $('.search-block input').css('width','200px');
-        }
+        var $search = $('.search-block');
 
-        else {
-            $('.search-block input').css('width','40px');
+        if ($search.is(':hidden')) {
+            $search.addClass('shown');
+            $('.navbar-nav .search').hide();
+            $search.find('input').css('width','200px');
+        } else {
+            $search.find('input').css('width','40px');
             setTimeout(function() {
-                $('.search-block').removeClass('shown');
-                $('.navbar-nav .search').fadeIn().css('display','inline-block');
-                },300
+                    $search.removeClass('shown');
+                    $('.navbar-nav .search').fadeIn().css('display','inline-block');
+                }, 300
             );
         }
     });

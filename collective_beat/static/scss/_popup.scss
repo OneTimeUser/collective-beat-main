@@ -21,7 +21,18 @@
     font-size: 18px;
   }
 
+  &.authenticated {
+    .btn {
+      width: 240px;
+    }
+  }
+
   .btn {
-    width: 240px;
+    width: 30%;
+
+    &.btn-info {
+      $color: #666;
+      @include button-variant($btn-info-color, $color, darken($color, 5%));
+    }
   }
 }

@@ -1,0 +1,57 @@
+{% load staticfiles compress %}
+
+{% compress js %}
+  <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'components/jquery-pjax/jquery.pjax.js' %}"></script>
+  <script type="text/javascript" src="{% static 'components/bootstrap-slider/bootstrap-slider.js' %}"></script>
+  <script type="text/javascript" src="{% static 'components/jquery-loader/jquery.loader.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'components/jplayer/dist/jplayer/jquery.jplayer.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/player.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/domready.js' %}"></script>
+{% endcompress %}
+
+<script type="text/javascript">
+  /*
+   if we need to have an initial stream or track to play
+   we put the settings here
+   */
+  $(document).ready(function() {
+    $("#player-block").jPlayer({
+      ready: function () {
+        $(this).jPlayer("setMedia", {
+          title: "{{ last_show.title }}",
+          rtmpa: "{{ last_show.url }}",
+          m3u8a: "{{ last_show.url_for_ios }}",
+          poster: "{{ last_show.image.url }}"
+        });
+      },
+      solution: 'html, flash',
+      // @TODO WARNING!!! HARDCODED PRODUCTION SERVER SETTING
+      swfPath: "/static/components/jplayer/dist/jplayer",
+      supplied: "m3u8a, rtmpa",
+      volume: 0.8,
+      cssSelectorAncestor: "",
+      cssSelector: {
+        play: ".player-block .play-button",
+        pause: ".player-block .pause-button",
+        volumeBar: '.slider-track'
+      },
+      size: {
+        width: "0px",
+        height: "0px"
+      },
+      play: function() {
+        $('.podcast-block').loader('hide', {overlay: false, background: false});
+      }
+    });
+  });
+
+  $('marquee.hidden-xs').text('{{ last_show.description|striptags|escapejs }}');
+  $('div.show-name').text(
+      '{{ last_show.show_number }}' + ': ' + '{{ last_show.date }}' + ' // ' + '{{ last_show.title }}'
+  );
+</script>
+

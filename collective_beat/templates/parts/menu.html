@@ -1,41 +1,41 @@
 {% load i18n cache cb_tags %}
 
 {% if not user.is_paid_member %}
-    <li  class="subscribe">
-        {% if user.is_authenticated and not user.is_paid_member %}
-            <a href="{% url 'accounts:info' %}">
-                <span>¡{% trans 'Upgrade' %}!</span>
-            </a>
-        {% else %}
-            <a href="{% url 'account_signup' %}">
-                <span>¡{% trans 'Subscribe' %}!</span>
-            </a>
-        {% endif %}
-    </li>
+  <li  class="subscribe">
+    {% if user.is_authenticated and not user.is_paid_member %}
+      <a href="{% url 'accounts:info' %}">
+        <span>¡{% trans 'Upgrade' %}!</span>
+      </a>
+    {% else %}
+      <a href="{% url 'account_signup' %}">
+        <span>¡{% trans 'Subscribe' %}!</span>
+      </a>
+    {% endif %}
+  </li>
 {% endif %}
 
 {% nav_link _("Archive") 'shows:archive' css_class='archive' %}
 
 <li class="podcast">
-    <a href="https://itunes.apple.com/us/podcast/silencio-con-jose-gutierrez/id954977463" target="_blank">{% trans 'Podcasts' %}</a>
+  <a href="https://itunes.apple.com/us/podcast/silencio-con-jose-gutierrez/id954977463" target="_blank">{% trans 'Podcasts' %}</a>
 </li>
 
 {% if user.is_authenticated %}
-    {% nav_link user 'accounts:info' css_class='session' %}
+  {% nav_link user 'accounts:info' css_class='session' %}
 {% else %}
-    {% nav_link _("Sign In") 'account_login' css_class='session' %}
+  {% nav_link _("Sign In") 'account_login' css_class='session' %}
 {% endif %}
 
 <li>
-    <form class="search-block" method="get" action="{% url 'shows:search' %}">
-        <input type="text" name="q">
-        <button class="glyphicon glyphicon-search" type="submit"></button>
-        <span class="close">x</span>
-    </form>
-    <span class="search glyphicon glyphicon-search"></span>
+  <form class="search-block" method="get" action="{% url 'shows:search' %}">
+    <input type="text" name="q">
+    <button class="glyphicon glyphicon-search" type="submit"></button>
+    <span aria-hidden="true" class="close">&times;</span>
+  </form>
+  <span class="search glyphicon glyphicon-search"></span>
 </li>
 {% if user.is_authenticated %}
-    <li>
-        <a href="{% url 'account_logout' %}" class="logout glyphicon glyphicon-log-out"></a>
-    </li>
+  <li>
+    <a href="{% url 'account_logout' %}" class="logout glyphicon glyphicon-log-out"></a>
+  </li>
 {% endif %}

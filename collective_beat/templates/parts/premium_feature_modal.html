@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<div class="modal fade" id="premium-need" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content {% if user.is_authenticated %}authenticated{% endif %}">
+      <div class="inner">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <h4>
+            {% trans 'This is a PREMIUM feature' %}
+          </h4>
+          {% trans 'Please Upgrade your account' %}<br>
+          {% trans 'to enjoy unlimited streaming and listening.' %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'NO THANKS' %}</button>
+          {% if not user.is_authenticated %}
+            <a href="{% url 'account_login' %}" class="btn btn-info">{% trans 'SIGN IN' %}</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary">{% trans 'SIGN UP' %}</a>
+          {% else %}
+            <a href="{% url 'accounts:info' %}" class="btn btn-primary">{% trans 'UPGRADE' %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
