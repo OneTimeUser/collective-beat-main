@@ -10,7 +10,8 @@ $grid-gutter-width: 30px;
 $container-tablet: 570px + $grid-gutter-width;
 $btn-primary-bg: #2f76df;
 $nav-link-hover-bg: transparent;
-$footer-height: 200px;
+//$footer-height: 265px;
+$player-height: 50px;
 
 @import "../components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "global";

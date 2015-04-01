@@ -68,4 +68,26 @@ $(function() {
         }
     });
 
+    /**
+     * responsive sticky footer fix
+     */
+    var bumpIt = function() {
+            console.log($('.footer').height(), $('.footer').outerHeight(), $('#player-block').outerHeight());
+            $('body').css('margin-bottom', $('.footer').height());
+        },
+        didResize = false;
+
+    bumpIt();
+
+    $(window).resize(function() {
+        didResize = true;
+    });
+
+    setInterval(function() {
+        if(didResize) {
+            didResize = false;
+            bumpIt();
+        }
+    }, 250);
+
 });

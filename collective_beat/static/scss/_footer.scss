@@ -1,7 +1,9 @@
+@import "../components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
 .footer {
   background-color: #000000;
-  bottom: 0;
-  height: $footer-height;
+  bottom: $player-height;
+//  height: $footer-height;
   position: absolute;
   width: 100%;
 
@@ -30,7 +32,7 @@
   .player-block {
     position: fixed;
     bottom: 0;
-    height: 50px;
+    height: $player-height;
     background-color: #000000;
     width: 100%;
     z-index: 9999;
@@ -62,15 +64,15 @@
       font-size: 14px;
       color: #ffffff;
       float: left;
-      line-height: 50px;
+      line-height: $player-height;
       margin: 0 10px;
       width: 20%;
     }
 
     marquee {
       color: #ffffff;
-      height: 50px;
-      line-height: 50px;
+      height: $player-height;
+      line-height: $player-height;
       width: unquote("calc(100% - 800px)");
     }
 

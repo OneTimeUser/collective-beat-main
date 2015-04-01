@@ -1,3 +1,5 @@
+@import "../components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
 html {
   position: relative;
   min-height: 100%;
@@ -5,7 +7,7 @@ html {
 
 body {
   font-family: 'Roboto Slab', serif;
-  margin-bottom: $footer-height;
+//  margin-bottom: $footer-height;
 }
 
 .clear {
@@ -86,8 +88,7 @@ body {
       right: unquote('calc(100% - 60px;)');
       bottom: 10px;
       display: block;
-      height: 50px;
-      width: 50px;
+      @include square($player-height);
     }
 
     .play-button-subscribe {
@@ -95,8 +96,7 @@ body {
       right: unquote('calc(100% - 60px;)');
       bottom: 10px;
       display: block;
-      height: 50px;
-      width: 50px;
+      @include square($player-height);
     }
   }
 }
