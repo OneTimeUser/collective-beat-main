@@ -1,4 +1,6 @@
 function init() {
+    $(".navbar").sticky({topSpacing: 0});
+
     var genderOtherText = $('#id_gender_other').insertAfter($('#id_gender_2').closest('.radio'));
     if ($('#id_gender input[name=gender]:checked').val() !== 'o') {
         genderOtherText.hide();
@@ -56,23 +58,10 @@ $(function() {
         $(this).closest('.list-group-item').remove();
     });
 
-    $(window).bind('scroll', function() {
-        var topOffset = $('.top-podcast').height();
-        if ($(window).scrollTop() > topOffset) {
-            $('.navbar').addClass('fixed');
-            $('#content').css('margin-top','92px');
-        }
-        else {
-            $('.navbar').removeClass('fixed');
-            $('#content').css('margin-top','0');
-        }
-    });
-
     /**
      * responsive sticky footer fix
      */
     var bumpIt = function() {
-            console.log($('.footer').height(), $('.footer').outerHeight(), $('#player-block').outerHeight());
             $('body').css('margin-bottom', $('.footer').height());
         },
         didResize = false;

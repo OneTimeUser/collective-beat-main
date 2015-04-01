@@ -1,7 +1,8 @@
 .navbar {
   box-shadow: 0 3px 5px $gray-light;
-  z-index: 1;
   font-family: Helvetica;
+  z-index: 1;
+  width: 100%;
 
   .navbar-brand {
     padding-left: 0;
