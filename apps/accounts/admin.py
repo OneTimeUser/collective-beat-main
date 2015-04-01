@@ -8,6 +8,9 @@ from apps.accounts.models import CustomEmailUser, SubscriptionBanner, UserSessio
 
 
 class CustomEmailUserAdmin(EmailUserAdmin):
+    list_display = ('email', 'get_full_name', 'subscription_plan', 'is_staff',)
+    list_filter = ('is_staff', 'is_superuser', 'is_active', 'subscription_plan', 'groups',)
+
     def get_fieldsets(self, request, obj=None):
         fs = super(CustomEmailUserAdmin, self).get_fieldsets(request, obj)
         test = list(deepcopy(fs))

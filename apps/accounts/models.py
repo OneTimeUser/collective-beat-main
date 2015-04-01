@@ -122,6 +122,8 @@ class CustomEmailUser(AbstractEmailUser):
         else:
             return super(CustomEmailUser, self).get_full_name()
 
+    get_full_name.short_description = 'Full name'
+
     @cached_property
     def get_subscription_plans_info(self):
         result = {
