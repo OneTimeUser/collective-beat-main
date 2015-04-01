@@ -30,6 +30,12 @@
       padding: 10px;
     }
   }
+
+  .forms {
+    .btn-primary {
+      width: 100%;
+    }
+  }
 }
 
 @media screen and (max-width: $grid-float-breakpoint) {
@@ -169,6 +175,12 @@
 
     li {
       display: inline-block;
+    }
+  }
+
+  .forms {
+    .form-control {
+      max-width: 225px;
     }
   }
 }
