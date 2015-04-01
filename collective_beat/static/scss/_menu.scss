@@ -13,6 +13,7 @@
     text-transform: uppercase;
 
     a {
+      font-family: “p22-underground”, Helvetica;
       background-color: transparent !important;
       line-height: 70px;
       padding: 0 15px;
@@ -59,7 +60,7 @@
 
       input {
         font-size: 14px;
-        padding: 5px;
+        padding: 5px 26px 5px 5px;
         border-radius: 3px;
         border: 1px solid #9c9c9c;
         width: 0px;
