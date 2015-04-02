@@ -52,7 +52,7 @@ def add_show_categories():
 
 
 def add_shows():
-    images_dir = os.path.join(BASE_DIR, 'collective_beat/cb_static/img/')
+    images_dir = os.path.join(BASE_DIR, 'collective_beat/static/img/')
     stream_url = 'rtmp://flash.oit.duke.edu/vod/_definst_'
     shows = [
         {
@@ -92,6 +92,7 @@ def add_shows():
     img_filename = 'podcast-img6.jpg'
     result_img = urllib.urlretrieve(os.path.join(images_dir, img_filename))
     img_file = File(open(result_img[0]))
+
     for s in shows:
         show = Show.objects.create(**s)
         show.category.add(ShowCategory.objects.get(pk=1))
