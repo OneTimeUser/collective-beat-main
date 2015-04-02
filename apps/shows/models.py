@@ -1,7 +1,7 @@
 import re
 import os
 from django.db import models
-from django.utils import timezone
+from django.utils import timezone, formats
 from django.utils.translation import ugettext as _
 from django.core.files.storage import default_storage
 from unicodedata import normalize
@@ -48,11 +48,11 @@ class Show(models.Model):
     url = models.CharField(max_length=255)
     url_for_ios = models.CharField(max_length=255)
     date = models.DateField()
-    show_number = models.CharField(max_length=20)
     is_live = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return u'{}: {}'.format(self.show_number, self.title)
+        return u'{}: {}'.format(self.date, self.title)
+
 
     class Meta:
         ordering = ('-date',)
