@@ -7,6 +7,7 @@
  
 ```
 #!python
+pip install -r requirements/dev.txt
 fab initial_data
 
 ```
