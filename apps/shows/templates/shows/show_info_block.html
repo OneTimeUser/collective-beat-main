@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<div class="info-block">
+  <div class="date">
+    {{ show.show_number }}: {{ show.date }}
+  </div>
+  <h3>
+    {{ show.title }}
+  </h3>
+  <div class="episode-desc">
+    {{ show.description|truncatechars:400|striptags|linebreaks }}
+  </div>
+  {% if user.is_authenticated and user.is_paid_member %}
+    <a href="#" onclick="loadTrack(this);" class="play-button">
+      <img src="{% static 'img/play-button.png' %}">
+    </a>
+    <a onclick="pause(this);" class="pause-button" style="display: none;">
+      <img src="{% static 'img/pause-button.png' %}">
+    </a>
+  {% else %}
+    <a href="#" class="play-button-subscribe" data-toggle="modal" data-target="#premium-need">
+      <img src="{% static 'img/play-button.png' %}">
+    </a>
+  {% endif %}
+</div>
