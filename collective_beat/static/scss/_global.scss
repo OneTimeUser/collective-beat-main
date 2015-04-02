@@ -83,19 +83,14 @@ body {
       font-size: 10px;
     }
 
-    .play-button, .pause-button {
-      position: absolute;
-      right: unquote('calc(100% - 60px;)');
-      bottom: 10px;
-      display: block;
-      @include square($player-height);
-    }
-
+    .play-button,
+    .pause-button,
     .play-button-subscribe {
-      position: absolute;
-      right: unquote('calc(100% - 60px;)');
       bottom: 10px;
       display: block;
+      outline: none;
+      position: absolute;
+//      right: unquote('calc(100% - 60px)');
       @include square($player-height);
     }
   }
