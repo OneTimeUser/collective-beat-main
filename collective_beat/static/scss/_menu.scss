@@ -14,10 +14,13 @@
     text-transform: uppercase;
 
     a {
-      font-family: “p22-underground”, Helvetica;
       background-color: transparent !important;
       line-height: 70px;
       padding: 0 15px;
+    }
+
+    a:not([class*=glyphicon]) {
+      font-family: “p22-underground”, Helvetica;
     }
 
     .active {
