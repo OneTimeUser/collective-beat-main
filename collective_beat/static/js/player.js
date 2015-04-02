@@ -7,9 +7,9 @@ var playingTrackAttrs = {};
 function loadTrack(el) {
     var showAttrs = playingTrackAttrs = $(el).parents('.podcast-block')[0].attributes;
     $(el).closest('.podcast-block').loader('show', {overlay: false, background: false});
-    $('.pause-button').hide();
-    $('.play-button').show();
-    $(el).parent().find('.play-button').hide();
+    $('.pause-button').fadeOut();
+    $('.play-button').fadeIn();
+    $(el).closest('.play-button').fadeOut();
     $("#player-block").jPlayer('clearMedia');
     $("#player-block").jPlayer("setMedia", {
         title: showAttrs['data-show-title'].value,

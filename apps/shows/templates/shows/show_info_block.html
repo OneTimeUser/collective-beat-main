@@ -11,15 +11,25 @@
     {{ show.description|truncatechars:400|striptags|linebreaks }}
   </div>
   {% if user.is_authenticated and user.is_paid_member %}
-    <a href="#" onclick="loadTrack(this);" class="play-button">
-      <img src="{% static 'img/play-button.png' %}">
+    <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button">
+      <button class="cbutton cbutton--effect">
+{#        <span class="cbutton__icon glyphicon glyphicon-play-circle play-button" aria-hidden="true"></span>#}
+        <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+        <span class="cbutton__text">Play</span>
+      </button>
     </a>
-    <a onclick="pause(this);" class="pause-button" style="display: none;">
-      <img src="{% static 'img/pause-button.png' %}">
+    <a onclick="event.preventDefault(); pause(this);" class="pause-button" style="display: none;">
+      <button class="cbutton cbutton--effect">
+        <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
+        <span class="cbutton__text">Pause</span>
+      </button>
     </a>
   {% else %}
     <a href="#" class="play-button-subscribe" data-toggle="modal" data-target="#premium-need">
-      <img src="{% static 'img/play-button.png' %}">
+      <button class="cbutton cbutton--effect">
+        <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+        <span class="cbutton__text">Play</span>
+      </button>
     </a>
   {% endif %}
 </div>
