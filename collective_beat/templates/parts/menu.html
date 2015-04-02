@@ -17,7 +17,8 @@
 {% nav_link _("Archive") 'shows:archive' css_class='archive' %}
 
 <li class="podcast">
-  <a href="https://itunes.apple.com/us/podcast/silencio-con-jose-gutierrez/id954977463" target="_blank">{% trans 'Podcasts' %}</a>
+  <a href="https://itunes.apple.com/us/podcast/silencio-con-jose-gutierrez/id954977463" target="_blank">
+    {% trans 'Podcasts' %}</a>
 </li>
 
 {% if user.is_authenticated %}
@@ -34,6 +35,7 @@
   </form>
   <span class="search glyphicon glyphicon-search"></span>
 </li>
+
 {% if user.is_authenticated %}
   <li>
     <a href="{% url 'account_logout' %}" class="logout glyphicon glyphicon-log-out"></a>

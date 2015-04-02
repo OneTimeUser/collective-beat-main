@@ -15,9 +15,11 @@
         {% trans 'AIRE' %}
       </div>
     {% endif %}
+
     {% thumbnail last_show.image "1000x400" crop="center" as im %}
       <img src="{{ im.url }}">
     {% endthumbnail %}
+
     <div class="podcast-absolute">
       <div class="podcast-inner">
         <div class="podcast-content">
@@ -32,7 +34,6 @@
 {% block content %}
 
   {% if subscription_banner %}
-
     <div class="call-to-subscribe">
       <a href="{% if not user.is_authenticated %}{% url 'account_signup' %}{% else %}{% url 'accounts:info' %}{% endif %}">
         {% thumbnail subscription_banner.image "1110x115" crop="center" as im %}
@@ -40,7 +41,6 @@
         {% endthumbnail %}
       </a>
     </div>
-
   {% endif %}
 
   {% for show in show_list %}
