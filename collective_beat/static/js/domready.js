@@ -142,4 +142,18 @@
 
     });
 
+    $('#volume').click(
+        function() {
+            event.preventDefault();
+
+            if ($('.volume-block').hasClass('toggle')) {
+                $('.volume-block').removeClass('toggle');
+            }
+
+            else {
+                $('.volume-block').addClass('toggle');
+            }
+        }
+    );
+
 })();
