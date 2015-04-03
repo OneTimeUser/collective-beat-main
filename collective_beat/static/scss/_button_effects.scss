@@ -93,7 +93,7 @@ $hover-effect-param: 0;
     pointer-events: none;
     position: absolute;
     @include scale(1);
-    @include square(100%);
+    @include square(90%);
     top: -$hover-effect-param;
     @include transition(transform 0.2s, opacity 0.2s);
   }
