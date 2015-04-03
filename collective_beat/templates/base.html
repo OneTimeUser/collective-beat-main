@@ -46,8 +46,7 @@
               <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>
                 {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
                 {{ message }}
-                <button type="button" class="close" aria-label="Close"><span
-                    aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </li>
             {% endfor %}
           </ul>

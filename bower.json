@@ -20,6 +20,7 @@
     "jquery-loader": "latest",
     "bootstrap-slider": "latest",
     "jplayer": "latest",
-    "jquery-sticky": "latest"
+    "jquery-sticky": "latest",
+    "modernizer": "latest"
   }
 }

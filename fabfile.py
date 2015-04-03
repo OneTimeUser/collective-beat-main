@@ -88,6 +88,7 @@ def add_shows():
     img_filename = 'podcast-img6.jpg'
     result_img = urllib.urlretrieve(os.path.join(images_dir, img_filename))
     img_file = File(open(result_img[0]))
+
     for s in shows:
         show = Show.objects.create(**s)
         show.category.add(ShowCategory.objects.get(pk=1))

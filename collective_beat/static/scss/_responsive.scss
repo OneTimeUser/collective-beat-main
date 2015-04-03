@@ -104,16 +104,11 @@
           width: 90%;
         }
 
-        .play-button, .pause-button {
-          bottom: 50%;
-          right: 0;
-          margin: 0 0 -25px 0;
-          @include square($player-height);
-        }
-
+        .play-button,
+        .pause-button,
         .play-button-subscribe {
           position: absolute;
-          right: unquote('calc(100% - 60px)');
+//          right: unquote('calc(100% - 60px)');
           bottom: -60px;
           display: block;
           @include square($player-height);
