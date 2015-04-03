@@ -1,3 +1,9 @@
+$archive-color: #eec604;
+$podcast-color: #6699cc;
+$session-color: #242424;
+$subscribe-btn-color: #f46e57;
+$search-btn-color: $session-color;
+
 .navbar {
   box-shadow: 0 3px 5px $gray-light;
   font-family: Helvetica;
@@ -7,6 +13,11 @@
   .navbar-brand {
     padding-left: 0;
     height: auto;
+    @include transition(opacity 0.3s ease);
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   .navbar-nav {
@@ -14,6 +25,7 @@
     text-transform: uppercase;
 
     a {
+      @include transition(color 0.3s ease 0s);
       background-color: transparent !important;
       line-height: 70px;
       padding: 0 15px;
@@ -32,28 +44,46 @@
 
     .subscribe {
       span {
+        background-color: $subscribe-btn-color;
         padding: 10px;
-        background-color: #f46e57;
         color: #ffffff;
         border-radius: 3px;
+        @include transition(background-color 0.3s ease);
+
+      }
+
+      & a:hover span {
+        background-color: darken($subscribe-btn-color, 10%);
       }
     }
 
     .archive {
       a {
-        color: #eec604;
+        color: $archive-color;
+
+        &:hover {
+          color: darken($archive-color, 30%);
+        }
       }
     }
 
     .podcast {
       a {
-        color: #6699cc;
+        color: $podcast-color;
+
+        &:hover {
+          color: darken($podcast-color, 30%);
+        }
       }
     }
 
     .session {
       a {
-        color: #242424;
+        color: $session-color;
+
+        &:hover {
+          color: lighten($session-color, 30%);
+        }
       }
     }
 
@@ -96,10 +126,15 @@
 
     .search {
       font-size: 30px;
-      color: #242424;
+      color: $search-btn-color;
       display: inline-block;
       cursor: pointer;
       padding: 20px 15px;
+      @include transition(0.3s ease-out 0s);
+
+      &:hover {
+        color: lighten($search-btn-color, 40%);
+      }
     }
 
     .logout {
