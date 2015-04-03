@@ -4,7 +4,7 @@
 <div class="footer clearfix">
   <div class="container footer-menu clearfix">
     {% for page in flatpages %}
-      <div class="col-sm-3 col-xs-6 cl-effect">
+      <div class="col-sm-3 col-xs-6">
         <a href="{% url 'django.contrib.flatpages.views.flatpage' url=page.url %}"><span>{{ page.title }}</span></a>
       </div>
     {% endfor %}
@@ -28,6 +28,12 @@
       <img src="{% static 'img/footer-logo.png' %}">
     </a>
     {% if user.is_authenticated and user.is_paid_member %}
+      <a href="#" class="play-button back-button hi-icon">
+        <button class="cbutton cbutton--effect">
+            <img src="{% static 'img/remote15.jpg' %}" class="cbutton__icon">
+            <span class="cbutton__text">Remote</span>
+        </button>
+      </a>
       <a href="#" class="play-button hi-icon">
         <button class="cbutton cbutton--effect">
           <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
@@ -40,6 +46,12 @@
           <span class="cbutton__text">Pause</span>
         </button>
       </a>
+      <a href="#" class="play-button forward-button hi-icon">
+        <button class="cbutton cbutton--effect">
+            <img src="{% static 'img/forward15.jpg' %}" class="cbutton__icon">
+            <span class="cbutton__text">Forward</span>
+        </button>
+      </a>
     {% else %}
       <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
         <button class="cbutton cbutton--effect">
@@ -50,9 +62,7 @@
     {% endif %}
 
     <div class="show-name"></div>
-    <marquee loop="infinity" truespeed="3" class="hidden-xs"></marquee>
-
-    <div class="on-air-block hidden-xs">
+    <div class="on-air-block">
       <a id="volume">
         <img src="{% static 'img/volume.png' %}">
       </a>

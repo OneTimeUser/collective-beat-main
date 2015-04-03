@@ -58,7 +58,6 @@ def add_shows():
         {
             'title': 'First show',
             'date': timezone.now(),
-            'show_number': '00001',
             'description': 'this is the description for the first podcast show',
             'url': stream_url,
             'url_for_ios': stream_url,
@@ -66,7 +65,6 @@ def add_shows():
         {
             'title': 'Second show',
             'date': timezone.now(),
-            'show_number': '00002',
             'description': 'this is the description for the second podcast show',
             'url': stream_url,
             'url_for_ios': stream_url,
@@ -74,7 +72,6 @@ def add_shows():
         {
             'title': 'Third show',
             'date': timezone.now(),
-            'show_number': '00003',
             'description': 'this is the description for the third podcast show',
             'url': stream_url,
             'url_for_ios': stream_url,
@@ -82,7 +79,6 @@ def add_shows():
         {
             'title': 'Fourth show',
             'date': timezone.now(),
-            'show_number': '00004',
             'description': 'this is the description for the fourth podcast show',
             'url': stream_url,
             'url_for_ios': stream_url,
