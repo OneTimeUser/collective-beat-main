@@ -1,6 +1,6 @@
 {% load staticfiles %}
 
-<div class="info-block">
+<div class="info-block hi-icon-effect">
   <div class="date">
     {{ show.date }}
   </div>
@@ -11,21 +11,21 @@
     {{ show.description|truncatechars:400|striptags|linebreaks }}
   </div>
   {% if user.is_authenticated and user.is_paid_member %}
-    <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button">
+    <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button hi-icon">
       <button class="cbutton cbutton--effect">
 {#        <span class="cbutton__icon glyphicon glyphicon-play-circle play-button" aria-hidden="true"></span>#}
         <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
         <span class="cbutton__text">Play</span>
       </button>
     </a>
-    <a href="#" onclick="event.preventDefault(); pause(this);" class="pause-button" style="display: none;">
+    <a href="#" onclick="event.preventDefault(); pause(this);" class="pause-button hi-icon" style="display: none;">
       <button class="cbutton cbutton--effect">
         <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
         <span class="cbutton__text">Pause</span>
       </button>
     </a>
   {% else %}
-    <a href="#" class="play-button-subscribe" data-toggle="modal" data-target="#premium-need">
+    <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
       <button class="cbutton cbutton--effect">
         <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
         <span class="cbutton__text">Play</span>
