@@ -236,3 +236,50 @@
   }
 }
 
+//footer
+
+@media screen and (max-width: $screen-sm-max) {
+  .progress-player {
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: $screen-md-max) {
+  .progress-block {
+    width: unquote('calc(100% - 590px)') !important;
+  }
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  .pull-left {
+    .progress-block {
+      display: block !important;
+    }
+  }
+
+  .volume-block {
+    margin: 0 !important;
+    float: right !important;
+  }
+
+  .progress-block {
+    width: 100px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+    margin-top: 3px !important;
+
+    .slider-track {
+      margin: 0 !important;
+      top: 0 !important;
+    }
+  }
+
+  .show-name {
+    clear: both;
+    line-height: 20px !important;
+    font-size: 12px !important;
+    width: auto !important;
+  }
+}
+
+//end footer
