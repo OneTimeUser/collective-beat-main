@@ -38,9 +38,13 @@
       volume: 0.8,
       cssSelectorAncestor: "",
       cssSelector: {
-        play: ".player-block .play-button",
-        pause: ".player-block .pause-button",
-        volumeBar: '.slider-track'
+        play: ".player-block #play",
+        pause: ".player-block #pause",
+        volumeBar: '.volume-block .slider-track',
+        seekBar: '.progress-block .slider',
+        playBar: '.progress-block .slider-selection',
+        currentTime: '.time.current',
+        duration: '.time.end'
       },
       size: {
         width: "0px",

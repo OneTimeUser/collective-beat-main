@@ -19,9 +19,24 @@ function loadTrack(el) {
       }).jPlayer("play");
 
     $('marquee.hidden-xs').text(showAttrs['data-show-description'].value);
-    $('div.show-name').text(showAttrs['data-show-number'].value
-        + ': ' + showAttrs['data-show-date'].value
+    $('div.show-name').text(showAttrs['data-show-date'].value
         + ' // ' + showAttrs['data-show-title'].value);
 }
+
+$(".forward-button").click( function() {
+    var currentTime = $("#player-block").data("jPlayer").status.currentTime;
+    if(currentTime <= $("#player-block").data("jPlayer").status.duration - 16) {
+        $("#player-block").jPlayer("play", currentTime + 15);
+    }
+});
+
+$(".back-button").click( function() {
+  var currentTime = $("#player-block").data("jPlayer").status.currentTime;
+    if(currentTime >= 15) {
+        $("#player-block").jPlayer("play", currentTime - 15);
+    } else {
+        $("#player-block").jPlayer("play", 0);
+    }
+});
 
 $('.slider').slider();
