@@ -27,7 +27,7 @@
     <a href="/" class="footer-logo hidden-xs">
       <img src="{% static 'img/footer-logo.png' %}">
     </a>
-    {% if user.is_authenticated and user.is_paid_member %}
+    {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
       <a href="#" class="play-button back-button hi-icon">
         <button onclick="event.preventDefault();" class="cbutton cbutton--effect">
           <img src="{% static 'img/remote15.jpg' %}" class="cbutton__icon">
@@ -61,7 +61,7 @@
       </a>
     {% endif %}
     <div class="pull-left">
-      {% if user.is_authenticated and user.is_paid_member %}
+      {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
       <div class="progress-block hidden-sm">
         <div class="progress-player">
           <input class="slider"  data-slider-min="0" data-slider-max="100" data-slider-step="1"
@@ -74,7 +74,7 @@
       {% endif %}
       <div class="show-name"></div>
     </div>
-    {% if user.is_authenticated and user.is_paid_member %}
+    {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
       <div class="progress-block hidden-xs">
         <div class="time end hidden-sm">
         </div>
@@ -108,7 +108,7 @@
       </div>
     </div>
     {% if user.is_authenticated and user.is_paid_member %}
-    <div class="volume-block">
+    <div class="volume-block {% if last_show.is_live %}pull-right{% endif %}">
       <a href="" id="volume">
         <img src="{% static 'img/volume.png' %}">
       </a>
