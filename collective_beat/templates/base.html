@@ -34,6 +34,7 @@
   <script src="//use.typekit.net/spg7sod.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
 
+  {{ HEAD_CLOSING|safe }}
 </head>
 <body onload='timerTick()'>
 
@@ -95,5 +96,7 @@
   {% if not user.is_authenticated or not user.is_paid_member %}
     {% include 'parts/premium_feature_modal.html' %}
   {% endif %}
+
+  {{ BODY_CLOSING|safe }}
 </body>
 </html>
