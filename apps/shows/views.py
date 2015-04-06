@@ -9,6 +9,29 @@ from apps.accounts.models import SubscriptionBanner
 from apps.shows.models import Show, ShowCategory
 
 
+class CategoryMixin(object):
+    category = None
+    category_url_name = None
+    all_url_name = None
+
+    def get_queryset(self):
+        qs = super(CategoryMixin, self).get_queryset()
+
+        if self.kwargs.get('category'):
+            self.category = get_object_or_404(ShowCategory, title=self.kwargs.get('category'))
+            qs = qs.filter(category=self.category)
+
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryMixin, self).get_context_data(**kwargs)
+        context['category'] = self.category
+        context['category_url_name'] = self.category_url_name
+        context['all_url_name'] = self.all_url_name
+
+        return context
+
+
 class IndexView(ListView):
     model = Show
     template_name = 'index.html'
@@ -35,36 +58,29 @@ class IndexView(ListView):
         return context
 
 
-class ShowsList(ListView):
+class ShowsList(CategoryMixin, ListView):
     model = Show
     template_name = 'shows/list.html'
-    category = None
+    category_url_name = 'shows:archive_category'
+    all_url_name = 'shows:archive'
 
     # @method_decorator(pjax_block(title_variable="blog_post_title"))
     @method_decorator(pjax_block('pjax-content', title_block='head_title'))
     def dispatch(self, request, *args, **kwargs):
         return super(ShowsList, self).dispatch(request, *args, **kwargs)
 
-    def get_queryset(self):
-        qs = super(ShowsList, self).get_queryset()
-
-        if self.kwargs.get('category'):
-            self.category = get_object_or_404(ShowCategory, title=self.kwargs.get('category'))
-            qs = qs.filter(category=self.category)
-
-        return qs
-
     def get_context_data(self, **kwargs):
         context = super(ShowsList, self).get_context_data(**kwargs)
         context['categories'] = ShowCategory.objects.all()
-        context['category'] = self.category
 
         return context
 
 
-class SearchView(ListView):
+class SearchView(CategoryMixin, ListView):
     model = Show
     template_name = 'shows/search.html'
+    category_url_name = 'shows:search_category'
+    all_url_name = 'shows:search'
     q = None
 
     # @method_decorator(pjax_block(title_variable="blog_post_title"))
@@ -84,10 +100,15 @@ class SearchView(ListView):
             | Q(description__icontains=self.q)
         )
 
+        if self.kwargs.get('category'):
+            qs = qs.filter(category=self.category)
+
+        self.queryset = qs
         return qs
 
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)
+        context['categories'] = ShowCategory.objects.filter(shows__in=self.queryset).distinct()
         context['q'] = self.q
 
         return context
