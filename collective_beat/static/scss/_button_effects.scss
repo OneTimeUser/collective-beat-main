@@ -78,7 +78,7 @@ $button-size: 170px;
 }
 
 /* Hover Effect */
-$hover-effect-param: 0;
+$hover-effect-param: 5%;
 
 .hi-icon-effect .hi-icon {
   position: relative;
@@ -87,14 +87,13 @@ $hover-effect-param: 0;
     border-radius: 50%;
     box-shadow: 0 0 25px 5px #fff;
     content: '';
-    left: -$hover-effect-param;
+    left: $hover-effect-param;
     opacity: 0;
-    padding: $hover-effect-param;
     pointer-events: none;
     position: absolute;
     @include scale(1);
     @include square(90%);
-    top: -$hover-effect-param;
+    top: $hover-effect-param;
     @include transition(transform 0.2s, opacity 0.2s);
   }
 

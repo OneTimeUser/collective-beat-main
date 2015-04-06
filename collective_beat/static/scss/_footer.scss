@@ -12,8 +12,10 @@
 
     div {
       padding: 15px;
+
       a {
         color: #ffffff;
+        font-family: p22-underground, Helvetica;
         position: relative;
         text-decoration: none;
         text-transform: uppercase;
@@ -111,7 +113,7 @@
             background: #d5d5d5;
             height: 16px;
             margin: 8px 0 0;
-            
+
             .slider-selection {
               border-radius: 0;
               background: #6b6057;
@@ -141,7 +143,7 @@
       text-align: center;
       background-color: #3a3a3a;
       height: $player-height;
-      
+
       &.toggle {
         background-color: #647fa0;
 

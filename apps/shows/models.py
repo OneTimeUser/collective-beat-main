@@ -40,7 +40,7 @@ class ShowCategory(Orderable):
 
 
 class Show(models.Model):
-    category = models.ManyToManyField(ShowCategory)
+    category = models.ManyToManyField(ShowCategory, related_name='shows')
     title = models.CharField(_('Show title'), max_length=255)
     description = models.TextField()
     keywords = models.CharField(max_length=255)
