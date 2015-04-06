@@ -123,7 +123,7 @@
          * responsive sticky footer fix
          */
         var bumpIt = function() {
-                $('body').css('margin-bottom', $('.footer').height());
+                $('body').css('margin-bottom', $('.footer').height() + $('#player-block').height());
             },
             didResize = false;
 
