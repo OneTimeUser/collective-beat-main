@@ -107,14 +107,13 @@ class CustomEmailUser(AbstractEmailUser):
     braintree_customer_id = models.CharField(max_length=64, null=True, blank=True)
     braintree_subscription_id = models.CharField(max_length=64, null=True, blank=True)
 
-    @cached_property
-    def is_paid_member(self):
-        if not self.subscription_plan:
-            # a hook for old users with empty field value
-            self.subscription_plan = SubscriptionPlans.FREE
-            self.save()
+    def account_verified(self):
+        result = EmailAddress.objects.filter(email=self.email)
 
-        return self.subscription_plan in SubscriptionPlans.get_paid_plans()
+        if len(result):
+            return result[0].verified
+
+        return False
 
     def get_full_name(self):
         if self.first_name and self.last_name:
@@ -123,6 +122,15 @@ class CustomEmailUser(AbstractEmailUser):
             return super(CustomEmailUser, self).get_full_name()
 
     get_full_name.short_description = 'Full name'
+
+    @cached_property
+    def is_paid_member(self):
+        if not self.subscription_plan:
+            # a hook for old users with empty field value
+            self.subscription_plan = SubscriptionPlans.FREE
+            self.save()
+
+        return self.subscription_plan in SubscriptionPlans.get_paid_plans()
 
     @cached_property
     def get_subscription_plans_info(self):
@@ -211,25 +219,6 @@ class CustomEmailUser(AbstractEmailUser):
 
     def __unicode__(self):
         return self.get_full_name()
-
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
-
-    def __unicode__(self):
-        return "{}'s profile".format(self.user)
-
-    class Meta:
-        db_table = 'user_profile'
-
-    def account_verified(self):
-        if self.user.is_authenticated:
-            result = EmailAddress.objects.filter(email=self.user.email)
-            if len(result):
-                return result[0].verified
-        return False
-
-CustomEmailUser.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 
 
 class UserSession(models.Model):
