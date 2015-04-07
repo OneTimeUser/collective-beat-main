@@ -106,6 +106,7 @@ class CustomEmailUser(AbstractEmailUser):
     subscription_plan = models.CharField(max_length=1, choices=SubscriptionPlans.CHOICES)
     braintree_customer_id = models.CharField(max_length=64, null=True, blank=True)
     braintree_subscription_id = models.CharField(max_length=64, null=True, blank=True)
+    kickstarter = models.BooleanField(default=False)
 
     def account_verified(self):
         result = EmailAddress.objects.filter(email=self.email)
@@ -130,7 +131,7 @@ class CustomEmailUser(AbstractEmailUser):
             self.subscription_plan = SubscriptionPlans.FREE
             self.save()
 
-        return self.subscription_plan in SubscriptionPlans.get_paid_plans()
+        return self.kickstarter or self.subscription_plan in SubscriptionPlans.get_paid_plans()
 
     @cached_property
     def get_subscription_plans_info(self):
