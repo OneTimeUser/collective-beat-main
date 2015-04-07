@@ -27,7 +27,8 @@ $search-btn-color: $session-color;
     a {
       @include transition(color 0.3s ease 0s);
       background-color: transparent !important;
-      line-height: 70px;
+      line-height: 75px;
+      height: 70px;
       padding: 0 15px;
     }
 
