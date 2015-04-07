@@ -24,7 +24,9 @@ def _clear_user_braintree_data(user_obj):
 
 # @transaction.atomic
 def check_expired_subscriptions():
-    active_paid_users = get_user_model().objects.exclude(subscription_plan=SubscriptionPlans.FREE, kickstarter=False)
+    active_paid_users = get_user_model().objects\
+        .exclude(subscription_plan=SubscriptionPlans.FREE, kickstarter=False)\
+        .exclude(is_staff=True)
     dt_now = timezone.now()
 
     for user in active_paid_users:
