@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 15:00-0500\n"
+"POT-Creation-Date: 2015-04-06 10:55-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/accounts/admin.py:14
+#: apps/accounts/admin.py:17
 msgid "User info"
 msgstr "Información del Usuario"
 
@@ -110,24 +110,6 @@ msgstr "Fecha de Nacimiento"
 msgid "Subscribed to news and updates"
 msgstr "Suscrito a noticias de última hora"
 
-#: apps/accounts/views.py:51
-msgid "Profile details updated."
-msgstr "Perfil actualizado"
-
-#: apps/accounts/views.py:91
-#, python-brace-format
-msgid "Subscription Status: {0}"
-msgstr "Status de Suscripción: {0}"
-
-#: apps/accounts/views.py:93
-#, python-brace-format
-msgid "Error: {0}"
-msgstr "Error: {0}"
-
-#: apps/accounts/views.py:95
-msgid "Subscription cancelled"
-msgstr "Suscripción cancelado"
-
 #: apps/accounts/templates/accounts/account_info.html:6
 msgid "Account info"
 msgstr "Información de tu cuenta"
@@ -157,54 +139,65 @@ msgstr "Cambiar de plan"
 msgid "or"
 msgstr "o"
 
-#: apps/accounts/templates/accounts/account_info.html:45
+#: apps/accounts/templates/accounts/account_info.html:44
+msgid ""
+"\n"
+"        POLÍTICA DE REEMBOLSO/REFUND POLICY\n"
+"        Puedes cancelar tu suscripción en cualquier momento sin ningún cargo "
+"extra. No se aceptan devoluciones.\n"
+"        You can easily cancel your subscription at any time. There are no "
+"cancellation fees, though no refunds are provided.\n"
+"    "
+msgstr ""
+
+#: apps/accounts/templates/accounts/account_info.html:52
 msgid "User Informtion"
 msgstr "Información del usuario"
 
-#: apps/accounts/templates/accounts/account_info.html:48
+#: apps/accounts/templates/accounts/account_info.html:55
 msgid "First name:"
 msgstr "Nombre"
 
-#: apps/accounts/templates/accounts/account_info.html:52
+#: apps/accounts/templates/accounts/account_info.html:59
 msgid "Last name:"
 msgstr "Apellido"
 
-#: apps/accounts/templates/accounts/account_info.html:56
+#: apps/accounts/templates/accounts/account_info.html:63
 msgid "Email:"
 msgstr "Correo electrónico"
 
-#: apps/accounts/templates/accounts/account_info.html:60
+#: apps/accounts/templates/accounts/account_info.html:67
 msgid "Gender:"
 msgstr "Sexo"
 
-#: apps/accounts/templates/accounts/account_info.html:70
+#: apps/accounts/templates/accounts/account_info.html:77
 msgid "Country:"
 msgstr "País"
 
-#: apps/accounts/templates/accounts/account_info.html:74
+#: apps/accounts/templates/accounts/account_info.html:81
 msgid "Day of birth:"
 msgstr "Fecha de nacimiento"
 
-#: apps/accounts/templates/accounts/account_info.html:79
+#: apps/accounts/templates/accounts/account_info.html:86
 #: collective_beat/templates/account/password_change.html:8
 #: collective_beat/templates/account/password_change.html:11
 #: collective_beat/templates/account/password_change.html:17
 msgid "Change Password"
 msgstr "Cambiar contraseña"
 
-#: apps/accounts/templates/accounts/account_info.html:82
+#: apps/accounts/templates/accounts/account_info.html:89
 msgid "Change Information"
 msgstr "Cambiar mi información"
 
-#: apps/accounts/templates/accounts/account_info.html:87
+#: apps/accounts/templates/accounts/account_info.html:94
 msgid "Mail Notification"
 msgstr "Notificación en correo electrónico"
 
-#: apps/accounts/templates/accounts/account_info.html:95
+#: apps/accounts/templates/accounts/account_info.html:102
 msgid "Save Notifications Settings"
 msgstr "Guardar ajustes de notificaciones"
 
-#: apps/accounts/templates/accounts/account_info.html:103
+#: apps/accounts/templates/accounts/account_info.html:110
 msgid "Logout"
 msgstr "Terminar sesión"
 
@@ -242,6 +235,22 @@ msgstr "Seleccionar método de pago para cambiar tu a (whatever it would be)"
 msgid "Confirm"
 msgstr "Confirmar"
 
+#: apps/accounts/views.py:51
+msgid "Profile details updated."
+msgstr "Perfil actualizado"
+
+#: apps/accounts/views.py:91
+msgid "Subscription Status: {0}"
+msgstr "Status de Suscripción: {0}"
+
+#: apps/accounts/views.py:93
+msgid "Error: {0}"
+msgstr "Error: {0}"
+
+#: apps/accounts/views.py:95
+msgid "Subscription cancelled"
+msgstr "Suscripción cancelado"
+
 #: apps/shows/models.py:33 apps/shows/models.py:44
 msgid "Show title"
 msgstr "Mostrar título"
@@ -255,11 +264,11 @@ msgstr "categorías"
 msgid "Shows archive"
 msgstr "Archivo de episodios"
 
-#: apps/shows/templates/shows/list.html:13
+#: apps/shows/templates/shows/list.html:14
 msgid "All"
 msgstr "Todos"
 
-#: apps/shows/templates/shows/list.html:54
+#: apps/shows/templates/shows/list.html:38
 msgid "No shows yet"
 msgstr "Sin episodios"
 
@@ -279,42 +288,13 @@ msgstr "es"
 msgid "en"
 msgstr "en"
 
-#: collective_beat/templates/base.html:117
-msgid "This is a PREMIUM feature"
-msgstr "Sólo con plan PREMIUM"
+#: collective_beat/templates/404.html:4
+msgid "Page not found"
+msgstr ""
 
-#: collective_beat/templates/base.html:119
-msgid "Please Upgrade your account"
-msgstr "Favor de ascender tu cuenta"
-
-#: collective_beat/templates/base.html:120
-msgid "to enjoy unlimited streaming and listening."
-msgstr "para disfrutar nuestra transmisión y audio ilimitado"
-
-#: collective_beat/templates/base.html:123
-msgid "NO THANKS"
-msgstr "NO GRACIAS"
-
-#: collective_beat/templates/base.html:125
-msgid "SIGN UP"
-msgstr "CONTRATAR"
-
-#: collective_beat/templates/base.html:127
-msgid "UPGRADE"
-msgstr "ASCENDER"
-
-#: collective_beat/templates/index.html:4
-#: collective_beat/templates/admin/base.html:66
-msgid "Home"
-msgstr "Inicio"
-
-#: collective_beat/templates/index.html:11
-msgid "AL"
-msgstr "AL"
-
-#: collective_beat/templates/index.html:12
-msgid "AIRE"
-msgstr "AIRE"
+#: collective_beat/templates/500.html:12
+msgid "Server error"
+msgstr ""
 
 #: collective_beat/templates/account/email_confirm.html:9
 #: collective_beat/templates/account/email_confirm.html:13
@@ -342,7 +322,7 @@ msgstr ""
 #: collective_beat/templates/account/login.html:9
 #: collective_beat/templates/account/login.html:13
 #: collective_beat/templates/account/login.html:45
-#: collective_beat/templates/parts/menu.html:26
+#: collective_beat/templates/parts/menu.html:27
 msgid "Sign In"
 msgstr "Iniciar Sesión"
 
@@ -403,7 +383,20 @@ msgstr "Regístrate"
 msgid "Register with your email address"
 msgstr "Regístrate con tu correo electrónico"
 
-#: collective_beat/templates/account/signup.html:62
+#: collective_beat/templates/account/signup.html:42
+msgid ""
+"\n"
+"                    POLÍTICA DE REEMBOLSO/REFUND POLICY\n"
+"                    Puedes cancelar tu suscripción en cualquier momento sin "
+"ningún cargo extra. No se aceptan\n"
+"                    devoluciones.\n"
+"                    You can easily cancel your subscription at any time. "
+"There are no cancellation fees, though no\n"
+"                    refunds are provided.\n"
+"                "
+msgstr ""
+
+#: collective_beat/templates/account/signup.html:71
 msgid "Sign up"
 msgstr "Inscríbete"
 
@@ -423,6 +416,28 @@ msgstr "Cambiar contraseña"
 msgid "Log out"
 msgstr "Finalizar la sesión"
 
+#: collective_beat/templates/admin/base.html:66
+#: collective_beat/templates/index.html:4
+msgid "Home"
+msgstr "Inicio"
+
+#: collective_beat/templates/base.html:65
+msgid "Toggle navigation"
+msgstr ""
+
+#: collective_beat/templates/index.html:14
+msgid "AL"
+msgstr "AL"
+
+#: collective_beat/templates/index.html:15
+msgid "AIRE"
+msgstr "AIRE"
+
+#: collective_beat/templates/parts/footer.html:73
+#: collective_beat/templates/parts/footer.html:91
+msgid "ON AIR"
+msgstr "AL AIRE"
+
 #: collective_beat/templates/parts/menu.html:11
 msgid "Subscribe"
 msgstr "Suscríbete"
@@ -431,9 +446,39 @@ msgstr "Suscríbete"
 msgid "Archive"
 msgstr "Archivo"
 
-#: collective_beat/templates/parts/menu.html:20
+#: collective_beat/templates/parts/menu.html:21
 msgid "Podcasts"
 msgstr "Podcast"
+
+#: collective_beat/templates/parts/premium_feature_modal.html:13
+msgid "This is a PREMIUM feature"
+msgstr "Sólo con plan PREMIUM"
+
+#: collective_beat/templates/parts/premium_feature_modal.html:15
+msgid "Please Upgrade your account"
+msgstr "Favor de ascender tu cuenta"
+
+#: collective_beat/templates/parts/premium_feature_modal.html:16
+msgid "to enjoy unlimited streaming and listening."
+msgstr "para disfrutar nuestra transmisión y audio ilimitado"
+
+#: collective_beat/templates/parts/premium_feature_modal.html:19
+msgid "NO THANKS"
+msgstr "NO GRACIAS"
+
+#: collective_beat/templates/parts/premium_feature_modal.html:21
+#, fuzzy
+#| msgid "SIGN UP"
+msgid "SIGN IN"
+msgstr "CONTRATAR"
+
+#: collective_beat/templates/parts/premium_feature_modal.html:22
+msgid "SIGN UP"
+msgstr "CONTRATAR"
+
+#: collective_beat/templates/parts/premium_feature_modal.html:24
+msgid "UPGRADE"
+msgstr "ASCENDER"
 
 #~ msgid "SILENCIO"
 #~ msgstr "SILENCIO"

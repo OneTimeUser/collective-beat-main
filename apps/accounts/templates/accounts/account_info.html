@@ -21,15 +21,11 @@
         {{ user.get_subscription_plans_info.current.description }}
       </span>
     </div>
-{#    <div class="col-sm-1">#}
-{#      <span class="text">#}
-{#        {% trans 'Change Plan:' %}#}
-{#      </span>#}
-{#    </div>#}
     <div class="col-lg-7 col-md-6">
       <span class="text col-xs-12">
         {% trans 'Change Plan:' %}
       </span>
+
       {% for plan_data in user.get_subscription_plans_info.available %}
         <a href="{% url 'accounts:change_plan' plan_id=plan_data.braintree_id %}" class="price-plan btn btn-primary col-xs-12">
           <strong>{{ plan_data.title }}</strong>{{ plan_data.description }}
@@ -42,9 +38,9 @@
   </div>
   <h6>
     {% blocktrans %}
-        POLÍTICA DE REEMBOLSO/REFUND POLICY
-        Puedes cancelar tu suscripción en cualquier momento sin ningún cargo extra. No se aceptan devoluciones.
-        You can easily cancel your subscription at any time. There are no cancellation fees, though no refunds are provided.
+      POLÍTICA DE REEMBOLSO/REFUND POLICY
+      Puedes cancelar tu suscripción en cualquier momento sin ningún cargo extra. No se aceptan devoluciones.
+      You can easily cancel your subscription at any time. There are no cancellation fees, though no refunds are provided.
     {% endblocktrans %}
   </h6>
   <div class="logic-block clearfix">
@@ -61,7 +57,7 @@
     </dl>
     <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
       <dt>{% trans 'Email:' %}</dt>
-      <dd>{{ object.email }} {% if not user.profile.account_verified %}<strong>(unverified)</strong>{% endif %}</dd>
+      <dd>{{ object.email }} {% if not user.account_verified %}<strong>(unverified)</strong>{% endif %}</dd>
     </dl>
     <dl class="dl-horizontal col-sm-4 col-sm-offset-4">
       <dt>{% trans 'Gender:' %}</dt>
