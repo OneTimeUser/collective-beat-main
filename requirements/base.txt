@@ -1,3 +1,4 @@
+Django==1.7.7
 Pillow
 braintree
 django-custom-user
