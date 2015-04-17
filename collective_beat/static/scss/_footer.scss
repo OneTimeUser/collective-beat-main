@@ -112,6 +112,31 @@
             height: 16px;
             margin: 8px 0 0;
 
+            &.seeking-bar {
+              /* CSS3 Progress Bar Transitions */
+              transition: width 0s ease;
+              -webkit-transition: width 0s ease;
+              -o-transition: width 0s ease;
+              -moz-transition: width 0s ease;
+              -ms-transition: width 0s ease;
+
+              /* CSS3 Stripes */
+              background-image: linear-gradient(135deg,#6b6057 25%,#d5d5d5 25%,#d5d5d5 50%, #6b6057 50%, #6b6057 75%,#d5d5d5 75%,#d5d5d5 100%);
+              background-image: -moz-linear-gradient(135deg,#6b6057 25%,#d5d5d5 25%,#d5d5d5 50%, #6b6057 50%, #6b6057 75%,#d5d5d5 75%,#d5d5d5 100%);
+              background-image: -ms-linear-gradient(135deg,#6b6057 25%,#d5d5d5 25%,#d5d5d5 50%, #6b6057 50%, #6b6057 75%,#d5d5d5 75%,#d5d5d5 100%);
+              background-image: -o-linear-gradient(135deg,#6b6057 25%,#d5d5d5 25%,#d5d5d5 50%, #6b6057 50%, #6b6057 75%,#d5d5d5 75%,#d5d5d5 100%);
+              background-image: -webkit-gradient(linear, 100% 100%, 0 0,color-stop(.25, #d5d5d5), color-stop(.25, #6b6057),color-stop(.5, #6b6057),color-stop(.5, #d5d5d5),color-stop(.75, #d5d5d5),color-stop(.75, #6b6057),color-stop(1, #6b6057));
+              background-image: -webkit-linear-gradient(135deg,#6b6057 25%,#d5d5d5 25%,#d5d5d5 50%, #6b6057 50%, #6b6057 75%,#d5d5d5 75%,#d5d5d5 100%);
+              background-size: 40px 40px;
+
+              /* Background stripes animation */
+              animation: bganim 0.5s linear 0s infinite;
+              -moz-animation: bganim 0.5s linear 0s infinite;
+              -webkit-animation: bganim 0.5s linear 0s infinite;
+              -o-animation: bganim 0.5s linear 0s infinite;
+              -ms-animation: bganim 0.5s linear 0s infinite;
+            }
+
             .slider-selection {
               border-radius: 0;
               background: #6b6057;
@@ -206,4 +231,20 @@
       }
     }
   }
-} 
+}
+
+@keyframes bganim {
+    from {background-position:0px;} to { background-position:40px;}
+}
+@-moz-keyframes bganim {
+    from {background-position:0px;} to { background-position:40px;}
+}
+@-webkit-keyframes bganim {
+    from {background-position:0px;} to { background-position:40px;}
+}
+@-o-keyframes bganim {
+    from {background-position:0px;} to { background-position:40px;}
+}
+@-ms-keyframes bganim {
+    from {background-position:0px;} to { background-position:40px;}
+}
