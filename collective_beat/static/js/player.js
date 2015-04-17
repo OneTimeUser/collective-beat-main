@@ -7,6 +7,7 @@ var playingTrackAttrs = {};
 function loadTrack(el) {
     var showAttrs = playingTrackAttrs = $(el).parents('.podcast-block')[0].attributes;
     $(el).closest('.podcast-block').loader('show', {overlay: false, background: false});
+    $('.progress-block .slider-track').addClass('seeking-bar');
     $('.pause-button').fadeOut();
     $('.play-button').fadeIn();
     $(el).closest('.play-button').fadeOut();
@@ -22,6 +23,10 @@ function loadTrack(el) {
     $('div.show-name').text(showAttrs['data-show-date'].value
         + ' // ' + showAttrs['data-show-title'].value);
 }
+
+$("#play").click(function() {
+   $('.progress-block .slider-track').addClass('seeking-bar');
+});
 
 $(".forward-button").click( function() {
     var currentTime = $("#player-block").data("jPlayer").status.currentTime;
