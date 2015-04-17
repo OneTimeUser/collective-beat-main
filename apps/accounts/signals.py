@@ -1,5 +1,5 @@
+from django.conf import settings
 from django.contrib.auth import user_logged_in
-# from allauth.account.signals import user_logged_in
 from django.contrib.sessions.models import Session
 from django.dispatch import receiver
 
@@ -12,16 +12,16 @@ def remove_user_sessions(sender, user, request, **kwargs):
     """
     from .models import UserSession
 
-    # request = kwargs.get('request')
     current_session_key = request.session.session_key
     previous_user_sessions_data = UserSession.objects.filter(user=user)
 
-    # finding and removing all the previous user sessions
-    Session.objects \
-        .filter(session_key__in=previous_user_sessions_data.values_list('session_key', flat=True)) \
-        .delete()
+    # finding and removing all the previous user sessions if not DEBUG
+    if not settings.DEBUG:
+        Session.objects \
+            .filter(session_key__in=previous_user_sessions_data.values_list('session_key', flat=True)) \
+            .delete()
 
-    previous_user_sessions_data.delete()
+        previous_user_sessions_data.delete()
 
     UserSession.objects.create(
         session_key=current_session_key,
