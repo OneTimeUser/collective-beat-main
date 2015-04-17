@@ -16,7 +16,6 @@
     </div>
   </div>
   <div class="clear"></div>
-
   <div class="copyrights">
     <div class="container">
       © 2015 collective beat
@@ -24,6 +23,27 @@
   </div>
 
   <div class="player-block hi-icon-effect">
+    {% if user.is_authenticated and user.is_paid_member %}
+        {% if user.is_authenticated and user.is_paid_member  and not last_show.is_live %}
+      <div class="progress-block clearfix hidden-sm hidden-md hidden-lg">
+        <div class="time end hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="time current hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="progress-player">
+          <input class="slider"  data-slider-min="0" data-slider-max="100" data-slider-step="1"
+                 data-slider-value="80" data-slider-selection="before" data-slider-tooltip="hide">
+        </div>
+      </div>
+      {% endif %}
+      <div class="volume-block hidden-sm hidden-md hidden-lg {% if last_show.is_live %}pull-right{% endif %}">
+      <a href="" id="volume">
+        <img src="{% static 'img/volume.png' %}">
+      </a>
+      <input type="text" class="slider" value="" data-slider-reversed="true" data-slider-min="0" data-slider-max="100" data-slider-step="1"
+             data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide" data-slider-orientation="vertical">
+    </div>
+    {% endif %}
     <a href="/" class="footer-logo hidden-xs">
       <img src="{% static 'img/footer-logo.png' %}">
     </a>
@@ -61,14 +81,7 @@
       </a>
     {% endif %}
     <div class="pull-left">
-      {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
-      <div class="progress-block hidden-sm">
-        <div class="progress-player">
-          <input class="slider"  data-slider-min="0" data-slider-max="100" data-slider-step="1"
-                 data-slider-value="80" data-slider-selection="before" data-slider-tooltip="hide">
-        </div>
-      </div>
-      {% endif %}
+
       {% if last_show.is_live %}
         <span class="on-air hidden-sm hidden-md hidden-lg">{% trans 'ON AIR' %}<span></span></span>
       {% endif %}
