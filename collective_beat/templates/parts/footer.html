@@ -125,7 +125,7 @@
       </div>
     </div>
     {% if user.is_authenticated and user.is_paid_member %}
-    <div class="volume-block {% if last_show.is_live %}pull-right{% endif %} hidden-xs">
+    <div class="volume-block {% if last_show.is_live %}pull-right{% endif %} hidden-xs hidden-sm">
       <a href="" id="volume">
         <img src="{% static 'img/volume.png' %}">
       </a>
