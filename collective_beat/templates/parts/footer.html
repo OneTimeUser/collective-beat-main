@@ -26,9 +26,9 @@
     {% if user.is_authenticated and user.is_paid_member %}
         {% if user.is_authenticated and user.is_paid_member  and not last_show.is_live %}
       <div class="progress-block clearfix hidden-sm hidden-md hidden-lg">
-        <div class="time end hidden-sm hidden-md hidden-lg">
+        <div class="time end hidden-md hidden-lg">
         </div>
-        <div class="time current hidden-sm hidden-md hidden-lg">
+        <div class="time current hidden-md hidden-lg">
         </div>
         <div class="progress-player">
           <input class="slider"  data-slider-min="0" data-slider-max="100" data-slider-step="1"
@@ -92,10 +92,10 @@
       {% endif %}
     </div>
     {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
-      <div class="progress-block hidden-xs">
-        <div class="time end hidden-sm">
+      <div class="progress-block hidden-xs hidden-sm">
+        <div class="time end">
         </div>
-        <div class="time current hidden-sm">
+        <div class="time current">
         </div>
         <div class="progress-player">
           <input class="slider"  data-slider-min="0" data-slider-max="100" data-slider-step="1"
