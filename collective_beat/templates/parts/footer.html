@@ -85,7 +85,11 @@
       {% if last_show.is_live %}
         <span class="on-air hidden-sm hidden-md hidden-lg">{% trans 'ON AIR' %}<span></span></span>
       {% endif %}
+      {% if not last_show.is_live %}
       <div class="show-name"></div>
+      {% else %}
+      <div class="show-name show-name-air"></div>
+      {% endif %}
     </div>
     {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
       <div class="progress-block hidden-xs">
