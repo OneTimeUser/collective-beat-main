@@ -36,7 +36,7 @@
         </div>
       </div>
       {% endif %}
-      <div class="volume-block hidden-md hidden-lg {% if last_show.is_live %}pull-right{% endif %}">
+      <div class="volume-block hidden-sm hidden-md hidden-lg {% if last_show.is_live %}pull-right{% endif %}">
       <a href="" id="volume">
         <img src="{% static 'img/volume.png' %}">
       </a>
@@ -125,7 +125,7 @@
       </div>
     </div>
     {% if user.is_authenticated and user.is_paid_member %}
-    <div class="volume-block {% if last_show.is_live %}pull-right{% endif %} hidden-xs hidden-sm">
+    <div class="volume-block {% if last_show.is_live %}pull-right{% endif %} hidden-xs">
       <a href="" id="volume">
         <img src="{% static 'img/volume.png' %}">
       </a>
