@@ -37,12 +37,12 @@
       </div>
       {% endif %}
       <div class="volume-block hidden-sm hidden-md hidden-lg {% if last_show.is_live %}pull-right{% endif %}">
-      <a href="" id="volume">
-        <img src="{% static 'img/volume.png' %}">
-      </a>
-      <input type="text" class="slider" value="" data-slider-reversed="true" data-slider-min="0" data-slider-max="100" data-slider-step="1"
-             data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide" data-slider-orientation="vertical">
-    </div>
+          <a href="" id="volume">
+            <img src="{% static 'img/volume.png' %}">
+          </a>
+          <input type="text" class="slider" value="" data-slider-reversed="true" data-slider-min="0" data-slider-max="100" data-slider-step="1"
+                 data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide" data-slider-orientation="vertical">
+       </div>
     {% endif %}
     <a href="/" class="footer-logo hidden-xs">
       <img src="{% static 'img/footer-logo.png' %}">
@@ -125,13 +125,14 @@
       </div>
     </div>
     {% if user.is_authenticated and user.is_paid_member %}
-    <div class="volume-block {% if last_show.is_live %}pull-right{% endif %} hidden-xs">
-      <a href="" id="volume">
+    <div class="volume-block  {% if last_show.is_live %}pull-right{% endif %} hidden-xs">
+      <a href="" id="volume-2">
         <img src="{% static 'img/volume.png' %}">
       </a>
       <input type="text" class="slider" value="" data-slider-reversed="true" data-slider-min="0" data-slider-max="100" data-slider-step="1"
              data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide" data-slider-orientation="vertical">
     </div>
+
     {% endif %}
   </div>
 </div>
