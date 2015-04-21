@@ -54,6 +54,7 @@
         $('.progress-block .slider-track').removeClass('seeking-bar');
       },
       progress: function() {
+          $('.podcast-block').loader('hide', {overlay: false, background: false});
           $('.progress-block .slider-track').removeClass('seeking-bar');
       },
       seeking: function() {
