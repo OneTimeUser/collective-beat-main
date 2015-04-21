@@ -8,7 +8,7 @@
         padding: 15px 0;
       }
   }
-  
+
   .on-air {
     margin-top: 5px;
   }
@@ -265,6 +265,12 @@
 //footer
 
 @media screen and (max-width: $screen-sm-max) {
+
+  .footer {
+    bottom: 42px;
+
+  }
+
   .volume-block {
         float:  right !important;
       }
