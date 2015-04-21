@@ -265,6 +265,19 @@
 //footer
 
 @media screen and (max-width: $screen-sm-max) {
+  .volume-block {
+        float:  right !important;
+      }
+  .player-block {
+     .progress-block {
+        float: none !important;
+        width: 100% !important;
+        display: block;
+        position: absolute;
+        top: -50px;
+      }
+    }
+
   .progress-player {
     margin: 0 !important;
   }
@@ -293,6 +306,9 @@
     .progress-block {
       float: none !important;
       width: 100% !important;
+      display: block;
+      position: absolute;
+      top: -50px;
     }
   }
   .show-name {

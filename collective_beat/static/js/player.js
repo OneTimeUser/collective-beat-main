@@ -46,5 +46,5 @@ $(".back-button").click( function() {
 
 $('.progress-player input.slider').slider();
 $('.volume-block input.slider').slider().on('slide', function(ev){
-    $("#player-block").jPlayer('volume', ev.value/100)
+    $("#player-block").jPlayer('volume', ev.value/100);
 });

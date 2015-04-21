@@ -149,11 +149,4 @@
         }
     );
 
-     $('#volume-2').click(
-        function() {
-            event.preventDefault();
-            $('.volume-block .slider-vertical').toggle();
-        }
-    );
-
 })();
