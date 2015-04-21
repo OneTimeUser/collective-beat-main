@@ -59,6 +59,10 @@
       },
       seeking: function() {
           $('.progress-block .slider-track').addClass('seeking-bar');
+      },
+      seeked: function() {
+          $('.podcast-block').loader('hide', {overlay: false, background: false});
+          $('.progress-block .slider-track').removeClass('seeking-bar');
       }
     });
   });
