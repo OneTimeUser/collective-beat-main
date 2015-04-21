@@ -133,7 +133,7 @@
               /* Background stripes animation */
               animation: bganim 0.5s linear 0s infinite;
               -moz-animation: bganim 0.5s linear 0s infinite;
-              -webkit-animation: bganim 0.5s linear 0s infinite;
+              -webkit-animation: bganim 0.5s linear 0.01s infinite;
               -o-animation: bganim 0.5s linear 0s infinite;
               -ms-animation: bganim 0.5s linear 0s infinite;
             }
