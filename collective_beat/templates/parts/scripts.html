@@ -49,9 +49,15 @@
         width: "0px",
         height: "0px"
       },
-      play: function() {
+      playing: function() {
         $('.podcast-block').loader('hide', {overlay: false, background: false});
         $('.progress-block .slider-track').removeClass('seeking-bar');
+      },
+      progress: function() {
+          $('.progress-block .slider-track').removeClass('seeking-bar');
+      },
+      seeking: function() {
+          $('.progress-block .slider-track').addClass('seeking-bar');
       }
     });
   });
