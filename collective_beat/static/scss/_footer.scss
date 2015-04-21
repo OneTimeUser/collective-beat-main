@@ -162,7 +162,7 @@
 
     .volume-block {
       float: left;
-      margin: 0 10px 0 0;
+      margin: 0;
       width: 50px;
       text-align: center;
       background-color: #3a3a3a;
@@ -220,6 +220,7 @@
       font-weight: lighter;
       display: block;
       float: left;
+      padding-left: 10px;
 
       span {
         height: 8px;
