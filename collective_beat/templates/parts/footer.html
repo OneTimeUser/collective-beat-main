@@ -2,118 +2,137 @@
 {% get_flatpages as flatpages %}
 
 <div class="footer clearfix">
-  <div class="container footer-menu clearfix">
-    {% for page in flatpages %}
-      <div class="col-sm-3 col-xs-6 cl-effect">
-        <a href="{% url 'django.contrib.flatpages.views.flatpage' url=page.url %}"><span>{{ page.title }}</span></a>
-      </div>
-    {% endfor %}
+    <div class="container footer-menu clearfix">
+        {% for page in flatpages %}
+            <div class="col-sm-3 col-xs-6 cl-effect">
+                <a href="{% url 'django.contrib.flatpages.views.flatpage' url=page.url %}"><span>{{ page.title }}</span></a>
+            </div>
+        {% endfor %}
 
-    <div class="col-sm-3 col-xs-6">
-      <a href="https://instagram.com/latidocolectivo/" target="_blank"><img src="{% static 'img/instagram.png' %}"></a>
-      <a href="https://twitter.com/latidocolectivo" target="_blank"><img src="{% static 'img/twitter.png' %}"></a>
-      <a href="https://www.facebook.com/collectivebeat" target="_blank"><img src="{% static 'img/facebook.png' %}"></a>
-    </div>
-  </div>
-  <div class="clear"></div>
-  <div class="copyrights">
-    <div class="container">
-      © 2015 collective beat
-    </div>
-  </div>
-
-  <div class="player-block hi-icon-effect">
-    <a href="/" class="footer-logo hidden-xs">
-      <img src="{% static 'img/footer-logo.png' %}">
-    </a>
-    {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
-      <a href="#" class="play-button back-button hi-icon">
-        <button onclick="event.preventDefault();" class="cbutton cbutton--effect">
-          <img src="{% static 'img/remote15.jpg' %}" class="cbutton__icon">
-          <span class="cbutton__text">Rewind</span>
-        </button>
-      </a>
-      <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
-        <button class="cbutton cbutton--effect">
-          <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
-          <span class="cbutton__text">Play</span>
-        </button>
-      </a>
-      <a href="#" onclick="event.preventDefault();" id="pause" class="pause-button hi-icon" style="display: none;">
-        <button class="cbutton cbutton--effect">
-          <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
-          <span class="cbutton__text">Pause</span>
-        </button>
-      </a>
-      <a href="#" onclick="event.preventDefault();" class="play-button forward-button hi-icon">
-        <button class="cbutton cbutton--effect">
-          <img src="{% static 'img/forward15.jpg' %}" class="cbutton__icon">
-          <span class="cbutton__text">Forward</span>
-        </button>
-      </a>
-    {% else %}
-      <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
-        <button class="cbutton cbutton--effect">
-          <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
-          <span class="cbutton__text">Play</span>
-        </button>
-      </a>
-    {% endif %}
-    <div class="pull-left">
-
-      {% if last_show.is_live %}
-        <span class="on-air hidden-sm hidden-md hidden-lg">{% trans 'ON AIR' %}<span></span></span>
-      {% endif %}
-      {% if not last_show.is_live %}
-      <div class="show-name"></div>
-      {% else %}
-      <div class="show-name show-name-air"></div>
-      {% endif %}
-    </div>
-    {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
-      <div class="progress-block">
-        <div class="time end">
+        <div class="col-sm-3 col-xs-6">
+            <a href="https://instagram.com/latidocolectivo/" target="_blank"><img
+                    src="{% static 'img/instagram.png' %}"></a>
+            <a href="https://twitter.com/latidocolectivo" target="_blank"><img src="{% static 'img/twitter.png' %}"></a>
+            <a href="https://www.facebook.com/collectivebeat" target="_blank"><img
+                    src="{% static 'img/facebook.png' %}"></a>
         </div>
-        <div class="time current">
-        </div>
-        <div class="progress-player">
-          <input class="slider"  data-slider-min="0" data-slider-max="100" data-slider-step="1"
-                 data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide">
-        </div>
-      </div>
-    {% endif %}
-    <div class="on-air-block">
-      {% if last_show.is_live %}
-        <span class="on-air hidden-xs">{% trans 'ON AIR' %}<span></span></span>
-      {% endif %}
-      <div class="pull-left">
-        <table id='container-clock' class="hidden-xs hidden-sm hidden-md">
-          <tr>
-            <td>
-              <svg id='clock' viewBox='0 0 100 100' width='80' height='80'>
-                <circle id='surface' cx='50' cy='50' r='45'/>
-                <g id='pointers'>
-                  <line id='h_pointer' x1='50' y1='50' x2='50' y2='27' />
-                  <line id='m_pointer' x1='50' y1='50' x2='50' y2='17' />
-                  <line id='s_pointer' x1='50' y1='50' x2='50' y2='13' />
-                </g>
-              </svg>
-            </td>
-          </tr>
-        </table>
-      </div>
     </div>
-    {% if user.is_authenticated and user.is_paid_member %}
-    <div class="volume-block  {% if last_show.is_live %}pull-right{% endif %}">
-      <a href="" id="volume">
-        <img src="{% static 'img/volume.png' %}">
-      </a>
-      <input type="text" class="slider" value="" data-slider-reversed="true" data-slider-min="0" data-slider-max="100" data-slider-step="1"
-             data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide" data-slider-orientation="vertical">
+    <div class="clear"></div>
+    <div class="copyrights">
+        <div class="container">
+            © 2015 collective beat
+        </div>
     </div>
 
-    {% endif %}
-  </div>
+    <div class="player-block hi-icon-effect">
+        <a href="/" class="footer-logo hidden-xs">
+            <img src="{% static 'img/footer-logo.png' %}">
+        </a>
+        {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
+            <a href="#" class="play-button back-button hi-icon">
+                <button onclick="event.preventDefault();" class="cbutton cbutton--effect">
+                    <img src="{% static 'img/remote15.jpg' %}" class="cbutton__icon">
+                    <span class="cbutton__text">Rewind</span>
+                </button>
+            </a>
+            <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
+                <button class="cbutton cbutton--effect">
+                    <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+                    <span class="cbutton__text">Play</span>
+                </button>
+            </a>
+            <a href="#" onclick="event.preventDefault();" id="pause" class="pause-button hi-icon"
+               style="display: none;">
+                <button class="cbutton cbutton--effect">
+                    <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
+                    <span class="cbutton__text">Pause</span>
+                </button>
+            </a>
+            <a href="#" onclick="event.preventDefault();" class="play-button forward-button hi-icon">
+                <button class="cbutton cbutton--effect">
+                    <img src="{% static 'img/forward15.jpg' %}" class="cbutton__icon">
+                    <span class="cbutton__text">Forward</span>
+                </button>
+            </a>
+        {% elif last_show.is_live %}
+            <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
+                <button class="cbutton cbutton--effect">
+                    <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+                    <span class="cbutton__text">Play</span>
+                </button>
+            </a>
+            <a href="#" onclick="event.preventDefault();" id="pause" class="pause-button hi-icon"
+               style="display: none;">
+                <button class="cbutton cbutton--effect">
+                    <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
+                    <span class="cbutton__text">Pause</span>
+                </button>
+            </a>
+        {% else %}
+            <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
+                <button class="cbutton cbutton--effect">
+                    <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+                    <span class="cbutton__text">Play</span>
+                </button>
+            </a>
+        {% endif %}
+        <div class="pull-left">
+
+            {% if last_show.is_live %}
+                <span class="on-air hidden-sm hidden-md hidden-lg">{% trans 'ON AIR' %}<span></span></span>
+            {% endif %}
+            {% if not last_show.is_live %}
+                <div class="show-name"></div>
+            {% else %}
+                <div class="show-name show-name-air"></div>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
+            <div class="progress-block">
+                <div class="time end">
+                </div>
+                <div class="time current">
+                </div>
+                <div class="progress-player">
+                    <input class="slider" data-slider-min="0" data-slider-max="100" data-slider-step="1"
+                           data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide">
+                </div>
+            </div>
+        {% endif %}
+        <div class="on-air-block">
+            {% if last_show.is_live %}
+                <span class="on-air hidden-xs">{% trans 'ON AIR' %}<span></span></span>
+            {% endif %}
+            <div class="pull-left">
+                <table id='container-clock' class="hidden-xs hidden-sm hidden-md">
+                    <tr>
+                        <td>
+                            <svg id='clock' viewBox='0 0 100 100' width='80' height='80'>
+                                <circle id='surface' cx='50' cy='50' r='45'/>
+                                <g id='pointers'>
+                                    <line id='h_pointer' x1='50' y1='50' x2='50' y2='27'/>
+                                    <line id='m_pointer' x1='50' y1='50' x2='50' y2='17'/>
+                                    <line id='s_pointer' x1='50' y1='50' x2='50' y2='13'/>
+                                </g>
+                            </svg>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% if user.is_authenticated and user.is_paid_member %}
+            <div class="volume-block  {% if last_show.is_live %}pull-right{% endif %}">
+                <a href="" id="volume">
+                    <img src="{% static 'img/volume.png' %}">
+                </a>
+                <input type="text" class="slider" value="" data-slider-reversed="true" data-slider-min="0"
+                       data-slider-max="100" data-slider-step="1"
+                       data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide"
+                       data-slider-orientation="vertical">
+            </div>
+
+        {% endif %}
+    </div>
 </div>
 
 
