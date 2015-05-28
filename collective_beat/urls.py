@@ -12,9 +12,6 @@ admin.autodiscover()
 # urlpatterns = i18n_patterns('',
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='index'),
-    url(r"^accounts/signup/$", SubscriptionSignupView.as_view(), name="account_signup"),
-    (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
-    (r'^accounts/', include('allauth.urls')),
     (r'^account/', include('apps.accounts.urls', namespace='accounts')),
     (r'^shows/', include('apps.shows.urls', namespace='shows')),
     (r'^pages', include('django.contrib.flatpages.urls')),
@@ -23,6 +20,13 @@ urlpatterns = patterns('',
     (r'^ckeditor/', include('ckeditor.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')),
 )
+
+if not settings.FREE_SITE:
+    urlpatterns += patterns('',
+        url(r"^accounts/signup/$", SubscriptionSignupView.as_view(), name="account_signup"),
+        (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
+        (r'^accounts/', include('allauth.urls')),
+    )
 
 urlpatterns += i18n_patterns('',
     (r'^admin/', include(admin.site.urls)),

@@ -10,7 +10,7 @@
   <div class="episode-desc">
     {{ show.description|truncatechars:400|striptags|linebreaks }}
   </div>
-  {% if user.is_authenticated and user.is_paid_member %}
+  {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
     <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button hi-icon">
       <button class="cbutton cbutton--effect">
 {#        <span class="cbutton__icon glyphicon glyphicon-play-circle play-button" aria-hidden="true"></span>#}

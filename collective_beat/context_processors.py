@@ -17,6 +17,7 @@ def cb_context(request):
     try:
         context['HEAD_CLOSING'] = settings.HEAD_CLOSING
         context['BODY_CLOSING'] = settings.BODY_CLOSING
+        context['FREE_SITE'] = settings.FREE_SITE
     except AttributeError:
         pass
 

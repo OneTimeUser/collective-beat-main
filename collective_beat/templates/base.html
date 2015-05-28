@@ -93,8 +93,10 @@
   {% include 'parts/scripts.html' %}
   {% block page_scripts %}{% endblock %}
 
-  {% if not user.is_authenticated or not user.is_paid_member %}
-    {% include 'parts/premium_feature_modal.html' %}
+  {% if not FREE_SITE %}
+    {% if not user.is_authenticated or not user.is_paid_member %}
+      {% include 'parts/premium_feature_modal.html' %}
+    {% endif %}
   {% endif %}
 
   {{ BODY_CLOSING|safe }}

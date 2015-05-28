@@ -28,7 +28,8 @@
         <a href="/" class="footer-logo hidden-xs">
             <img src="{% static 'img/footer-logo.png' %}">
         </a>
-        {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
+        {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
+          {% if not last_show.is_live %}
             <a href="#" class="play-button back-button hi-icon">
                 <button onclick="event.preventDefault();" class="cbutton cbutton--effect">
                     <img src="{% static 'img/remote15.jpg' %}" class="cbutton__icon">
@@ -54,7 +55,7 @@
                     <span class="cbutton__text">Forward</span>
                 </button>
             </a>
-        {% elif last_show.is_live %}
+          {% else %}
             <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
                 <button class="cbutton cbutton--effect">
                     <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
@@ -68,6 +69,7 @@
                     <span class="cbutton__text">Pause</span>
                 </button>
             </a>
+          {% endif %}
         {% else %}
             <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
                 <button class="cbutton cbutton--effect">
@@ -76,8 +78,8 @@
                 </button>
             </a>
         {% endif %}
-        <div class="pull-left">
 
+        <div class="pull-left">
             {% if last_show.is_live %}
                 <span class="on-air hidden-sm hidden-md hidden-lg">{% trans 'ON AIR' %}<span></span></span>
             {% endif %}
@@ -87,7 +89,9 @@
                 <div class="show-name show-name-air"></div>
             {% endif %}
         </div>
-        {% if user.is_authenticated and user.is_paid_member and not last_show.is_live %}
+
+        {% if not last_show.is_live %}
+          {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
             <div class="progress-block">
                 <div class="time end">
                 </div>
@@ -98,7 +102,9 @@
                            data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide">
                 </div>
             </div>
+          {% endif %}
         {% endif %}
+
         <div class="on-air-block">
             {% if last_show.is_live %}
                 <span class="on-air hidden-xs">{% trans 'ON AIR' %}<span></span></span>
@@ -120,7 +126,8 @@
                 </table>
             </div>
         </div>
-        {% if user.is_authenticated and user.is_paid_member %}
+
+        {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
             <div class="volume-block  {% if last_show.is_live %}pull-right{% endif %}">
                 <a href="" id="volume">
                     <img src="{% static 'img/volume.png' %}">
@@ -130,7 +137,6 @@
                        data-slider-value="80" data-slider-selection="after" data-slider-tooltip="hide"
                        data-slider-orientation="vertical">
             </div>
-
         {% endif %}
     </div>
 </div>

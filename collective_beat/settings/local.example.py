@@ -47,3 +47,5 @@ HEAD_CLOSING = """
 """
 BODY_CLOSING = """
 """
+
+FREE_SITE = False

@@ -6,7 +6,7 @@
       <a href="{% url 'accounts:info' %}">
         <span>¡{% trans 'Upgrade' %}!</span>
       </a>
-    {% else %}
+    {% elif not FREE_SITE %}
       <a href="{% url 'account_signup' %}">
         <span>¡{% trans 'Subscribe' %}!</span>
       </a>
@@ -23,7 +23,7 @@
 
 {% if user.is_authenticated %}
   {% nav_link user 'accounts:info' css_class='session' %}
-{% else %}
+{% elif not FREE_SITE %}
   {% nav_link _("Sign In") 'account_login' css_class='session' %}
 {% endif %}
 
