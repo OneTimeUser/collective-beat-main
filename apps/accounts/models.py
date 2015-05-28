@@ -1,6 +1,7 @@
 import braintree
 from braintree.successful_result import SuccessfulResult
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.db import models
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext as _
@@ -8,6 +9,10 @@ from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
 from allauth.account.models import EmailAddress
 from apps.accounts.utils import get_customer
+
+
+# adding
+Site.add_to_class('free_version', models.BooleanField(default=False))
 
 
 class SubscriptionPlans(object):

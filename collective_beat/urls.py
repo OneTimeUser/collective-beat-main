@@ -1,6 +1,7 @@
 from __future__ import print_function
 from django.conf.urls import *
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib.sites.models import Site
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
@@ -21,12 +22,13 @@ urlpatterns = patterns('',
     (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
-if not settings.FREE_SITE:
-    urlpatterns += patterns('',
-        url(r"^accounts/signup/$", SubscriptionSignupView.as_view(), name="account_signup"),
-        (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
-        (r'^accounts/', include('allauth.urls')),
-    )
+# fixme - need to get site settings dynamically (lazily querying the database)
+# if not Site.objects.get_current().free_version:
+urlpatterns += patterns('',
+    url(r"^accounts/signup/$", SubscriptionSignupView.as_view(), name="account_signup"),
+    (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
+    (r'^accounts/', include('allauth.urls')),
+)
 
 urlpatterns += i18n_patterns('',
     (r'^admin/', include(admin.site.urls)),

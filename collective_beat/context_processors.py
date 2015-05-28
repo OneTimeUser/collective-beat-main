@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.sites.models import Site
 from apps.accounts.models import SubscriptionPlans
 from apps.shows.models import Show
 
@@ -17,7 +18,7 @@ def cb_context(request):
     try:
         context['HEAD_CLOSING'] = settings.HEAD_CLOSING
         context['BODY_CLOSING'] = settings.BODY_CLOSING
-        context['FREE_SITE'] = settings.FREE_SITE
+        context['FREE_SITE'] = Site.objects.get_current().free_version
     except AttributeError:
         pass
 
