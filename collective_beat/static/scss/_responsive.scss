@@ -34,6 +34,7 @@
 }
 
 @media screen and (max-width: $screen-sm-min) {
+
   .call-to-subscribe {
     margin: 0 0 20px;
   }
@@ -58,6 +59,7 @@
   }
 }
 
+
 @media screen and (max-width: $grid-float-breakpoint) {
   .navbar-brand.logo {
     height: auto;
@@ -74,7 +76,13 @@
   }
 }
 
+
+
 @media screen and (min-width: $screen-sm-min) {
+
+  .download-button {
+    left: 100px;
+  }
 
   .account-info .price-plan,
   .account-info span.text {
@@ -158,6 +166,14 @@
           right: 0 !important;
           margin: 0 0 0 -37px;
         }
+
+        .download-button {
+          top: 70%;
+          bottom: 0%;
+          right: 0 !important;
+          margin: 0 0 0 -20px;
+          left: initial;
+        }
       }
     }
     .info-block {
@@ -226,6 +242,17 @@
         height: 75px !important;
         width: 75px !important;
         right: unquote('calc(100% - 90px)') !important;
+      }
+
+      .download-button {
+        height: 75px;
+        width: 75px;
+        left: 120px;
+
+        img {
+           height: 75px;
+           width: 75px;
+        }
       }
     }
   }
