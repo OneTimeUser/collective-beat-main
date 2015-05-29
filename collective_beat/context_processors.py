@@ -18,8 +18,9 @@ def cb_context(request):
     try:
         context['HEAD_CLOSING'] = settings.HEAD_CLOSING
         context['BODY_CLOSING'] = settings.BODY_CLOSING
-        context['FREE_SITE'] = Site.objects.get_current().free_version
     except AttributeError:
         pass
+
+    context['FREE_SITE'] = Site.objects.get_current().free_version
 
     return context
