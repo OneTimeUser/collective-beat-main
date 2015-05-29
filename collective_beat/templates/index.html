@@ -35,7 +35,7 @@
 
   {% if subscription_banner %}
     <div class="call-to-subscribe">
-      <a href="{% if not user.is_authenticated %}{% url 'account_signup' %}{% else %}{% url 'accounts:info' %}{% endif %}">
+      <a href="{% if FREE_SITE %}#mc_embed_signup{% elif not user.is_authenticated %}{% url 'account_signup' %}{% else %}{% url 'accounts:info' %}{% endif %}">
         {% thumbnail subscription_banner.image "1110x115" crop="center" as im %}
           <img src="{{ im.url }}">
         {% endthumbnail %}

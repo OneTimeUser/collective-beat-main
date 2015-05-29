@@ -1,6 +1,37 @@
 {% load staticfiles flatpages i18n %}
 {% get_flatpages as flatpages %}
+<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup {
+        background: #000;
+        width: 100%;
+        font: 14px Helvetica, Arial, sans-serif;
+        height: 125px;
+    }
+</style>
+<div id="mc_embed_signup" class="container">
+    <div class=" dl-horizontal col-sm-12 col-sm-offset-3">
+        <h4 style="color: #fff; padding-left: 15%;">{% trans 'Subscribe for newsletter' %}</h4>
 
+        <form action="//collective-beat.us9.list-manage.com/subscribe/post?u=bd2fb78eae163ad77aaf94913&amp;id=b6536c25d7"
+              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+              target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+
+                <input style="float: left; width: 40%;" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL"
+                       placeholder="email address" required>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="float: left;"><input type="submit" value="Subscribe" name="subscribe"
+                                                 id="mc-embedded-subscribe" class="button"></div>
+                <div style="position: absolute; left: -5000px;"><input type="text"
+                                                                       name="b_bd2fb78eae163ad77aaf94913_b6536c25d7"
+                                                                       tabindex="-1" value=""></div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--End mc_embed_signup-->
 <div class="footer clearfix">
     <div class="container footer-menu clearfix">
         {% for page in flatpages %}
@@ -29,47 +60,47 @@
             <img src="{% static 'img/footer-logo.png' %}">
         </a>
         {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
-          {% if not last_show.is_live %}
-            <a href="#" class="play-button back-button hi-icon">
-                <button onclick="event.preventDefault();" class="cbutton cbutton--effect">
-                    <img src="{% static 'img/remote15.jpg' %}" class="cbutton__icon">
-                    <span class="cbutton__text">Rewind</span>
-                </button>
-            </a>
-            <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
-                <button class="cbutton cbutton--effect">
-                    <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
-                    <span class="cbutton__text">Play</span>
-                </button>
-            </a>
-            <a href="#" onclick="event.preventDefault();" id="pause" class="pause-button hi-icon"
-               style="display: none;">
-                <button class="cbutton cbutton--effect">
-                    <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
-                    <span class="cbutton__text">Pause</span>
-                </button>
-            </a>
-            <a href="#" onclick="event.preventDefault();" class="play-button forward-button hi-icon">
-                <button class="cbutton cbutton--effect">
-                    <img src="{% static 'img/forward15.jpg' %}" class="cbutton__icon">
-                    <span class="cbutton__text">Forward</span>
-                </button>
-            </a>
-          {% else %}
-            <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
-                <button class="cbutton cbutton--effect">
-                    <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
-                    <span class="cbutton__text">Play</span>
-                </button>
-            </a>
-            <a href="#" onclick="event.preventDefault();" id="pause" class="pause-button hi-icon"
-               style="display: none;">
-                <button class="cbutton cbutton--effect">
-                    <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
-                    <span class="cbutton__text">Pause</span>
-                </button>
-            </a>
-          {% endif %}
+            {% if not last_show.is_live %}
+                <a href="#" class="play-button back-button hi-icon">
+                    <button onclick="event.preventDefault();" class="cbutton cbutton--effect">
+                        <img src="{% static 'img/remote15.jpg' %}" class="cbutton__icon">
+                        <span class="cbutton__text">Rewind</span>
+                    </button>
+                </a>
+                <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
+                    <button class="cbutton cbutton--effect">
+                        <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+                        <span class="cbutton__text">Play</span>
+                    </button>
+                </a>
+                <a href="#" onclick="event.preventDefault();" id="pause" class="pause-button hi-icon"
+                   style="display: none;">
+                    <button class="cbutton cbutton--effect">
+                        <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
+                        <span class="cbutton__text">Pause</span>
+                    </button>
+                </a>
+                <a href="#" onclick="event.preventDefault();" class="play-button forward-button hi-icon">
+                    <button class="cbutton cbutton--effect">
+                        <img src="{% static 'img/forward15.jpg' %}" class="cbutton__icon">
+                        <span class="cbutton__text">Forward</span>
+                    </button>
+                </a>
+            {% else %}
+                <a href="#" onclick="event.preventDefault();" id="play" class="play-button hi-icon">
+                    <button class="cbutton cbutton--effect">
+                        <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+                        <span class="cbutton__text">Play</span>
+                    </button>
+                </a>
+                <a href="#" onclick="event.preventDefault();" id="pause" class="pause-button hi-icon"
+                   style="display: none;">
+                    <button class="cbutton cbutton--effect">
+                        <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">
+                        <span class="cbutton__text">Pause</span>
+                    </button>
+                </a>
+            {% endif %}
         {% else %}
             <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
                 <button class="cbutton cbutton--effect">
@@ -91,18 +122,18 @@
         </div>
 
         {% if not last_show.is_live %}
-          {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
-            <div class="progress-block">
-                <div class="time end">
+            {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
+                <div class="progress-block">
+                    <div class="time end">
+                    </div>
+                    <div class="time current">
+                    </div>
+                    <div class="progress-player">
+                        <input class="slider" data-slider-min="0" data-slider-max="100" data-slider-step="1"
+                               data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide">
+                    </div>
                 </div>
-                <div class="time current">
-                </div>
-                <div class="progress-player">
-                    <input class="slider" data-slider-min="0" data-slider-max="100" data-slider-step="1"
-                           data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide">
-                </div>
-            </div>
-          {% endif %}
+            {% endif %}
         {% endif %}
 
         <div class="on-air-block">
