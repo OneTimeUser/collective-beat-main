@@ -1,40 +1,37 @@
 {% load staticfiles %}
 
 <div class="info-block hi-icon-effect">
-  <div class="date">
-    {{ show.date }}
-  </div>
-  <h3>
-    {{ show.title }}
-  </h3>
-  <div class="episode-desc">
-    {{ show.description|truncatechars:400|striptags|linebreaks }}
-  </div>
-  {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
-    <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button hi-icon">
-      <button class="cbutton cbutton--effect">
-{#        <span class="cbutton__icon glyphicon glyphicon-play-circle play-button" aria-hidden="true"></span>#}
-        <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
-        <span class="cbutton__text">Play</span>
-      </button>
-    </a>
-{#    <a href="#" onclick="event.preventDefault(); pause(this);" class="pause-button hi-icon" style="display: none;">#}
-{#      <button class="cbutton cbutton--effect">#}
-{#        <img src="{% static 'img/pause-button.png' %}" class="cbutton__icon">#}
-{#        <span class="cbutton__text">Pause</span>#}
-{#      </button>#}
-{#    </a>#}
-  {% else %}
-    <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
-      <button class="cbutton cbutton--effect">
-        <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
-        <span class="cbutton__text">Play</span>
-      </button>
-    </a>
-    <a href="#" class="play-button-subscribe hi-icon download-button" data-target="#premium-need">
-      <button class="cbutton cbutton--effect">
-        <img src="{% static 'img/download-icons.png' %}" class="cbutton__icon">
-      </button>
-    </a>
-  {% endif %}
+    <div class="date">
+        {{ show.date }}
+    </div>
+    <h3>
+        {{ show.title }}
+    </h3>
+
+    <div class="episode-desc">
+        {{ show.description|truncatechars:400|striptags|linebreaks }}
+    </div>
+    {% if user.is_authenticated and user.is_paid_member or FREE_SITE %}
+        <a href="#" onclick="event.preventDefault(); loadTrack(this);" class="play-button hi-icon">
+            <button class="cbutton cbutton--effect">
+                {#        <span class="cbutton__icon glyphicon glyphicon-play-circle play-button" aria-hidden="true"></span>#}
+                <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+                <span class="cbutton__text">Play</span>
+            </button>
+        </a>
+        {% if show.download_url %}
+            <a href="{{ show.download_url }}" target="_blank" class="play-button-subscribe hi-icon download-button">
+                <button class="cbutton cbutton--effect">
+                    <img src="{% static 'img/download-icons.png' %}" class="cbutton__icon">
+                </button>
+            </a>
+        {% endif %}
+    {% else %}
+        <a href="#" class="play-button-subscribe hi-icon" data-toggle="modal" data-target="#premium-need">
+            <button class="cbutton cbutton--effect">
+                <img src="{% static 'img/play-button.png' %}" class="cbutton__icon">
+                <span class="cbutton__text">Play</span>
+            </button>
+        </a>
+    {% endif %}
 </div>
